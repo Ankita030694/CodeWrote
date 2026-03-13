@@ -1,5 +1,26 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Switzer';
+  src: url('/assets/New folder/switzer/Switzer-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Switzer';
+  src: url('/assets/New folder/switzer/Switzer-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Switzer';
+  src: url('/assets/New folder/switzer/Switzer-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

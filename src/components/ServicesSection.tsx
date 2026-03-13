@@ -1,0 +1,119 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+import React from "react";
+
+const tools = [
+  { src: "/next.svg", name: "Next.js" },
+  { src: "/assets/Tools SVG/Group 28.svg", name: "React" },
+  { src: "/assets/Tools SVG/Vector.svg", name: "Figma" },
+  { src: "/assets/Tools SVG/Group 25.svg", name: "Framer" },
+  { src: "/assets/Tools SVG/Group 26.svg", name: "Shopify" },
+  { src: "/assets/Tools SVG/Vector-4.svg", name: "Node.js" },
+  { src: "/assets/Tools SVG/Vector-1.svg", name: "Docker" },
+  { src: "/assets/Tools SVG/github-[#142].svg", name: "GitHub" },
+  { src: "/assets/Tools SVG/wordpress-[#139].svg", name: "WordPress" },
+  { src: "/assets/Tools SVG/Vector-2.svg", name: "Tailwind" },
+  { src: "/assets/Tools SVG/Vector-3.svg", name: "Flutter" },
+  { src: "/assets/Tools SVG/javascript-[#155].svg", name: "JavaScript" },
+  { src: "/assets/Tools SVG/Vector-6.svg", name: "AWS" },
+  { src: "/assets/Tools SVG/Vector-7.svg", name: "Cloud" },
+  { src: "/assets/Tools SVG/Group 27.svg", name: "Firebase" },
+  { src: "/assets/Tools SVG/Vector-8.svg", name: "MongoDB" },
+  { src: "/assets/Tools SVG/Group.svg", name: "PostgreSQL" },
+];
+
+const services = [
+  { icon: "/assets/serviceicons/Frame 427318388.svg", name: "UI/UX Design" },
+  { icon: "/assets/serviceicons/Frame 427318388-1.svg", name: "Framer Development" },
+  { icon: "/assets/serviceicons/Frame 427318388-2.svg", name: "Shopify Development" },
+  { icon: "/assets/serviceicons/Frame 427318388-3.svg", name: "Custom Websites" },
+  { icon: "/assets/serviceicons/Frame 427318388-4.svg", name: "App Development" },
+  { icon: "/assets/serviceicons/Frame 427318388-5.svg", name: "WordPress Development" },
+  { icon: "/assets/serviceicons/Frame 427318397.svg", name: "Custom Software" },
+];
+
+export default function ServicesSection() {
+  return (
+    <section className="w-full py-20 bg-white relative overflow-hidden flex justify-center">
+      <div className="max-w-[1100px] w-full mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-11 lg:gap-16">
+        
+        {/* Left Column */}
+        <div className="flex flex-col items-start gap-8">
+          {/* Badge */}
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#E61F93] to-[#FF4FB1] text-white font-bold text-[15px] shadow-[0_10px_30px_rgba(230,31,147,0.4)]"
+          >
+            Explore All Services
+          </motion.button>
+
+          {/* Title */}
+          <div className="flex flex-col">
+            <h2 className="text-[46px] leading-[1] font-semibold text-[#A1A1A1] font-['Switzer']">
+              Services that
+            </h2>
+            <h2 className="text-[46px] leading-[1] font-semibold text-[#0F0F0F] font-['Switzer']">
+              build <span className="font-bold">real products</span>
+            </h2>
+          </div>
+
+          {/* Tools Grid Area */}
+          <div className="w-full flex flex-col gap-5">
+            <h3 className="text-lg font-bold text-[#0F0F0F] font-['Switzer']">
+              Tools we ship with
+            </h3>
+            <div className="grid grid-cols-4 md:grid-cols-7 gap-3">
+              {tools.map((tool, idx) => (
+                <motion.div
+                  key={idx}
+                  whileHover={{ scale: 1.1, y: -5 }}
+                  className="w-11 h-11 rounded-10px bg-white border border-gray-100 shadow-sm flex items-center justify-center p-2 grayscale hover:grayscale-0 transition-all duration-300"
+                >
+                  <Image 
+                    src={tool.src.startsWith("/public") ? tool.src.replace("/public", "") : tool.src} 
+                    alt={tool.name} 
+                    width={28} 
+                    height={28} 
+                    className="object-contain"
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column */}
+        <div className="flex flex-col gap-1.5 lg:pl-10 justify-between">
+          {services.map((service, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              whileHover={{ x: 10 }}
+              className="flex items-center gap-4 p-2 rounded-2xl hover:bg-gray-50 transition-colors group cursor-pointer"
+            >
+              <div className="relative w-10 h-10 rounded-full bg-black flex items-center justify-center p-2.5 flex-shrink-0">
+                <Image 
+                  src={service.icon} 
+                  alt={service.name} 
+                  width={20} 
+                  height={20} 
+                  className="object-contain filter invert"
+                />
+              </div>
+              <span className="text-[19px] lg:text-[22px] font-medium text-[#0F0F0F] font-['Switzer'] group-hover:font-semibold transition-all leading-tight">
+                {service.name}
+              </span>
+            </motion.div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
