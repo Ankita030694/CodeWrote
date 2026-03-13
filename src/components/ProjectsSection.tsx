@@ -11,10 +11,10 @@ export default function ProjectsSection() {
 
         {/* Header */}
         <div className="text-center mb-11 flex flex-col items-center">
-          <h2 className="text-[35px] md:text-[41px] leading-tight font-semibold text-[#A1A1A1] font-['Switzer'] uppercase tracking-tight">
+          <h2 className="text-[42px] md:text-[49px] leading-tight font-semibold text-[#A1A1A1] font-['Switzer'] uppercase tracking-tight">
             PROJECTS THAT
           </h2>
-          <h2 className="text-[35px] md:text-[41px] leading-tight font-bold text-[#0F0F0F] font-['Switzer'] uppercase tracking-tight -mt-1.5">
+          <h2 className="text-[42px] md:text-[49px] leading-tight font-bold text-[#0F0F0F] font-['Switzer'] uppercase tracking-tight -mt-1.5">
             SHIP
           </h2>
         </div>
@@ -23,11 +23,11 @@ export default function ProjectsSection() {
         <div className="max-w-[1240px] mx-auto">
 
           {/* Inline Tags & Title (Full Width) */}
-          <h3 className="text-[24px] md:text-[28px] leading-[1.3] font-medium text-[#0F0F0F] font-['Switzer'] mb-8 tracking-tight">
-            <span className="inline-flex items-center px-3.5 py-1.5 rounded-[24px] border border-gray-200 text-[#333] font-medium text-[11px] font-['Switzer'] mr-2 align-middle mt-[-4px]">
+          <h3 className="text-[29px] md:text-[34px] leading-[1.3] font-medium text-[#0F0F0F] font-['Switzer'] mb-8 tracking-tight">
+            <span className="inline-flex items-center px-3.5 py-1.5 rounded-[24px] border border-gray-200 text-[#333] font-medium text-[13px] font-['Switzer'] mr-2 align-middle mt-[-4px]">
               Web Design
             </span>
-            <span className="inline-flex items-center px-3.5 py-1.5 rounded-[24px] border border-gray-200 text-[#333] font-medium text-[11px] font-['Switzer'] mr-3 align-middle mt-[-4px]">
+            <span className="inline-flex items-center px-3.5 py-1.5 rounded-[24px] border border-gray-200 text-[#333] font-medium text-[13px] font-['Switzer'] mr-3 align-middle mt-[-4px]">
               Website Development
             </span>
             We redesigned Ama Legal Solutions entire digital experience from structure to launch.
@@ -39,7 +39,7 @@ export default function ProjectsSection() {
             <div className="flex flex-col justify-end w-full">
 
               {/* Description */}
-              <p className="text-[12px] leading-[1.6] text-[#7A7A7A] font-medium font-['Switzer'] mb-7 max-w-[380px]">
+              <p className="text-[14px] leading-[1.6] text-[#7A7A7A] font-medium font-['Switzer'] mb-7 max-w-[380px]">
                 Most legal websites look outdated, confusing, and impossible to trust. So we rebuilt <span className="font-semibold text-[#0F0F0F]">Ama Legal Solutions website</span> from the ground up focusing on clarity, credibility, and a modern digital experience that actually converts visitors into clients.
               </p>
 
@@ -48,7 +48,7 @@ export default function ProjectsSection() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 py-2 rounded-full border border-dashed border-[#E61F93] text-[#0F0F0F] font-semibold text-[11px] font-['Switzer'] hover:bg-[#E61F93]/5 transition-colors"
+                  className="px-6 py-2 rounded-full border border-dashed border-[#E61F93] text-[#0F0F0F] font-semibold text-[13px] font-['Switzer'] hover:bg-[#E61F93]/5 transition-colors"
                 >
                   View CaseStudy
                 </motion.button>
@@ -58,31 +58,31 @@ export default function ProjectsSection() {
               <div className="flex flex-col sm:flex-row gap-[16px] mt-3 items-end w-full">
 
                 {/* Results Card */}
-                <div className="bg-white rounded-[16px] p-4 shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-gray-50 flex-1 w-full min-w-[160px] h-[140px] flex flex-col">
-                  <h4 className="text-[14px] font-bold text-[#0F0F0F] font-['Switzer'] mb-3 mt-1">
+                <div className="bg-white rounded-[16px] p-4 shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-gray-50 flex-1 w-full min-w-[160px] min-h-[170px] flex flex-col">
+                  <h4 className="text-[17px] font-bold text-[#0F0F0F] font-['Switzer'] mb-3 mt-1">
                     Results.
                   </h4>
 
                   <div className="space-y-3 mt-auto">
                     <div>
-                      <p className="text-[#A1A1A1] font-medium text-[9px] mb-1 font-['Switzer']">Client inquiries.</p>
+                      <p className="text-[#A1A1A1] font-medium text-[11px] mb-1 font-['Switzer']">Client inquiries.</p>
                       <div className="flex items-center gap-1.5">
-                        <span className="text-[#0F0F0F] font-bold font-['Switzer'] text-[14px]">48%</span>
+                        <span className="text-[#0F0F0F] font-bold font-['Switzer'] text-[17px]">48%</span>
                         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M5 12h14M12 5l7 7-7 7" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                        <span className="text-[#0F0F0F] font-bold font-['Switzer'] text-[14px]">85%</span>
+                        <span className="text-[#0F0F0F] font-bold font-['Switzer'] text-[17px]">85%</span>
                       </div>
                     </div>
 
                     <div>
-                      <p className="text-[#A1A1A1] font-medium text-[9px] mb-1 font-['Switzer']">Page load speed.</p>
+                      <p className="text-[#A1A1A1] font-medium text-[11px] mb-1 font-['Switzer']">Page load speed.</p>
                       <div className="flex items-center gap-1.5">
-                        <span className="text-[#0F0F0F] font-bold font-['Switzer'] text-[14px]">2.3s</span>
+                        <span className="text-[#0F0F0F] font-bold font-['Switzer'] text-[17px]">2.3s</span>
                         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M5 12h14M12 5l7 7-7 7" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                        <span className="text-[#0F0F0F] font-bold font-['Switzer'] text-[14px]">0.9s</span>
+                        <span className="text-[#0F0F0F] font-bold font-['Switzer'] text-[17px]">0.9s</span>
                       </div>
                     </div>
                   </div>
@@ -100,8 +100,8 @@ export default function ProjectsSection() {
                       />
                     </div>
                     <div>
-                      <h5 className="text-[14px] font-bold text-[#0F0F0F] font-['Switzer'] leading-tight">Anuj Anand Malik</h5>
-                      <p className="text-[10px] text-[#A1A1A1] font-medium font-['Switzer'] mt-0.5">Founder</p>
+                      <h5 className="text-[17px] font-bold text-[#0F0F0F] font-['Switzer'] leading-tight">Anuj Anand Malik</h5>
+                      <p className="text-[12px] text-[#A1A1A1] font-medium font-['Switzer'] mt-0.5">Founder</p>
                     </div>
                   </div>
 
@@ -128,33 +128,33 @@ export default function ProjectsSection() {
           </div>
 
           {/* New Project Image Cards Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-[16px] mt-[16px]">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-[16px] mt-[16px]">
 
             {/* Left Column - Two Apps Staked */}
             <div className="flex flex-col gap-[16px]">
               {/* Application 1 */}
-              <div className="w-full relative rounded-[24px] overflow-hidden h-[266px] bg-gray-100 flex items-center justify-center p-4">
+              <div className="w-full relative rounded-[24px] overflow-hidden h-[300px] bg-gray-100 flex items-center justify-center py-4 px-6">
                 <Image
                   src="/assets/project/be9706899244af1b1308806bc79ba38c35e79ca1.jpg"
                   alt="Project View 1"
                   fill
-                  className="object-cover"
+                  className="object-contain py-4 px-6"
                 />
               </div>
 
               {/* Application 2 */}
-              <div className="w-full relative rounded-[24px] overflow-hidden h-[266px] bg-gray-100 flex items-center justify-center p-4 bg-[#DFF4E5]">
+              <div className="w-full relative rounded-[24px] overflow-hidden h-[300px] bg-[#DFF4E5] flex items-center justify-center py-4 px-6">
                 <Image
                   src="/assets/project/c5a15d1bdfc4bd723e151869e29258f86b79b9a7.jpg"
                   alt="Project View 2"
                   fill
-                  className="object-cover"
+                  className="object-contain py-4 px-6"
                 />
               </div>
             </div>
 
             {/* Right Column - Large Desktop View */}
-            <div className="w-full relative rounded-[24px] overflow-hidden h-full min-h-[350px] bg-[#D7D8E6] flex items-center justify-center p-8">
+            <div className="w-full relative rounded-[24px] overflow-hidden h-[616px] bg-[#D7D8E6] flex items-center justify-center p-8">
               <Image
                 src="/assets/project/a66a1d1dcc1827bd19660a58c80322f8c54b2f48.jpg"
                 alt="Project View Large"
@@ -169,7 +169,7 @@ export default function ProjectsSection() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#E61F93] to-[#FF4FB1] text-white font-bold text-[11px] font-['Switzer'] shadow-[0_10px_30px_rgba(230,31,147,0.4)] tracking-wide"
+              className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#E61F93] to-[#FF4FB1] text-white font-bold text-[13px] font-['Switzer'] shadow-[0_10px_30px_rgba(230,31,147,0.4)] tracking-wide"
             >
               SEE MORE PROJECTS
             </motion.button>

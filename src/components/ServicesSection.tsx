@@ -25,20 +25,20 @@ const tools = [
 ];
 
 const services = [
-  { icon: "/assets/serviceicons/Frame 427318388.svg", name: "UI/UX Design" },
-  { icon: "/assets/serviceicons/Frame 427318388-1.svg", name: "Framer Development" },
+  { icon: "/assets/serviceicons/Frame 427318388-5.svg", name: "UI/UX Design" },
+  { icon: "/assets/serviceicons/Frame 427318388-4.svg", name: "Framer Development" },
   { icon: "/assets/serviceicons/Frame 427318388-3.svg", name: "Shopify Development" },
-  { icon: "/assets/serviceicons/Frame 427318388-3.svg", name: "Custom Websites" },
-  { icon: "/assets/serviceicons/Frame 427318388-4.svg", name: "App Development" },
-  { icon: "/assets/serviceicons/Frame 427318388-5.svg", name: "WordPress Development" },
-  { icon: "/assets/serviceicons/Frame 427318397.svg", name: "Custom Software" },
+  { icon: "/assets/serviceicons/Frame 427318388 copy.svg", name: "Custom Websites" },
+  { icon: "/assets/serviceicons/Frame 427318388-1.svg", name: "App Development" },
+  { icon: "/assets/serviceicons/Frame 427318388.svg", name: "WordPress Development" },
+  { icon: "/assets/serviceicons/Frame 427318388 copy 2.svg", name: "Custom Software" },
 ];
 
 export default function ServicesSection() {
   return (
     <section className="w-full py-20 bg-white relative overflow-hidden flex justify-center">
       <div className="max-w-[1200px] mx-auto lg:px-[140px] px-6 grid grid-cols-1 lg:grid-cols-2 gap-11 lg:gap-16">
-        
+
         {/* Left Column */}
         <div className="flex flex-col items-start gap-12 lg:gap-16">
           {/* Badge */}
@@ -70,13 +70,13 @@ export default function ServicesSection() {
                 <motion.div
                   key={idx}
                   whileHover={{ scale: 1.1, y: -5 }}
-                  className="w-11 h-11 rounded-xl bg-white border border-gray-100 shadow-sm flex items-center justify-center p-2 grayscale hover:grayscale-0 transition-all duration-300"
+                  className="w-13 h-13 rounded-xl bg-white border border-gray-100 shadow-sm flex items-center justify-center p-2 grayscale hover:grayscale-0 transition-all duration-300"
                 >
-                  <Image 
-                    src={tool.src.startsWith("/public") ? tool.src.replace("/public", "") : tool.src} 
-                    alt={tool.name} 
-                    width={28} 
-                    height={28} 
+                  <Image
+                    src={tool.src.startsWith("/public") ? tool.src.replace("/public", "") : tool.src}
+                    alt={tool.name}
+                    width={28}
+                    height={28}
                     className="object-contain"
                   />
                 </motion.div>
@@ -86,7 +86,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Right Column */}
-        <div className="flex flex-col gap-2.5 lg:pl-10 justify-start">
+        <div className="flex flex-col gap-0.5 lg:pl-10 justify-start">
           {services.map((service, idx) => (
             <motion.div
               key={idx}
@@ -97,13 +97,12 @@ export default function ServicesSection() {
               whileHover={{ x: 10 }}
               className="flex items-center gap-4 p-1.5 rounded-2xl hover:bg-gray-50 transition-colors group cursor-pointer"
             >
-              <div className="relative w-16 h-16 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center p-1.5 flex-shrink-0">
-                <Image 
-                  src={service.icon} 
-                  alt={service.name} 
-                  width={40} 
-                  height={40} 
-                  className="object-contain"
+              <div className="relative w-16 h-16 rounded-full bg-gray-50 border border-gray-100 overflow-hidden flex-shrink-0">
+                <Image
+                  src={service.icon}
+                  alt={service.name}
+                  fill
+                  className="object-cover"
                 />
               </div>
               <span className="text-[19px] lg:text-[21px] font-medium text-[#0F0F0F] font-['Switzer'] group-hover:font-semibold transition-all leading-tight">

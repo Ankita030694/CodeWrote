@@ -30,7 +30,7 @@ export default function Footer() {
       </div>
 
       {/* Main Footer Content */}
-      <div className="relative z-10 max-w-[1440px] mx-auto px-8 pt-48 pb-16">
+      <div className="relative z-10 lg:px-[140px] px-8 pt-48 pb-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 items-start">
 
           {/* Logo */}
@@ -82,8 +82,8 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="relative z-10 bg-[#0F0F0F] w-full py-6 px-8">
-        <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="relative z-10 bg-[#0F0F0F] w-full py-9 px-8">
+        <div className="lg:px-[140px] px-0 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
 
           {/* Left - Legal links */}
           <div className="flex items-center gap-6">

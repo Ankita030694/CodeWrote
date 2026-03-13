@@ -100,7 +100,7 @@ export default function WhyChooseSection() {
                 />
               </div>
               <div className="flex items-center justify-center">
-                <span className="text-[16px] md:text-[19px] font-bold text-[#0F0F0F] font-['Switzer']">Other Agencies</span>
+                <span className="text-[18px] md:text-[21px] font-bold text-[#0F0F0F] font-['Switzer']">Other Agencies</span>
               </div>
             </div>
           </div>
@@ -115,20 +115,20 @@ export default function WhyChooseSection() {
               {comparisonData.map((row, idx) => (
                 <React.Fragment key={idx}>
                   {/* Feature Column (Grey Background) */}
-                  <div className={`bg-[#F4F4F4] px-6 py-4 flex items-center ${idx === 0 ? "rounded-t-[24px] mt-6" : ""} ${idx === comparisonData.length - 1 ? "rounded-b-[24px]" : ""}`}>
+                  <div className={`bg-[#F4F4F4] px-6 py-4 flex items-center ${idx === 0 ? "rounded-t-[24px] mt-6" : ""} ${idx === comparisonData.length - 1 ? "rounded-b-[24px]" : "border-b border-gray-200"}`}>
                     <span className="text-[14px] font-semibold text-[#333] font-['Switzer']">{row.feature}</span>
                   </div>
 
                   {/* CodeWrote Column */}
                   <div className={`px-3 md:px-8 py-4 flex items-center gap-3 ${idx === 0 ? "mt-6" : ""} ${idx !== comparisonData.length - 1 ? "border-b border-gray-200" : ""}`}>
                     <CheckIcon />
-                    <span className="text-[13px] font-medium text-[#111] font-['Switzer'] leading-snug">{row.codeWrote}</span>
+                    <span className="text-[14px] font-medium text-[#111] font-['Switzer'] leading-snug">{row.codeWrote}</span>
                   </div>
 
                   {/* Other Agencies Column */}
                   <div className={`px-3 md:px-8 py-4 flex items-center gap-3 ${idx === 0 ? "mt-6" : ""} ${idx !== comparisonData.length - 1 ? "border-b border-gray-200" : ""}`}>
                     <CrossIcon />
-                    <span className="text-[13px] font-medium text-[#111] font-['Switzer'] leading-snug">{row.otherAgencies}</span>
+                    <span className="text-[14px] font-medium text-[#111] font-['Switzer'] leading-snug">{row.otherAgencies}</span>
                   </div>
                 </React.Fragment>
               ))}
