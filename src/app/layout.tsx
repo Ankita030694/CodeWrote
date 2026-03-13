@@ -25,8 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
       >
+        {/* Vertical Framing Lines */}
+        <div className="fixed left-[100px] top-0 bottom-0 w-[2px] bg-[#D1D1D1] z-50 pointer-events-none hidden lg:block" />
+        <div className="fixed right-[100px] top-0 bottom-0 w-[2px] bg-[#D1D1D1] z-50 pointer-events-none hidden lg:block" />
         {children}
       </body>
     </html>

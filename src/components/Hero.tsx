@@ -5,11 +5,11 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative flex flex-col items-center justify-center pt-24 md:pt-40 pb-12 px-4 min-h-[640px] overflow-hidden">
+    <section className="relative flex flex-col items-center justify-center pt-24 md:pt-40 pb-64 md:pb-80 px-4 min-h-[900px] overflow-hidden">
       {/* Background gradients to match the reference */}
       <div className="absolute top-1/4 left-[-10%] w-[500px] h-[500px] bg-pink-500/10 blur-[120px] rounded-full pointer-events-none -z-10" />
       <div className="absolute bottom-0 right-[-10%] w-[600px] h-[600px] bg-pink-500/20 blur-[100px] rounded-full pointer-events-none -z-10 animate-pulse-slow" />
-      
+
       {/* Badge/Label */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -78,23 +78,21 @@ export default function Hero() {
         </motion.button>
       </motion.div>
 
-      {/* Hero Illustration */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none -z-10">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8, x: 50, y: 50 }}
-          animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
-          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          className="absolute bottom-0 right-[-10%] w-[280px] h-[280px] md:w-[480px] md:h-[480px] lg:w-[680px] lg:h-[680px]"
-        >
-          <Image
-            src="/assets/space_ship.png"
-            alt="Space Ship Illustration"
-            fill
-            className="object-contain object-right-bottom"
-            priority
-          />
-        </motion.div>
-      </div>
+      {/* Hero Background Spaceship */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+        className="absolute inset-x-0 bottom-[-50px] w-full h-[450px] md:h-[650px] pointer-events-none z-0"
+      >
+        <Image
+          src="/assets/space_ship.png"
+          alt="Space Ship Illustration"
+          fill
+          className="object-contain object-right-bottom opacity-90"
+          priority
+        />
+      </motion.div>
     </section>
   );
 }

@@ -12,11 +12,11 @@ const tools = [
   { src: "/assets/Tools SVG/Group 26.svg", name: "Shopify" },
   { src: "/assets/Tools SVG/Vector-4.svg", name: "Node.js" },
   { src: "/assets/Tools SVG/Vector-1.svg", name: "Docker" },
-  { src: "/assets/Tools SVG/github-[#142].svg", name: "GitHub" },
-  { src: "/assets/Tools SVG/wordpress-[#139].svg", name: "WordPress" },
+  { src: "/assets/Tools SVG/github.svg", name: "GitHub" },
+  { src: "/assets/Tools SVG/wordpress.svg", name: "WordPress" },
   { src: "/assets/Tools SVG/Vector-2.svg", name: "Tailwind" },
   { src: "/assets/Tools SVG/Vector-3.svg", name: "Flutter" },
-  { src: "/assets/Tools SVG/javascript-[#155].svg", name: "JavaScript" },
+  { src: "/assets/Tools SVG/javascript.svg", name: "JavaScript" },
   { src: "/assets/Tools SVG/Vector-6.svg", name: "AWS" },
   { src: "/assets/Tools SVG/Vector-7.svg", name: "Cloud" },
   { src: "/assets/Tools SVG/Group 27.svg", name: "Firebase" },
@@ -27,7 +27,7 @@ const tools = [
 const services = [
   { icon: "/assets/serviceicons/Frame 427318388.svg", name: "UI/UX Design" },
   { icon: "/assets/serviceicons/Frame 427318388-1.svg", name: "Framer Development" },
-  { icon: "/assets/serviceicons/Frame 427318388-2.svg", name: "Shopify Development" },
+  { icon: "/assets/serviceicons/Frame 427318388-3.svg", name: "Shopify Development" },
   { icon: "/assets/serviceicons/Frame 427318388-3.svg", name: "Custom Websites" },
   { icon: "/assets/serviceicons/Frame 427318388-4.svg", name: "App Development" },
   { icon: "/assets/serviceicons/Frame 427318388-5.svg", name: "WordPress Development" },
@@ -37,10 +37,10 @@ const services = [
 export default function ServicesSection() {
   return (
     <section className="w-full py-20 bg-white relative overflow-hidden flex justify-center">
-      <div className="max-w-[1100px] w-full mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-11 lg:gap-16">
+      <div className="max-w-[1200px] mx-auto lg:px-[140px] px-6 grid grid-cols-1 lg:grid-cols-2 gap-11 lg:gap-16">
         
         {/* Left Column */}
-        <div className="flex flex-col items-start gap-8">
+        <div className="flex flex-col items-start gap-12 lg:gap-16">
           {/* Badge */}
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -70,7 +70,7 @@ export default function ServicesSection() {
                 <motion.div
                   key={idx}
                   whileHover={{ scale: 1.1, y: -5 }}
-                  className="w-11 h-11 rounded-10px bg-white border border-gray-100 shadow-sm flex items-center justify-center p-2 grayscale hover:grayscale-0 transition-all duration-300"
+                  className="w-11 h-11 rounded-xl bg-white border border-gray-100 shadow-sm flex items-center justify-center p-2 grayscale hover:grayscale-0 transition-all duration-300"
                 >
                   <Image 
                     src={tool.src.startsWith("/public") ? tool.src.replace("/public", "") : tool.src} 
@@ -86,7 +86,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Right Column */}
-        <div className="flex flex-col gap-1.5 lg:pl-10 justify-between">
+        <div className="flex flex-col gap-2.5 lg:pl-10 justify-start">
           {services.map((service, idx) => (
             <motion.div
               key={idx}
@@ -95,18 +95,18 @@ export default function ServicesSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               whileHover={{ x: 10 }}
-              className="flex items-center gap-4 p-2 rounded-2xl hover:bg-gray-50 transition-colors group cursor-pointer"
+              className="flex items-center gap-4 p-1.5 rounded-2xl hover:bg-gray-50 transition-colors group cursor-pointer"
             >
-              <div className="relative w-10 h-10 rounded-full bg-black flex items-center justify-center p-2.5 flex-shrink-0">
+              <div className="relative w-16 h-16 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center p-1.5 flex-shrink-0">
                 <Image 
                   src={service.icon} 
                   alt={service.name} 
-                  width={20} 
-                  height={20} 
-                  className="object-contain filter invert"
+                  width={40} 
+                  height={40} 
+                  className="object-contain"
                 />
               </div>
-              <span className="text-[19px] lg:text-[22px] font-medium text-[#0F0F0F] font-['Switzer'] group-hover:font-semibold transition-all leading-tight">
+              <span className="text-[19px] lg:text-[21px] font-medium text-[#0F0F0F] font-['Switzer'] group-hover:font-semibold transition-all leading-tight">
                 {service.name}
               </span>
             </motion.div>

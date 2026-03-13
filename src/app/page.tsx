@@ -6,6 +6,7 @@ import ServicesSection from "@/components/ServicesSection";
 import WhyChooseSection from "@/components/WhyChooseSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import CTASection from "@/components/CTASection";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -14,13 +15,20 @@ export default function Home() {
       
       <main className="flex-grow">
         <Hero />
+        <div className="h-[2px] bg-[#D1D1D1] w-full" />
         <BrandSlider />
+        <div className="h-[2px] bg-[#D1D1D1] w-full" />
         <StatsSection />
+        <div className="h-[2px] bg-[#D1D1D1] w-full" />
         <ServicesSection />
+        <div className="h-[2px] bg-[#D1D1D1] w-full" />
         <WhyChooseSection />
+        <div className="h-[2px] bg-[#D1D1D1] w-full" />
         <ProjectsSection />
+        <div className="h-[2px] bg-[#D1D1D1] w-full" />
         <CTASection />
       </main>
+      <Footer />
     </div>
   );
 }

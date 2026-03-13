@@ -40,7 +40,7 @@ const stats: StatCard[] = [
 export default function StatsSection() {
   return (
     <section className="w-full pt-11 pb-20 bg-white relative overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6">
+      <div className="lg:px-[140px] px-6">
         {/* Heading */}
         <div className="mb-0">
           <h2 className="flex flex-col gap-0">
