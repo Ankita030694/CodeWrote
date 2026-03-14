@@ -1,8 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 
 const comparisonData = [
   {
@@ -68,6 +67,21 @@ const CrossIcon = () => (
 );
 
 export default function WhyChooseSection() {
+  const headerScrollRef = useRef<HTMLDivElement>(null);
+  const tableScrollRef = useRef<HTMLDivElement>(null);
+
+  const handleHeaderScroll = () => {
+    if (tableScrollRef.current && headerScrollRef.current) {
+      tableScrollRef.current.scrollLeft = headerScrollRef.current.scrollLeft;
+    }
+  };
+
+  const handleTableScroll = () => {
+    if (headerScrollRef.current && tableScrollRef.current) {
+      headerScrollRef.current.scrollLeft = tableScrollRef.current.scrollLeft;
+    }
+  };
+
   return (
     <section className="w-full py-24 bg-[#FAFAFA] relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6">
@@ -87,10 +101,14 @@ export default function WhyChooseSection() {
 
         {/* Table Headers (Outside Container) */}
         <div className="max-w-[960px] mx-auto px-4 md:px-8 mb-5">
-          <div className="w-full">
-            <div className="grid grid-cols-[220px_1fr_1fr] md:grid-cols-[240px_1fr_1fr]">
-              <div className="h-full bg-transparent"></div> {/* Empty space above features */}
-              <div className="flex items-center justify-center">
+          <div
+            ref={headerScrollRef}
+            onScroll={handleHeaderScroll}
+            className="w-full overflow-x-auto scrollbar-hide"
+          >
+            <div className="min-w-[640px] md:min-w-0 grid grid-cols-[220px_1fr_1fr] md:grid-cols-[240px_1fr_1fr]">
+              <div className="bg-transparent" />
+              <div className="flex items-center justify-center py-2">
                 <Image
                   src="/assets/Property 1=Frame 427318371.svg"
                   alt="CodeWrote Logo"
@@ -99,7 +117,7 @@ export default function WhyChooseSection() {
                   className="object-contain"
                 />
               </div>
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center py-2">
                 <span className="text-[18px] md:text-[21px] font-bold text-[#0F0F0F] font-['Switzer']">Other Agencies</span>
               </div>
             </div>
@@ -107,26 +125,28 @@ export default function WhyChooseSection() {
         </div>
 
         {/* Comparison Table */}
-        <div className="max-w-[960px] mx-auto bg-white rounded-[32px] border border-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.03)] overflow-hidden p-3 md:p-6 pt-0">
-
-          <div className="w-full overflow-x-auto">
-            <div className="min-w-[640px] grid grid-cols-[220px_1fr_1fr] md:grid-cols-[240px_1fr_1fr] auto-rows-fr">
-              {/* Table Body Rows */}
+        <div className="max-w-[960px] mx-auto bg-white rounded-[40px] border border-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.03)] overflow-hidden p-3 md:p-3 pt-0">
+          <div
+            ref={tableScrollRef}
+            onScroll={handleTableScroll}
+            className="w-full overflow-x-auto"
+          >
+            <div className="min-w-[640px] md:min-w-0 grid grid-cols-[220px_1fr_1fr] md:grid-cols-[240px_1fr_1fr] auto-rows-fr">
               {comparisonData.map((row, idx) => (
                 <React.Fragment key={idx}>
                   {/* Feature Column (Grey Background) */}
-                  <div className={`bg-[#F4F4F4] pl-4 pr-6 py-3 flex items-center ${idx === 0 ? "rounded-t-[24px] mt-6" : ""} ${idx === comparisonData.length - 1 ? "rounded-b-[24px]" : "border-b border-gray-200"}`}>
+                  <div className={`bg-[#F4F4F4] pl-4 pr-6 py-3 flex items-center ${idx === 0 ? "rounded-t-[24px] mt-3.5 md:mt-0" : ""} ${idx === comparisonData.length - 1 ? "rounded-b-[24px]" : "border-b border-gray-200"}`}>
                     <span className="text-[14px] font-semibold text-[#333] font-['Switzer']">{row.feature}</span>
                   </div>
 
                   {/* CodeWrote Column */}
-                  <div className={`px-3 md:px-8 py-3 flex items-center gap-3 ${idx === 0 ? "mt-6" : ""} ${idx !== comparisonData.length - 1 ? "border-b border-gray-200" : ""}`}>
+                  <div className={`px-3 md:px-8 py-3 flex items-center gap-3 ${idx !== comparisonData.length - 1 ? "border-b border-gray-200" : ""}`}>
                     <CheckIcon />
                     <span className="text-[14px] font-medium text-[#111] font-['Switzer'] leading-snug">{row.codeWrote}</span>
                   </div>
 
                   {/* Other Agencies Column */}
-                  <div className={`px-3 md:px-8 py-3 flex items-center gap-3 ${idx === 0 ? "mt-6" : ""} ${idx !== comparisonData.length - 1 ? "border-b border-gray-200" : ""}`}>
+                  <div className={`px-3 md:px-8 py-3 flex items-center gap-3 ${idx !== comparisonData.length - 1 ? "border-b border-gray-200" : ""}`}>
                     <CrossIcon />
                     <span className="text-[14px] font-medium text-[#111] font-['Switzer'] leading-snug">{row.otherAgencies}</span>
                   </div>
@@ -134,7 +154,6 @@ export default function WhyChooseSection() {
               ))}
             </div>
           </div>
-
         </div>
 
       </div>

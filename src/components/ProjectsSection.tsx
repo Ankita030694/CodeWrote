@@ -90,7 +90,7 @@ export default function ProjectsSection() {
                 <div className="bg-white rounded-[16px] p-4 shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-gray-50 flex flex-col h-[210px] flex-1 w-full min-w-[170px]">
                   <div className="flex flex-col gap-2 mb-3">
                     <div className="w-14 h-14 rounded-[12px] overflow-hidden relative flex-shrink-0 bg-gray-100">
-                      <Image src="/assets/project/73320c0b49b2e2e9597d2981f03d244e11474300.png" alt="Anuj Anand Malik" fill className="object-cover" />
+                      <Image src="/assets/project/73320c0b49b2e2e9597d2981f03d244e11474300.png" alt="Anuj Anand Malik" fill className="object-contain" />
                     </div>
                     <div>
                       <h5 className="text-[17px] font-bold text-[#0F0F0F] font-['Switzer'] leading-tight">Anuj Anand Malik</h5>
@@ -119,7 +119,7 @@ export default function ProjectsSection() {
               <div className="bg-white rounded-[16px] p-4 shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-gray-50 flex flex-col min-h-[320px] flex-1 w-full min-w-[170px]">
                 <div className="flex flex-col gap-2 mb-3">
                   <div className="w-20 h-20 rounded-[12px] overflow-hidden relative flex-shrink-0 bg-gray-100">
-                    <Image src="/assets/project/73320c0b49b2e2e9597d2981f03d244e11474300.png" alt="Anuj Anand Malik" fill className="object-cover" />
+                    <Image src="/assets/project/73320c0b49b2e2e9597d2981f03d244e11474300.png" alt="Anuj Anand Malik" fill className="object-contain" />
                   </div>
                   <div>
                     <h5 className="text-[20px] font-bold text-[#0F0F0F] font-['Switzer'] leading-tight">Anuj Anand Malik</h5>
