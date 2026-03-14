@@ -8,6 +8,7 @@ interface StatCard {
   title: string;
   description: string;
   classes: string;
+  gradientPosition: string;
 }
 
 const stats: StatCard[] = [
@@ -15,25 +16,29 @@ const stats: StatCard[] = [
     value: "5+",
     title: "Years in the game",
     description: "Designing, building, and launching modern digital products for startups and businesses.",
-    classes: "order-2 lg:order-none mt-0 lg:mt-[120px]",
+    classes: "lg:mt-[120px] mt-0",
+    gradientPosition: "top-[85%]",
   },
   {
     value: "80+",
     title: "Projects launched",
     description: "Websites, web apps, Shopify stores, and CRM systems delivered and running.",
-    classes: "order-1 lg:order-none mt-[40px] lg:mt-[80px]",
+    classes: "lg:mt-[80px] mt-0",
+    gradientPosition: "top-[65%]",
   },
   {
     value: "40+",
     title: "Happy clients",
     description: "Founders, startups, and growing brands working with CodeWrote.",
-    classes: "order-4 lg:order-none -mt-[40px] lg:mt-[40px]",
+    classes: "lg:mt-[40px] mt-0",
+    gradientPosition: "top-[35%]",
   },
   {
     value: "10+",
     title: "Technologies mastered",
     description: "From Framer and Shopify to full-stack web apps and automation systems.",
-    classes: "order-3 lg:order-none mt-0 lg:mt-0",
+    classes: "lg:mt-0 mt-0",
+    gradientPosition: "top-[15%]",
   },
 ];
 
@@ -44,10 +49,10 @@ export default function StatsSection() {
         {/* Heading */}
         <div className="mb-0">
           <h2 className="flex flex-col gap-0">
-            <span className="text-[46px] leading-[46px] font-semibold text-[#A1A1A1] font-['Switzer']">
+            <span className="text-[76px] leading-[76px] font-semibold text-[#A1A1A1] font-['Switzer']">
               STATS THAT
             </span>
-            <span className="text-[46px] leading-[46px] font-semibold text-[#0F0F0F] font-['Switzer']">
+            <span className="text-[76px] leading-[46px] font-semibold text-[#0F0F0F] font-['Switzer']">
               HIT
             </span>
           </h2>
@@ -65,19 +70,19 @@ export default function StatsSection() {
               className={`relative group p-4 md:p-6 rounded-[24px] md:rounded-[28px] bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden flex flex-col items-center text-center min-h-[280px] md:min-h-[330px] ${stat.classes}`}
             >
               {/* Strong Slanted Pink Glow */}
-              <div className="absolute top-1/2 left-[-25%] w-[150%] h-[80px] -translate-y-1/2 -rotate-[11deg] bg-gradient-to-r from-transparent via-[#E61F93]/90 to-transparent blur-[40px] pointer-events-none" />
+              <div className={`absolute ${stat.gradientPosition} left-[-25%] w-[150%] h-[80px] -translate-y-1/2 -rotate-[15deg] bg-gradient-to-r from-transparent via-[#E61F93]/90 to-transparent blur-[40px] pointer-events-none`} />
               
               {/* Core intense slanted line */}
-              <div className="absolute top-1/2 left-[-25%] w-[150%] h-[20px] -translate-y-1/2 -rotate-[19deg] bg-[#E61F93]/25 blur-[25px] pointer-events-none" />
+              <div className={`absolute ${stat.gradientPosition} left-[-25%] w-[150%] h-[20px] -translate-y-1/2 -rotate-[15deg] bg-[#E61F93]/25 blur-[25px] pointer-events-none`} />
 
               <div className="relative z-10 mt-auto mb-auto">
-                <span className="text-[40px] md:text-[51px] leading-none font-black text-[#0F0F0F] font-['Switzer'] block mb-2 md:mb-4">
+                <span className="text-[40px] md:text-[70px] leading-none font-black text-[#0F0F0F] font-['Switzer'] block mb-2 md:mb-4">
                   {stat.value}
                 </span>
-                <h3 className="text-[18px] md:text-[22px] leading-[1.2] font-bold text-[#0F0F0F] font-['Switzer'] mb-2 md:mb-4 max-w-[140px] mx-auto">
+                <h3 className="text-[18px] md:text-[22px] leading-[1.2] font-bold text-[#0F0F0F] font-['Switzer'] mb-2 md:mb-4 max-w-[340px] mx-auto">
                   {stat.title}
                 </h3>
-                <p className="text-[14px] md:text-[16px] text-gray-700 font-medium leading-relaxed max-w-[190px] mx-auto">
+                <p className="text-[14px] md:text-[16px] text-gray-700 font-medium leading-relaxed max-w-[390px] mx-auto">
                   {stat.description}
                 </p>
               </div>

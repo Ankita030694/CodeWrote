@@ -32,10 +32,10 @@ export default function BrandSlider() {
       <div className="flex flex-col md:flex-row items-center gap-5 md:gap-8 lg:px-[140px] px-4">
         {/* Left Side Label */}
         <div className="flex-shrink-0 flex items-center gap-2 pr-4 md:pr-8 bg-white z-10">
-          <span className="text-[25px] leading-[25px] font-normal text-[#A1A1A1] font-['Switzer'] whitespace-nowrap">
+          <span className="text-[35px] leading-[35px] font-normal text-[#A1A1A1] font-['Switzer'] whitespace-nowrap">
             BRANDS LOVE
           </span>
-          <span className="text-[25px] leading-[25px] font-semibold text-[#000] font-['Switzer'] whitespace-nowrap">
+          <span className="text-[35px] leading-[35px] font-semibold text-[#000] font-['Switzer'] whitespace-nowrap">
             CODEWROTE
           </span>
         </div>
@@ -60,9 +60,9 @@ export default function BrandSlider() {
             {duplicatedBrands.map((brand, index) => (
               <div
                 key={index}
-                className="flex flex-shrink-0 items-center justify-center min-w-[80px]"
+                className="flex flex-shrink-0 items-center justify-center min-w-[100px]"
               >
-                <div className="relative h-8 w-[90px] grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100">
+                <div className="relative h-14 w-[120px] grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100">
                   <Image
                     src={brand.src}
                     alt={brand.alt}
