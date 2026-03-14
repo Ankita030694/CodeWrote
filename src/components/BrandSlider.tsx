@@ -32,10 +32,10 @@ export default function BrandSlider() {
       <div className="flex flex-col md:flex-row items-center gap-5 md:gap-8 lg:px-[140px] px-4">
         {/* Left Side Label */}
         <div className="flex-shrink-0 flex items-center gap-2 pr-4 md:pr-8 bg-white z-10">
-          <span className="text-[35px] leading-[35px] font-normal text-[#A1A1A1] font-['Switzer'] whitespace-nowrap">
+          <span className="text-[30px] leading-[35px] font-normal text-[#A1A1A1] font-['Switzer'] whitespace-nowrap">
             BRANDS LOVE
           </span>
-          <span className="text-[35px] leading-[35px] font-semibold text-[#000] font-['Switzer'] whitespace-nowrap">
+          <span className="text-[30px] leading-[35px] font-semibold text-[#000] font-['Switzer'] whitespace-nowrap">
             CODEWROTE
           </span>
         </div>
