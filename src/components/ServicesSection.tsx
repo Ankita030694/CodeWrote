@@ -65,12 +65,12 @@ export default function ServicesSection() {
             <h3 className="text-lg font-bold text-[#0F0F0F] font-['Switzer']">
               Tools we ship with
             </h3>
-            <div className="grid grid-cols-4 md:grid-cols-7 gap-3">
+            <div className="grid grid-cols-6 md:grid-cols-7 gap-3">
               {tools.map((tool, idx) => (
                 <motion.div
                   key={idx}
                   whileHover={{ scale: 1.1, y: -5 }}
-                  className="w-13 h-13 rounded-xl bg-white border border-gray-100 shadow-sm flex items-center justify-center p-2 grayscale hover:grayscale-0 transition-all duration-300"
+                  className="w-14 h-14 md:w-13 md:h-13 rounded-xl bg-white border border-gray-100 shadow-sm flex items-center justify-center p-2 grayscale hover:grayscale-0 transition-all duration-300"
                   title={tool.name}
                 >
                   <div className="relative w-full h-full">

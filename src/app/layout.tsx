@@ -28,8 +28,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
       >
         {/* Vertical Framing Lines */}
-        <div className="fixed left-[100px] top-0 bottom-0 w-[2px] bg-[#D1D1D1] z-50 pointer-events-none hidden lg:block" />
-        <div className="fixed right-[100px] top-0 bottom-0 w-[2px] bg-[#D1D1D1] z-50 pointer-events-none hidden lg:block" />
+        <div className="fixed left-[20px] lg:left-[100px] top-0 bottom-0 w-[1px] lg:w-[2px] bg-[#D1D1D1] z-50 pointer-events-none" />
+        <div className="fixed right-[20px] lg:right-[100px] top-0 bottom-0 w-[1px] lg:w-[2px] bg-[#D1D1D1] z-50 pointer-events-none" />
         {children}
       </body>
     </html>

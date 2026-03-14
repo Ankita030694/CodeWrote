@@ -90,44 +90,130 @@ function AnimatedLogo() {
 }
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-50">
-      <div 
-        className="inline-flex items-center justify-center gap-10 lg:gap-20 
-                   px-6 py-2.5
-                   rounded-[128px] border-2 border-[#D1D1D1] 
-                   bg-white/[0.01] backdrop-blur-[5px]"
-      >
-        {/* Logo */}
-        <AnimatedLogo />
+    <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-full px-4 flex justify-center pointer-events-none">
+      <div className="relative w-full max-w-[1200px] flex justify-center items-start pointer-events-auto">
+        <AnimatePresence mode="wait">
+          {!isOpen ? (
+            /* Normal Navbar (Desktop Pill & Mobile Compact) */
+            <motion.div
+              key="compact"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="inline-flex items-center justify-between md:justify-center gap-6 md:gap-10 lg:gap-20 
+                         px-6 py-4 w-[92%] md:w-auto
+                         rounded-[128px] border-2 border-[#D1D1D1] 
+                         bg-white/[0.01] backdrop-blur-[5px] shadow-sm"
+            >
+              <AnimatedLogo />
 
-        {/* Navigation Links Group */}
-        <div className="hidden md:flex items-center gap-6 lg:gap-8">
-          <Link href="/work" className="text-black text-sm lg:text-[20px] font-bold hover:opacity-70 transition-opacity whitespace-nowrap">
-            Our Work
-          </Link>
-          <Link href="/about" className="text-black text-sm lg:text-[20px] font-bold hover:opacity-70 transition-opacity whitespace-nowrap">
-            About Us
-          </Link>
-          <Link href="/services" className="text-black text-sm lg:text-[20px] font-bold hover:opacity-70 transition-opacity whitespace-nowrap">
-            Services
-          </Link>
-          <Link href="/blog" className="text-black text-sm lg:text-[20px] font-bold hover:opacity-70 transition-opacity whitespace-nowrap">
-            Blog
-          </Link>
-        </div>
+              {/* Desktop Navigation Links */}
+              <div className="hidden md:flex items-center gap-6 lg:gap-8">
+                <Link href="/work" className="text-black text-sm lg:text-[20px] font-bold hover:opacity-70 transition-opacity whitespace-nowrap">
+                  Our Work
+                </Link>
+                <Link href="/about" className="text-black text-sm lg:text-[20px] font-bold hover:opacity-70 transition-opacity whitespace-nowrap">
+                  About Us
+                </Link>
+                <Link href="/services" className="text-black text-sm lg:text-[20px] font-bold hover:opacity-70 transition-opacity whitespace-nowrap">
+                  Services
+                </Link>
+                <Link href="/blog" className="text-black text-sm lg:text-[20px] font-bold hover:opacity-70 transition-opacity whitespace-nowrap">
+                  Blog
+                </Link>
+              </div>
 
-        {/* Contact Button */}
-        <div className="flex-shrink-0">
-          <Link 
-            href="/contact" 
-            className="inline-flex items-center justify-center px-6 py-2 lg:px-10 lg:py-3
-                       rounded-full border-2 border-[#D1D1D1] bg-white 
-                       text-black text-sm lg:text-lg font-bold shadow-sm hover:bg-gray-50 transition-colors whitespace-nowrap"
-          >
-            Contact
-          </Link>
-        </div>
+              {/* Desktop Contact Button */}
+              <div className="hidden md:block flex-shrink-0">
+                <Link 
+                  href="/contact" 
+                  className="inline-flex items-center justify-center px-6 py-2 lg:px-10 lg:py-3
+                             rounded-full border-2 border-[#D1D1D1] bg-white 
+                             text-black text-sm lg:text-lg font-bold shadow-sm hover:bg-gray-50 transition-colors whitespace-nowrap"
+                >
+                  Contact
+                </Link>
+              </div>
+
+              {/* Mobile Hamburger Menu Icon */}
+              <button 
+                onClick={() => setIsOpen(true)}
+                className="md:hidden p-1 flex flex-col gap-1.5"
+              >
+                <div className="w-8 h-1 bg-black rounded-full" />
+                <div className="w-8 h-1 bg-black rounded-full" />
+                <div className="w-8 h-1 bg-black rounded-full" />
+              </button>
+            </motion.div>
+          ) : (
+            /* Expanded Mobile Menu */
+            <motion.div
+              key="expanded"
+              initial={{ opacity: 0, scale: 0.95, y: -20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -20 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="w-full bg-white/70 backdrop-blur-[15px] rounded-[32px] border-2 border-[#D1D1D1]/30 shadow-2xl p-8 md:hidden"
+            >
+              {/* Header inside menu */}
+              <div className="flex items-center justify-between mb-12">
+                <AnimatedLogo />
+                <button 
+                  onClick={() => setIsOpen(false)}
+                  className="p-2"
+                >
+                  {/* Close Icon (X) */}
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="black" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+
+              {/* Vertical Links List */}
+              <div className="flex flex-col gap-8">
+                <Link 
+                  href="/" 
+                  onClick={() => setIsOpen(false)}
+                  className="text-[28px] font-bold text-[#0F0F0F] font-['Switzer']"
+                >
+                  Home
+                </Link>
+                <Link 
+                  href="/about" 
+                  onClick={() => setIsOpen(false)}
+                  className="text-[28px] font-bold text-[#0F0F0F] font-['Switzer']"
+                >
+                  About Us
+                </Link>
+                <Link 
+                  href="/services" 
+                  onClick={() => setIsOpen(false)}
+                  className="text-[28px] font-bold text-[#0F0F0F] font-['Switzer']"
+                >
+                  Services
+                </Link>
+                <Link 
+                  href="/blog" 
+                  onClick={() => setIsOpen(false)}
+                  className="text-[28px] font-bold text-[#0F0F0F] font-['Switzer']"
+                >
+                  Blog
+                </Link>
+                <Link 
+                  href="/contact" 
+                  onClick={() => setIsOpen(false)}
+                  className="text-[28px] font-bold text-[#E61F93] font-['Switzer']"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );

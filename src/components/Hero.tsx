@@ -5,10 +5,11 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative flex flex-col items-center justify-center pt-24 md:pt-40 pb-64 md:pb-80 px-4 min-h-[900px] overflow-hidden">
+    <section className="relative flex flex-col items-center justify-center pt-[260px] md:pt-40 pb-[360px] md:pb-80 px-4 min-h-[750px] md:min-h-[900px] overflow-hidden">
       {/* Background gradients to match the reference */}
       <div className="absolute top-1/4 left-[-10%] w-[500px] h-[500px] bg-pink-500/10 blur-[120px] rounded-full pointer-events-none -z-10" />
       <div className="absolute bottom-0 right-[-10%] w-[600px] h-[600px] bg-pink-500/20 blur-[100px] rounded-full pointer-events-none -z-10 animate-pulse-slow" />
+      <div className="absolute bottom-[5%] left-[-20%] w-[100%] h-[200px] bg-[#E61F93]/30 blur-[80px] rounded-full md:hidden pointer-events-none -z-10" />
 
       {/* Badge/Label */}
       <motion.div
@@ -17,8 +18,8 @@ export default function Hero() {
         transition={{ duration: 0.6 }}
         className="mb-5"
       >
-        <div className="px-4 py-1.5 rounded-full border border-gray-100 bg-white/50 backdrop-blur-md shadow-[0_2px_10px_rgba(0,0,0,0.3)] flex items-center justify-center">
-          <span className="text-[#E61F93] font-semibold tracking-[0.1em] text-[8px] md:text-[10px]">
+        <div className="px-5 py-2 rounded-full border border-gray-100 bg-white shadow-[0_2px_10px_rgba(0,0,0,0.3)] flex items-center justify-center">
+          <span className="text-[#E61F93] font-semibold tracking-[0.1em] text-[10px]">
             CONVERT. AUTOMATE. GROW.
           </span>
         </div>
@@ -32,10 +33,10 @@ export default function Hero() {
         className="text-center mb-5 flex flex-col items-center relative z-10"
       >
         <div className="flex flex-col gap-0 md:gap-2">
-          <span className="text-[32px] md:text-[51px] lg:text-[68px] leading-[0.95] text-[#9CA3AF] font-bold tracking-[-0.03em] whitespace-nowrap">
+          <span className="text-[45px] md:text-[51px] lg:text-[68px] leading-[0.95] text-[#9CA3AF] font-bold tracking-[-0.03em] whitespace-nowrap">
             Websites That <span className="text-black font-black">Sell.</span>
           </span>
-          <span className="text-[32px] md:text-[51px] lg:text-[68px] leading-[0.95] text-[#9CA3AF] font-bold tracking-[-0.03em] whitespace-nowrap">
+          <span className="text-[45px] md:text-[51px] lg:text-[68px] leading-[0.95] text-[#9CA3AF] font-bold tracking-[-0.03em] whitespace-nowrap">
             Systems That <span className="text-black font-black">Run.</span>
           </span>
         </div>
@@ -46,9 +47,9 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="text-center mb-8 max-w-xl relative z-10"
+        className="text-center mb-10 max-w-xl relative z-10"
       >
-        <p className="text-[#4B5563] text-[13px] md:text-[16px] font-bold leading-normal">
+        <p className="text-[#4B5563] text-[16px] md:text-[16px] font-bold leading-normal">
           Designed to convert. Built to automate.<br />
           <span className="font-bold">Less busy work. More results.</span>
         </p>
@@ -83,13 +84,13 @@ export default function Hero() {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-        className="absolute inset-x-0 bottom-[-50px] w-full h-[450px] md:h-[650px] pointer-events-none z-0"
+        className="absolute inset-x-0 bottom-[100px] md:bottom-[-50px] w-full h-[380px] md:h-[650px] pointer-events-none z-0"
       >
         <Image
           src="/assets/space_ship.png"
           alt="Space Ship Illustration"
           fill
-          className="object-cover object-left-bottom opacity-90 scale-[1.15]"
+          className="object-contain object-right-bottom md:object-cover md:object-left-bottom opacity-90 scale-[1.05] md:scale-[1.15]"
           priority
         />
       </motion.div>
