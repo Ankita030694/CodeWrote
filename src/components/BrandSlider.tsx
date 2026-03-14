@@ -5,20 +5,22 @@ import Image from "next/image";
 import React from "react";
 
 const brandAssets = [
-  { src: "/assets/CredsettleLogo3.svg", alt: "Credsettle Logo" },
-  { src: "/assets/eac67413c6.svg", alt: "eac67413c6" },
-  { src: "/assets/Group1302.svg", alt: "Group 130" },
-  { src: "/assets/Group1332.svg", alt: "Group 133" },
-  { src: "/assets/Group1342.svg", alt: "Group 134" },
-  { src: "/assets/Group1361.svg", alt: "Group 136" },
-  { src: "/assets/Group151.svg", alt: "Group 151" },
-  { src: "/assets/Group214.svg", alt: "Group 214" },
-  { src: "/assets/Group216.svg", alt: "Group 216" },
+  { src: "/assets/Credsettle Logo 3.svg", alt: "Credsettle Logo" },
+  { src: "/assets/Group 130 2.svg", alt: "Group 130" },
+  { src: "/assets/Group 133 2.svg", alt: "Group 133" },
+  { src: "/assets/Group 134 2.svg", alt: "Group 134" },
+  { src: "/assets/Group 136 1.svg", alt: "Group 136" },
+  { src: "/assets/Group 151.svg", alt: "Group 151" },
+  { src: "/assets/Group 214.svg", alt: "Group 214" },
+  { src: "/assets/Group 216.svg", alt: "Group 216" },
   { src: "/assets/16 1.png", alt: "16 1" },
   { src: "/assets/logo-white.png", alt: "Logo White" },
-  { src: "/assets/mil-logo1.png", alt: "Mil Logo" },
-  { src: "/assets/Rectangle.png", alt: "Rectangle" },
-  { src: "/assets/Rectangle-1.png", alt: "Rectangle 1" },
+  { src: "/assets/mil-logo 1.png", alt: "Mil Logo" },
+  { src: "/assets/Clip path group.svg", alt: "Rectangle" },
+  { src: "/assets/17 1.svg", alt: "Rectangle 1" },
+  { src: "/assets/16 1.svg", alt: "Rectangle 1" },
+  { src: "/assets/10 1.svg", alt: "Rectangle 1" },
+  { src: "/assets/9 1.svg", alt: "Rectangle 1" }
 ];
 
 // Duplicate brands to create a seamless loop

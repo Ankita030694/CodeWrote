@@ -15,19 +15,19 @@ const stats: StatCard[] = [
     value: "5+",
     title: "Years in the game",
     description: "Designing, building, and launching modern digital products for startups and businesses.",
-    yOffset: "72px",
+    yOffset: "120px",
   },
   {
     value: "80+",
     title: "Projects launched",
     description: "Websites, web apps, Shopify stores, and CRM systems delivered and running.",
-    yOffset: "48px",
+    yOffset: "80px",
   },
   {
     value: "40+",
     title: "Happy clients",
     description: "Founders, startups, and growing brands working with CodeWrote.",
-    yOffset: "24px",
+    yOffset: "40px",
   },
   {
     value: "10+",
@@ -65,11 +65,11 @@ export default function StatsSection() {
               style={{ marginTop: stat.yOffset }}
               className="relative group p-6 rounded-[28px] bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden flex flex-col items-center text-center min-h-[330px]"
             >
-              {/* Faded Pink Gradient - Matching Reference */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#FFD1E8]/30 via-white to-white pointer-events-none" />
+              {/* Strong Slanted Pink Glow */}
+              <div className="absolute top-1/2 left-[-25%] w-[150%] h-[80px] -translate-y-1/2 -rotate-[15deg] bg-gradient-to-r from-transparent via-[#E61F93]/70 to-transparent blur-[40px] pointer-events-none" />
               
-              {/* Soft Pink Glow */}
-              <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[220px] h-[220px] bg-pink-500/10 blur-[70px] rounded-full pointer-events-none" />
+              {/* Core intense slanted line */}
+              <div className="absolute top-1/2 left-[-25%] w-[150%] h-[20px] -translate-y-1/2 -rotate-[15deg] bg-[#E61F93]/25 blur-[25px] pointer-events-none" />
 
               <div className="relative z-10 mt-auto mb-auto">
                 <span className="text-[51px] leading-none font-black text-[#0F0F0F] font-['Switzer'] block mb-4">

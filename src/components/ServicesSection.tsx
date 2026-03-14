@@ -31,7 +31,7 @@ const services = [
   { icon: "/assets/serviceicons/Frame 427318388 copy.svg", name: "Custom Websites" },
   { icon: "/assets/serviceicons/Frame 427318388-1.svg", name: "App Development" },
   { icon: "/assets/serviceicons/Frame 427318388.svg", name: "WordPress Development" },
-  { icon: "/assets/serviceicons/Frame 427318388 copy 2.svg", name: "Custom Software" },
+  { icon: "/assets/serviceicons/Frame 427318388.png", name: "Custom Software" },
 ];
 
 export default function ServicesSection() {
@@ -71,14 +71,16 @@ export default function ServicesSection() {
                   key={idx}
                   whileHover={{ scale: 1.1, y: -5 }}
                   className="w-13 h-13 rounded-xl bg-white border border-gray-100 shadow-sm flex items-center justify-center p-2 grayscale hover:grayscale-0 transition-all duration-300"
+                  title={tool.name}
                 >
-                  <Image
-                    src={tool.src.startsWith("/public") ? tool.src.replace("/public", "") : tool.src}
-                    alt={tool.name}
-                    width={28}
-                    height={28}
-                    className="object-contain"
-                  />
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={tool.src.startsWith("/public") ? tool.src.replace("/public", "") : tool.src}
+                      alt={tool.name}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -94,7 +96,6 @@ export default function ServicesSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              whileHover={{ x: 10 }}
               className="flex items-center gap-4 p-1.5 rounded-2xl hover:bg-gray-50 transition-colors group cursor-pointer"
             >
               <div className="relative w-16 h-16 rounded-full bg-gray-50 border border-gray-100 overflow-hidden flex-shrink-0">

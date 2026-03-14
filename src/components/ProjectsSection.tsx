@@ -90,8 +90,8 @@ export default function ProjectsSection() {
 
                 {/* Testimonial Card */}
                 <div className="bg-white rounded-[16px] p-4 shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-gray-50 flex flex-col h-[210px] flex-1 w-full min-w-[170px]">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-lg overflow-hidden relative flex-shrink-0 bg-gray-100">
+                  <div className="flex flex-col gap-2 mb-3">
+                    <div className="w-14 h-14 rounded-[12px] overflow-hidden relative flex-shrink-0 bg-gray-100">
                       <Image
                         src="/assets/project/73320c0b49b2e2e9597d2981f03d244e11474300.png"
                         alt="Anuj Anand Malik"
@@ -105,7 +105,7 @@ export default function ProjectsSection() {
                     </div>
                   </div>
 
-                  <p className="text-[14px] leading-[1.5] text-[#111] font-medium font-['Switzer'] mt-auto">
+                  <p className="text-[15px] leading-[1.5] text-[#111] font-medium font-['Switzer'] mt-auto">
                     "CodeWrote transformed our online presence and made our services clearer and more trustworthy."
                   </p>
                 </div>
@@ -133,28 +133,30 @@ export default function ProjectsSection() {
             {/* Left Column - Two Apps Staked */}
             <div className="flex flex-col gap-[16px]">
               {/* Application 1 */}
-              <div className="w-full relative rounded-[24px] overflow-hidden h-[300px] bg-gray-100 flex items-center justify-center py-4 px-6">
+              <div className="w-full relative rounded-[24px] overflow-hidden bg-gray-100 flex items-center justify-center">
                 <Image
-                  src="/assets/project/be9706899244af1b1308806bc79ba38c35e79ca1.jpg"
+                  src="/assets/project/IPR.jpg"
                   alt="Project View 1"
-                  fill
-                  className="object-contain py-4 px-6"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto block"
                 />
               </div>
 
               {/* Application 2 */}
-              <div className="w-full relative rounded-[24px] overflow-hidden h-[300px] bg-[#DFF4E5] flex items-center justify-center py-4 px-6">
+              <div className="w-full relative rounded-[20px] overflow-hidden bg-[#DFF4E5] flex items-center justify-center">
                 <Image
-                  src="/assets/project/c5a15d1bdfc4bd723e151869e29258f86b79b9a7.jpg"
+                  src="/assets/project/Jivo.jpg"
                   alt="Project View 2"
-                  fill
-                  className="object-contain py-4 px-6"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto block"
                 />
               </div>
             </div>
 
             {/* Right Column - Large Desktop View */}
-            <div className="w-full relative rounded-[24px] overflow-hidden h-[616px] bg-[#D7D8E6] flex items-center justify-center p-8">
+            <div className="w-full relative rounded-[24px] overflow-hidden lg:h-full min-h-[400px] bg-[#D7D8E6] flex items-center justify-center p-8">
               <Image
                 src="/assets/project/a66a1d1dcc1827bd19660a58c80322f8c54b2f48.jpg"
                 alt="Project View Large"

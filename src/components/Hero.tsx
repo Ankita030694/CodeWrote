@@ -17,7 +17,7 @@ export default function Hero() {
         transition={{ duration: 0.6 }}
         className="mb-5"
       >
-        <div className="px-4 py-1.5 rounded-full border border-gray-100 bg-white/50 backdrop-blur-md shadow-[0_2px_10px_rgba(0,0,0,0.05)] flex items-center justify-center">
+        <div className="px-4 py-1.5 rounded-full border border-gray-100 bg-white/50 backdrop-blur-md shadow-[0_2px_10px_rgba(0,0,0,0.3)] flex items-center justify-center">
           <span className="text-[#E61F93] font-semibold tracking-[0.1em] text-[8px] md:text-[10px]">
             CONVERT. AUTOMATE. GROW.
           </span>
@@ -48,9 +48,9 @@ export default function Hero() {
         transition={{ duration: 0.8, delay: 0.2 }}
         className="text-center mb-8 max-w-xl relative z-10"
       >
-        <p className="text-[#4B5563] text-[13px] md:text-[16px] font-medium leading-normal">
+        <p className="text-[#4B5563] text-[13px] md:text-[16px] font-bold leading-normal">
           Designed to convert. Built to automate.<br />
-          <span className="opacity-80">Less busy work. More results.</span>
+          <span className="font-bold">Less busy work. More results.</span>
         </p>
       </motion.div>
 
@@ -89,7 +89,7 @@ export default function Hero() {
           src="/assets/space_ship.png"
           alt="Space Ship Illustration"
           fill
-          className="object-contain object-right-bottom opacity-90"
+          className="object-cover object-left-bottom opacity-90 scale-[1.15]"
           priority
         />
       </motion.div>

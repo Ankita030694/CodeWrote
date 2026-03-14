@@ -7,25 +7,14 @@ export default function Footer() {
   return (
     <footer className="w-full bg-white relative">
 
-      {/* Blurred Oval Gradient Background */}
-      <div
-        className="absolute pointer-events-none z-0"
-        style={{ inset: 0, overflow: "hidden" }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            width: "1116.699px",
-            height: "581.486px",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -60%) rotate(27.276deg)",
-            borderRadius: "1116.699px",
-            background:
-              "linear-gradient(252deg, #FFAEDD 14.02%, #88CADF 42.18%, #FF0090 69.71%, #E61F93 78.37%)",
-            filter: "blur(61.1px)",
-            opacity: 0.75,
-          }}
+      {/* Footer Gradient Background Image */}
+      <div className="absolute top-0 left-[20%] w-[75%] h-[75%] pointer-events-none z-0 overflow-hidden">
+        <Image
+          src="/assets/Footer Gradient.png"
+          alt="Footer Gradient"
+          fill
+          className="object-cover object-top-left"
+          priority
         />
       </div>
 
@@ -35,7 +24,7 @@ export default function Footer() {
 
           {/* Logo */}
           <div className="col-span-2 md:col-span-1 flex items-center">
-            <div className="relative w-[140px] h-[60px]">
+            <div className="relative w-[190px] h-[80px]">
               <Image
                 src="/assets/Property 1=Frame 427318371.svg"
                 alt="CodeWrote Logo"
@@ -47,10 +36,10 @@ export default function Footer() {
 
           {/* Email */}
           <div className="flex flex-col gap-1">
-            <span className="text-[13px] text-[#A1A1A1] font-medium font-['Switzer']">Email</span>
+            <span className="text-[15px] text-[#A1A1A1] font-medium font-['Switzer']">Email</span>
             <a
               href="mailto:info@codewrote.com"
-              className="text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:text-[#E61F93] transition-colors"
+              className="text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']"
             >
               info@codewrote.com
             </a>
@@ -58,10 +47,10 @@ export default function Footer() {
 
           {/* Start Your Project */}
           <div className="flex flex-col gap-1">
-            <span className="text-[13px] text-[#A1A1A1] font-medium font-['Switzer']">Start Your Project</span>
+            <span className="text-[15px] text-[#555] font-medium font-['Switzer']">Start Your Project</span>
             <a
               href="#"
-              className="text-[15px] font-semibold text-[#E61F93] font-['Switzer'] hover:opacity-80 transition-opacity"
+              className="text-[18px] font-semibold text-[#E61F93] font-['Switzer'] hover:opacity-80 transition-opacity"
             >
               Try Codewrote
             </a>
@@ -69,12 +58,12 @@ export default function Footer() {
 
           {/* Menu */}
           <div className="flex flex-col gap-1">
-            <span className="text-[13px] text-[#A1A1A1] font-medium font-['Switzer']">Menu</span>
+            <span className="text-[15px] text-[#555] font-medium font-['Switzer']">Menu</span>
             <div className="grid grid-cols-2 gap-x-6 gap-y-2 mt-1">
-              <a href="#" className="text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:text-[#E61F93] transition-colors">Home</a>
-              <a href="#" className="text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:text-[#E61F93] transition-colors">Our Work</a>
-              <a href="#" className="text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:text-[#E61F93] transition-colors">About Us</a>
-              <a href="#" className="text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:text-[#E61F93] transition-colors">Services</a>
+              <a href="#" className="text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']">Home</a>
+              <a href="#" className="text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']">Our Work</a>
+              <a href="#" className="text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']">About Us</a>
+              <a href="#" className="text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']">Services</a>
             </div>
           </div>
 

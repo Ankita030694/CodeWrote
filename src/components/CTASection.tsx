@@ -9,7 +9,7 @@ export default function CTASection() {
     <section className="w-full py-14 bg-[#FAFAFA]">
       <div className="max-w-[1100px] mx-auto px-6">
         
-        <div className="relative w-full rounded-[30px] overflow-hidden min-h-[350px] flex items-center justify-center p-7 bg-black">
+        <div className="relative w-full rounded-[30px] overflow-hidden min-h-[440px] flex items-center justify-center p-7 bg-black">
           
           {/* Background Video */}
           <video 
