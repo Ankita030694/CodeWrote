@@ -29,10 +29,10 @@ export default function CTASection() {
           <div className="relative z-10 flex flex-col items-center text-center max-w-[800px] mx-auto py-8">
             
             <h2 className="flex flex-col gap-0 uppercase mb-6">
-              <span className="text-[40px] md:text-[56px] leading-[1.1] md:leading-[56px] font-semibold text-white/50 font-['Switzer']">
+              <span className="text-[30px] md:text-[56px] leading-[1.1] md:leading-[56px] font-semibold text-white/50 font-['Switzer']">
                 Ideas are cheap.
               </span>
-              <span className="text-[40px] md:text-[56px] leading-[1.1] md:leading-[56px] font-semibold text-white font-['Switzer']">
+              <span className="text-[30px] md:text-[56px] leading-[1.1] md:leading-[56px] font-semibold text-white font-['Switzer']">
                 Build it.
               </span>
             </h2>

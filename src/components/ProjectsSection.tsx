@@ -7,17 +7,17 @@ import React from "react";
 export default function ProjectsSection() {
   return (
     <section className="w-full py-20 bg-[#FAFAFA] relative overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6">
+      <div className="max-w-full mx-auto px-6">
 
         {/* Header */}
-        <div className="text-center mb-11 flex flex-col items-center">
+        <div className="text-center mb-11 flex flex-col items-center max-w-full">
           <h2 className="flex flex-col gap-0 uppercase">
-            <span className="text-[40px] md:text-[76px] leading-[1.1] md:leading-[76px] font-semibold text-[#A1A1A1] font-['Switzer']">
-              PROJECTS THAT
-            </span>
-            <span className="text-[40px] md:text-[76px] leading-[1.1] md:leading-[46px] font-semibold text-[#0F0F0F] font-['Switzer']">
+            <span className="text-[30px] md:text-[76px] leading-[1] md:leading-[76px] font-semibold text-[#A1A1A1] font-['Switzer']">
+              PROJECTS THAT    <span className="text-[30px] md:text-[76px] leading-[1] md:leading-[46px] font-semibold text-[#0F0F0F] font-['Switzer']">
               SHIP
             </span>
+            </span>
+         
           </h2>
         </div>
 
@@ -25,7 +25,7 @@ export default function ProjectsSection() {
         <div className="max-w-[1240px] mx-auto">
 
           {/* Inline Tags & Title (Full Width) */}
-          <h3 className="text-[35px] md:text-[34px] leading-[1.3] font-medium text-[#0F0F0F] font-['Switzer'] mb-8 tracking-tight">
+          <h3 className="text-[35px] md:text-[34px] leading-[1.3] font-medium text-[#0F0F0F] font-['Switzer'] mb-8 tracking-tight px-2">
             <span className="block mb-4 ml-2 md:inline md:mb-0 md:ml-0">
               <span className="inline-flex items-center px-4 md:px-4 py-2.5 md:py-2 rounded-[24px] border border-gray-200 text-[#333] font-medium text-[16px] md:text-[15px] font-['Switzer'] mr-2 align-middle mt-[-4px]">
                 Web Design
@@ -43,12 +43,12 @@ export default function ProjectsSection() {
             <div className="flex flex-col justify-end w-full order-1 lg:order-1">
 
               {/* Description */}
-              <p className="text-[18px] md:text-[14px] leading-[1.6] text-[#7A7A7A] font-medium font-['Switzer'] mb-7 max-w-[380px]">
+              <p className="text-[18px] md:text-[14px] leading-[1.6] text-[#7A7A7A] font-medium font-['Switzer'] mb-7 max-w-[380px] px-2">
                 Most legal websites look outdated, confusing, and impossible to trust. So we rebuilt <span className="font-semibold text-[#0F0F0F]">Ama Legal Solutions website</span> from the ground up focusing on clarity, credibility, and a modern digital experience that actually converts visitors into clients.
               </p>
 
               {/* Action Button */}
-              <div className="mb-0 lg:mb-10">
+              <div className="mb-0 lg:mb-10 px-2">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -59,7 +59,7 @@ export default function ProjectsSection() {
               </div>
 
               {/* Bottom Cards — desktop only (shown inside left column on lg+) */}
-              <div className="hidden lg:flex flex-row gap-[16px] mt-10 items-end w-full">
+              <div className="hidden lg:flex flex-row gap-[16px] mt-10 items-end w-full px-2">
 
                 {/* Results Card */}
                 <div className="bg-white rounded-[16px] p-4 shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-gray-50 flex-1 w-full min-w-[160px] min-h-[170px] flex flex-col">

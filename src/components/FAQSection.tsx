@@ -83,7 +83,7 @@ export default function FAQSection() {
 
   return (
     <section className="w-full py-20 bg-white" id="faqs">
-      <div className="max-w-[1200px] mx-auto lg:px-[140px] px-6">
+      <div className="max-w-6xl mx-auto lg:px-[140px] px-6">
         
         {/* Schema Markup */}
         <script
@@ -96,7 +96,7 @@ export default function FAQSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[#E61F93] font-bold text-sm uppercase tracking-widest mb-4 block"
+            className="text-[#E61F93] font-bold text-sm uppercase tracking-widest mb-4 block px-2"
           >
             Questions? We've Got Answers
           </motion.span>
@@ -105,7 +105,7 @@ export default function FAQSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-[40px] md:text-[56px] leading-[1.1] font-semibold text-[#0F0F0F] font-['Switzer'] uppercase"
+            className="text-[30px] md:text-[56px] leading-[1.1] font-semibold text-[#0F0F0F] font-['Switzer'] uppercase px-2"
           >
             Frequently Asked <span className="text-[#A1A1A1]">Questions</span>
           </motion.h2>

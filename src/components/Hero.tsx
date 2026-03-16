@@ -19,7 +19,7 @@ export default function Hero() {
         className="mb-5 px-4"
       >
         <div className="px-5 py-2 rounded-full border border-gray-100 bg-white shadow-[0_2px_10px_rgba(0,0,0,0.3)] flex items-center justify-center">
-          <span className="text-[#E61F93] font-semibold tracking-[0.1em] text-[10px]">
+          <span className="text-[#E61F93] font-semibold tracking-[0.1em] text-[8px] md:text-[10px]">
             CONVERT. AUTOMATE. GROW.
           </span>
         </div>
@@ -33,10 +33,10 @@ export default function Hero() {
         className="text-center mb-5 flex flex-col items-center relative z-10 px-4"
       >
         <div className="flex flex-col gap-0 md:gap-2">
-          <span className="text-[45px] md:text-[51px] lg:text-[68px] leading-[0.95] text-[#9CA3AF] font-bold tracking-[-0.03em] whitespace-nowrap">
+          <span className="text-[35px] md:text-[51px] lg:text-[68px] leading-[0.95] text-[#9CA3AF] font-bold tracking-[-0.03em] whitespace-nowrap">
             Websites That <span className="text-black font-black">Sell.</span>
           </span>
-          <span className="text-[45px] md:text-[51px] lg:text-[68px] leading-[0.95] text-[#9CA3AF] font-bold tracking-[-0.03em] whitespace-nowrap">
+          <span className="text-[35px] md:text-[51px] lg:text-[68px] leading-[0.95] text-[#9CA3AF] font-bold tracking-[-0.03em] whitespace-nowrap">
             Systems That <span className="text-black font-black">Run.</span>
           </span>
         </div>
@@ -49,7 +49,7 @@ export default function Hero() {
         transition={{ duration: 0.8, delay: 0.2 }}
         className="text-center mb-10 max-w-xl relative z-10 px-4"
       >
-        <p className="text-[#4B5563] text-[16px] md:text-[16px] font-bold leading-normal">
+        <p className="text-[#4B5563] text-[12px] md:text-[16px] font-bold leading-normal">
           Designed to convert. Built to automate.<br />
           <span className="font-bold">Less busy work. More results.</span>
         </p>
@@ -72,7 +72,7 @@ export default function Hero() {
             <div className="bg-white rounded-full w-9 h-9 flex items-center justify-center p-1.5 shadow-sm">
               <Image src="/logo.png" alt="CodeWrote" width={24} height={24} className="object-contain" />
             </div>
-            <span className="text-white font-bold text-lg tracking-tight">
+            <span className="text-white font-bold text-sm md:text-lg tracking-tight">
               Start The Launch
             </span>
           </div>
@@ -84,7 +84,7 @@ export default function Hero() {
         initial={{ opacity: 0, scale: 1 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-        className="w-full relative z-0 flex justify-center -mt-10 md:-mt-62 -ml-20"
+        className="w-full relative z-0 flex justify-center md:-mt-62 md:-ml-20 -ml-10"
       >
         <div className="w-full relative">
           <Image

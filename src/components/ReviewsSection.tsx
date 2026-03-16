@@ -116,7 +116,7 @@ export default function ReviewsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-[40px] md:text-[64px] leading-[1.1] md:leading-[1.05] font-semibold text-[#0F0F0F] font-['Switzer'] uppercase max-w-[900px]"
+            className="text-[30px] md:text-[64px] leading-[1.1] md:leading-[1.05] font-semibold text-[#0F0F0F] font-['Switzer'] uppercase max-w-[900px]"
           >
             Empowering <span className="text-[#A1A1A1]">Leaders</span> to Build <span className="text-[#E61F93]">Independently</span>
           </motion.h2>
@@ -126,7 +126,7 @@ export default function ReviewsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="mt-8 text-[#666666] font-['Switzer'] max-w-[650px] text-[18px] lg:text-[20px] leading-relaxed"
+            className="mt-8 text-[#666666] font-['Switzer'] max-w-[650px] text-[16px] lg:text-[20px] leading-relaxed"
           >
             Our core USP: We build platforms that empower you to stay in control, minimize dependency, and grow your business without technical friction.
           </motion.p>

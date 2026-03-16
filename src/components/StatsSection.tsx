@@ -49,17 +49,17 @@ export default function StatsSection() {
         {/* Heading */}
         <div className="mb-0">
           <h2 className="flex flex-col gap-0">
-            <span className="text-[40px] md:text-[76px] leading-[1.1] md:leading-[76px] font-semibold text-[#A1A1A1] font-['Switzer']">
+            <span className="text-[30px] md:text-[76px] leading-[1.1] md:leading-[76px] font-semibold text-[#A1A1A1] font-['Switzer']">
               STATS THAT
             </span>
-            <span className="text-[40px] md:text-[76px] leading-[1.1] md:leading-[46px] font-semibold text-[#0F0F0F] font-['Switzer']">
+            <span className="text-[30px] md:text-[76px] leading-[1.1] md:leading-[46px] font-semibold text-[#0F0F0F] font-['Switzer']">
               HIT
             </span>
           </h2>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 items-start mx-2">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 items-start mx-2 md:mt-0 mt-10">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -76,13 +76,13 @@ export default function StatsSection() {
               <div className={`absolute ${stat.gradientPosition} left-[-25%] w-[150%] h-[20px] -translate-y-1/2 -rotate-[15deg] bg-[#E61F93]/25 blur-[25px] pointer-events-none`} />
 
               <div className="relative z-10 mt-auto mb-auto">
-                <span className="text-[40px] md:text-[70px] leading-none font-black text-[#0F0F0F] font-['Switzer'] block mb-2 md:mb-4">
+                <span className="text-[20px] md:text-[70px] leading-none font-black text-[#0F0F0F] font-['Switzer'] block mb-2 md:mb-4">
                   {stat.value}
                 </span>
-                <h3 className="text-[18px] md:text-[22px] leading-[1.2] font-bold text-[#0F0F0F] font-['Switzer'] mb-2 md:mb-4 max-w-[340px] mx-auto">
+                <h3 className="text-[16px] md:text-[22px] leading-[1.2] font-bold text-[#0F0F0F] font-['Switzer'] mb-2 md:mb-4 max-w-[340px] mx-auto">
                   {stat.title}
                 </h3>
-                <p className="text-[14px] md:text-[16px] text-gray-700 font-medium leading-relaxed max-w-[390px] mx-auto">
+                <p className="text-[12px] md:text-[16px] text-gray-700 font-medium leading-relaxed max-w-[390px] mx-auto">
                   {stat.description}
                 </p>
               </div>

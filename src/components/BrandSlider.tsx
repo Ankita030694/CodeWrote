@@ -31,10 +31,10 @@ export default function BrandSlider() {
       <div className="flex flex-col md:flex-row items-center gap-5 md:gap-8 lg:px-[140px] px-4">
         {/* Left Side Label */}
         <div className="flex-shrink-0 flex items-center gap-2 pr-4 md:pr-8 bg-white z-10">
-          <span className="text-[30px] leading-[35px] font-normal text-[#A1A1A1] font-['Switzer'] whitespace-nowrap">
+          <span className="text-[20px] md:text-[30px] md:leading-[35px] font-normal text-[#A1A1A1] font-['Switzer'] whitespace-nowrap">
             BRANDS LOVE
           </span>
-          <span className="text-[30px] leading-[35px] font-semibold text-[#000] font-['Switzer'] whitespace-nowrap">
+          <span className="text-[20px] md:text-[30px] leading-[35px] font-semibold text-[#000] font-['Switzer'] whitespace-nowrap">
             CODEWROTE
           </span>
         </div>
@@ -46,7 +46,11 @@ export default function BrandSlider() {
           <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-20" />
           
           <motion.div
-            className="flex items-center gap-11 whitespace-nowrap"
+            className="flex items-center gap-11 whitespace-nowrap will-change-transform"
+            style={{ 
+              transform: "translateZ(0)",
+              backfaceVisibility: "hidden"
+            }}
             animate={{
               x: ["0%", "-33.33%"],
             }}
@@ -60,6 +64,7 @@ export default function BrandSlider() {
               <div
                 key={index}
                 className="flex flex-shrink-0 items-center justify-center min-w-[80px] md:min-w-[100px] mt-5"
+                style={{ transform: "translateZ(0)" }}
               >
                 <div className="relative h-8 w-[100px] md:h-14 md:w-[120px] grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100">
                   <Image

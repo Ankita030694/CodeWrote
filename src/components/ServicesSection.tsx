@@ -53,10 +53,10 @@ export default function ServicesSection() {
           {/* Title */}
           <div className="mb-0">
             <h2 className="flex flex-col gap-0 uppercase">
-              <span className="text-[40px] md:text-[56px] leading-[1.1] md:leading-[56px] font-semibold text-[#A1A1A1] font-['Switzer']">
+              <span className="text-[30px] md:text-[56px] leading-[1.1] md:leading-[56px] font-semibold text-[#A1A1A1] font-['Switzer']">
                 Services that
               </span>
-              <span className="text-[40px] md:text-[56px] leading-[1.1] md:leading-[56px] font-semibold text-[#0F0F0F] font-['Switzer']">
+              <span className="text-[30px] md:text-[56px] leading-[1.1] md:leading-[56px] font-semibold text-[#0F0F0F] font-['Switzer']">
                 build <span className="font-bold">real products</span>
               </span>
             </h2>
