@@ -26,6 +26,10 @@ export default function Hero() {
       </motion.div>
 
       {/* Headline */}
+      <div className="sr-only">
+        <h1>Premier Website Development Agency & Professional Website Maker</h1>
+        <p>Expert website developers creating high-converting websites and automated systems for business growth.</p>
+      </div>
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -50,8 +54,8 @@ export default function Hero() {
         className="text-center mb-10 max-w-xl relative z-10 px-4"
       >
         <p className="text-[#4B5563] text-[12px] md:text-[16px] font-bold leading-normal">
-          Designed to convert. Built to automate.<br />
-          <span className="font-bold">Less busy work. More results.</span>
+          Designed by expert <span className="text-[#E61F93]">website developers</span> to convert. Built to automate.<br />
+          <span className="font-bold">Your go-to website development company for results that scale.</span>
         </p>
       </motion.div>
 

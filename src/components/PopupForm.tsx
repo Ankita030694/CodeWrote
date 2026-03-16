@@ -9,6 +9,7 @@ export default function PopupForm() {
   const pathname = usePathname();
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     state: "",
@@ -22,6 +23,7 @@ export default function PopupForm() {
     const timer = setTimeout(() => {
       setIsOpen(true);
       setIsSubmitted(false);
+      setIsLoading(false);
       setFormData({ name: "", state: "", email: "", phone: "", message: "" });
     }, 2000); // 2 seconds delay
 
@@ -39,13 +41,34 @@ export default function PopupForm() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate submission
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsOpen(false);
-    }, 3000);
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsOpen(false);
+        }, 3000);
+      } else {
+        const data = await response.json();
+        alert(data.error || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("Failed to send message. Please check your connection.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -161,12 +184,29 @@ export default function PopupForm() {
 
                       <button
                         type="submit"
-                        className="w-full py-5 mt-6 bg-black text-white rounded-2xl font-bold text-lg hover:bg-[#E61F93] shadow-lg hover:shadow-[#E61F93]/20 transition-all transform hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 group"
+                        disabled={isLoading}
+                        className={`w-full py-5 mt-6 rounded-2xl font-bold text-lg shadow-lg transition-all transform flex items-center justify-center gap-2 group ${
+                          isLoading 
+                          ? "bg-gray-400 cursor-not-allowed" 
+                          : "bg-black text-white hover:bg-[#E61F93] hover:shadow-[#E61F93]/20 hover:scale-[1.01] active:scale-[0.99]"
+                        }`}
                       >
-                        Send Message
-                        <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
+                        {isLoading ? (
+                          <>
+                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Processing...
+                          </>
+                        ) : (
+                          <>
+                            Send Message
+                            <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                          </>
+                        )}
                       </button>
                     </form>
                   </motion.div>

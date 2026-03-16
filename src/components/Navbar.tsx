@@ -16,7 +16,7 @@ function AnimatedLogo() {
 
   return (
     <div className="flex-shrink-0">
-      <Link href="/">
+      <Link href="/" aria-label="CodeWrote Home - Website Development Agency" title="CodeWrote | Home">
         <svg 
           width="117" 
           height="69" 

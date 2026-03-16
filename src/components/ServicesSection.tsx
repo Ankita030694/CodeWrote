@@ -25,13 +25,13 @@ const tools = [
 ];
 
 const services = [
-  { icon: "/assets/serviceicons/Frame 427318388-5.svg", name: "UI/UX Design" },
-  { icon: "/assets/serviceicons/Frame 427318388-4.svg", name: "Framer Development" },
-  { icon: "/assets/serviceicons/Frame 427318388-3.svg", name: "Shopify Development" },
-  { icon: "/assets/serviceicons/Frame 427318388 copy.svg", name: "Custom Websites" },
-  { icon: "/assets/serviceicons/Frame 427318388-1.svg", name: "App Development" },
-  { icon: "/assets/serviceicons/Frame 427318388.svg", name: "WordPress Development" },
-  { icon: "/assets/serviceicons/Frame 427318388.png", name: "Custom Software" },
+  { icon: "/assets/serviceicons/Frame 427318388-5.svg", name: "Professional UI/UX Design" },
+  { icon: "/assets/serviceicons/Frame 427318388-4.svg", name: "Framer Website Builder" },
+  { icon: "/assets/serviceicons/Frame 427318388-3.svg", name: "Shopify Ecommerce Solutions" },
+  { icon: "/assets/serviceicons/Frame 427318388 copy.svg", name: "Custom Website Development" },
+  { icon: "/assets/serviceicons/Frame 427318388-1.svg", name: "Mobile App Development" },
+  { icon: "/assets/serviceicons/Frame 427318388.svg", name: "WordPress Website Expert" },
+  { icon: "/assets/serviceicons/Frame 427318388.png", name: "Enterprise Software Systems" },
 ];
 
 export default function ServicesSection() {
@@ -54,10 +54,10 @@ export default function ServicesSection() {
           <div className="mb-0">
             <h2 className="flex flex-col gap-0 uppercase">
               <span className="text-[30px] md:text-[56px] leading-[1.1] md:leading-[56px] font-semibold text-[#A1A1A1] font-['Switzer']">
-                Services that
+                Expert Website
               </span>
               <span className="text-[30px] md:text-[56px] leading-[1.1] md:leading-[56px] font-semibold text-[#0F0F0F] font-['Switzer']">
-                build <span className="font-bold">real products</span>
+                Development <span className="font-bold">Services</span>
               </span>
             </h2>
           </div>

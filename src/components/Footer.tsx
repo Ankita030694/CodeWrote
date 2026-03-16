@@ -22,16 +22,19 @@ export default function Footer() {
       <div className="relative z-10 lg:px-[140px] px-8 pt-48 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 items-start">
 
-          {/* Logo */}
-          <div className="col-span-1 flex items-center">
+          {/* Logo & About Blurb */}
+          <div className="col-span-1 flex flex-col items-start gap-4">
             <div className="relative w-[190px] h-[80px]">
               <Image
                 src="/assets/Property 1=Frame 427318371.svg"
-                alt="CodeWrote Logo"
+                alt="CodeWrote Logo - Premier Website Development Agency"
                 fill
                 className="object-contain object-left"
               />
             </div>
+            <p className="text-[14px] text-[#555] font-['Switzer'] leading-relaxed max-w-[250px]">
+              CodeWrote is a premier <span className="font-semibold text-[#0F0F0F]">website development company</span> and professional <span className="font-semibold text-[#0F0F0F]">website maker</span>. We build high-converting systems that run your business on autopilot.
+            </p>
           </div>
 
           {/* Email */}
@@ -86,7 +89,7 @@ export default function Footer() {
 
           {/* Center - Copyright */}
           <p className="w-full md:w-auto text-[16px] md:text-[13px] text-[#A1A1A1] font-medium font-['Switzer'] text-center order-last md:order-none mt-4 md:mt-0">
-            © 2025 CodeWrote. All Rights Reserved.
+            © 2026 CodeWrote. All Rights Reserved.
           </p>
 
           {/* Right - Address */}
