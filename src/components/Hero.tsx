@@ -81,10 +81,10 @@ export default function Hero() {
 
       {/* Hero Background Spaceship */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={{ opacity: 0, scale: 1 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-        className="w-full relative z-0 flex justify-center -mt-20 md:-mt-62"
+        className="w-full relative z-0 flex justify-center -mt-10 md:-mt-62 -ml-20"
       >
         <div className="w-full relative">
           <Image

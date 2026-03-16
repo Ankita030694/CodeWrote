@@ -88,11 +88,13 @@ export default function WhyChooseSection() {
 
         {/* Header */}
         <div className="text-center mb-12 flex flex-col items-center">
-          <h2 className="text-[44px] md:text-[51px] leading-tight font-semibold text-[#A1A1A1] font-['Switzer'] uppercase tracking-tight">
-            WHY CHOOSE
-          </h2>
-          <h2 className="text-[44px] md:text-[51px] leading-tight font-bold text-[#0F0F0F] font-['Switzer'] uppercase tracking-tight -mt-2">
-            CODEWROTE
+          <h2 className="flex flex-col gap-0 uppercase">
+            <span className="text-[76px] leading-[76px] font-semibold text-[#A1A1A1] font-['Switzer']">
+              WHY CHOOSE
+            </span>
+            <span className="text-[76px] leading-[46px] font-semibold text-[#0F0F0F] font-['Switzer']">
+              CODEWROTE
+            </span>
           </h2>
           <p className="text-base md:text-lg text-gray-500 font-medium font-['Switzer'] mt-3">
             A smarter way to build digital products

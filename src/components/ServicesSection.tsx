@@ -51,12 +51,14 @@ export default function ServicesSection() {
           </motion.button>
 
           {/* Title */}
-          <div className="flex flex-col">
-            <h2 className="text-[46px] leading-[1] font-semibold text-[#A1A1A1] font-['Switzer']">
-              Services that
-            </h2>
-            <h2 className="text-[46px] leading-[1] font-semibold text-[#0F0F0F] font-['Switzer']">
-              build <span className="font-bold">real products</span>
+          <div className="mb-0">
+            <h2 className="flex flex-col gap-0 uppercase">
+              <span className="text-[56px] leading-[56px] font-semibold text-[#A1A1A1] font-['Switzer']">
+                Services that
+              </span>
+              <span className="text-[56px] leading-[56px] font-semibold text-[#0F0F0F] font-['Switzer']">
+                build <span className="font-bold">real products</span>
+              </span>
             </h2>
           </div>
 
