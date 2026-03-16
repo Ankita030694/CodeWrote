@@ -12,10 +12,10 @@ export default function ProjectsSection() {
         {/* Header */}
         <div className="text-center mb-11 flex flex-col items-center">
           <h2 className="flex flex-col gap-0 uppercase">
-            <span className="text-[76px] leading-[76px] font-semibold text-[#A1A1A1] font-['Switzer']">
+            <span className="text-[40px] md:text-[76px] leading-[1.1] md:leading-[76px] font-semibold text-[#A1A1A1] font-['Switzer']">
               PROJECTS THAT
             </span>
-            <span className="text-[76px] leading-[46px] font-semibold text-[#0F0F0F] font-['Switzer']">
+            <span className="text-[40px] md:text-[76px] leading-[1.1] md:leading-[46px] font-semibold text-[#0F0F0F] font-['Switzer']">
               SHIP
             </span>
           </h2>

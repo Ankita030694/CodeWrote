@@ -49,17 +49,17 @@ export default function StatsSection() {
         {/* Heading */}
         <div className="mb-0">
           <h2 className="flex flex-col gap-0">
-            <span className="text-[76px] leading-[76px] font-semibold text-[#A1A1A1] font-['Switzer']">
+            <span className="text-[40px] md:text-[76px] leading-[1.1] md:leading-[76px] font-semibold text-[#A1A1A1] font-['Switzer']">
               STATS THAT
             </span>
-            <span className="text-[76px] leading-[46px] font-semibold text-[#0F0F0F] font-['Switzer']">
+            <span className="text-[40px] md:text-[76px] leading-[1.1] md:leading-[46px] font-semibold text-[#0F0F0F] font-['Switzer']">
               HIT
             </span>
           </h2>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 items-start">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 items-start mx-2">
           {stats.map((stat, index) => (
             <motion.div
               key={index}

@@ -59,9 +59,9 @@ export default function BrandSlider() {
             {duplicatedBrands.map((brand, index) => (
               <div
                 key={index}
-                className="flex flex-shrink-0 items-center justify-center min-w-[100px]"
+                className="flex flex-shrink-0 items-center justify-center min-w-[80px] md:min-w-[100px] mt-5"
               >
-                <div className="relative h-14 w-[120px] grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100">
+                <div className="relative h-8 w-[100px] md:h-14 md:w-[120px] grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100">
                   <Image
                     src={brand.src}
                     alt={brand.alt}
