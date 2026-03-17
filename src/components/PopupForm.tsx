@@ -74,7 +74,7 @@ export default function PopupForm() {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[100] flex items-end md:items-center justify-center p-4">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -90,7 +90,7 @@ export default function PopupForm() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 40 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-lg bg-white/70 backdrop-blur-[15px] rounded-[32px] border-2 border-[#D1D1D1] shadow-2xl overflow-hidden"
+            className="relative w-full max-w-lg bg-white/70 backdrop-blur-[15px] rounded-[32px] border-2 border-[#D1D1D1] shadow-2xl overflow-hidden max-h-[75vh] md:max-h-[90vh] flex flex-col"
           >
             {/* Design Element: Accent Bar */}
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#E61F93] to-[#8B5CF6]" />
@@ -105,7 +105,7 @@ export default function PopupForm() {
               </svg>
             </button>
 
-            <div className="p-10">
+            <div className="p-6 md:p-10 overflow-y-auto custom-scrollbar">
               <AnimatePresence mode="wait">
                 {!isSubmitted ? (
                   <motion.div
@@ -114,7 +114,7 @@ export default function PopupForm() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                   >
-                    <h2 className="text-4xl font-bold mb-3 text-black font-['Switzer']">Let's Connect</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-3 text-black font-['Switzer']">Let's Connect</h2>
                     <p className="text-gray-700 mb-8 font-medium leading-relaxed">
                       Transform your ideas into reality. Drop us a message and our team will reach out within 24 hours.
                     </p>
