@@ -114,78 +114,78 @@ export default function PopupForm() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                   >
-                    <h2 className="text-3xl md:text-4xl font-bold mb-3 text-black font-['Switzer']">Let's Connect</h2>
-                    <p className="text-gray-700 mb-8 font-medium leading-relaxed">
+                    <h2 className="text-2xl md:text-4xl font-bold mb-1 md:mb-3 text-black font-['Switzer']">Let's Connect</h2>
+                    <p className="text-[13px] md:text-base text-gray-700 mb-4 md:mb-8 font-medium leading-tight md:leading-relaxed">
                       Transform your ideas into reality. Drop us a message and our team will reach out within 24 hours.
                     </p>
 
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="space-y-1.5">
-                          <label className="text-xs font-black uppercase tracking-wider text-black ml-1">Name</label>
+                    <form onSubmit={handleSubmit} className="space-y-2 md:space-y-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
+                        <div className="space-y-1">
+                          <label className="text-[10px] md:text-xs font-black uppercase tracking-wider text-black ml-1">Name</label>
                           <input
                             required
                             type="text"
                             value={formData.name}
                             onChange={handleNameChange}
                             placeholder="Your Name"
-                            className="w-full px-5 py-4 rounded-2xl border-2 border-[#D1D1D1] bg-white/40 focus:border-[#E61F93] focus:bg-white focus:outline-none transition-all duration-300 font-medium placeholder:text-gray-500"
+                            className="w-full px-4 py-2.5 md:px-5 md:py-4 rounded-xl md:rounded-2xl border-2 border-[#D1D1D1] bg-white/40 focus:border-[#E61F93] focus:bg-white focus:outline-none transition-all duration-300 text-sm md:text-base font-medium placeholder:text-gray-500"
                           />
                         </div>
-                        <div className="space-y-1.5">
-                          <label className="text-xs font-black uppercase tracking-wider text-black ml-1">State</label>
+                        <div className="space-y-1">
+                          <label className="text-[10px] md:text-xs font-black uppercase tracking-wider text-black ml-1">State</label>
                           <input
                             required
                             type="text"
                             value={formData.state}
                             onChange={(e) => setFormData({ ...formData, state: e.target.value })}
                             placeholder="Your State"
-                            className="w-full px-5 py-4 rounded-2xl border-2 border-[#D1D1D1] bg-white/40 focus:border-[#E61F93] focus:bg-white focus:outline-none transition-all duration-300 font-medium placeholder:text-gray-500"
+                            className="w-full px-4 py-2.5 md:px-5 md:py-4 rounded-xl md:rounded-2xl border-2 border-[#D1D1D1] bg-white/40 focus:border-[#E61F93] focus:bg-white focus:outline-none transition-all duration-300 text-sm md:text-base font-medium placeholder:text-gray-500"
                           />
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="space-y-1.5">
-                          <label className="text-xs font-black uppercase tracking-wider text-black ml-1">Email</label>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
+                        <div className="space-y-1">
+                          <label className="text-[10px] md:text-xs font-black uppercase tracking-wider text-black ml-1">Email</label>
                           <input
                             required
                             type="email"
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                             placeholder="Your Email"
-                            className="w-full px-5 py-4 rounded-2xl border-2 border-[#D1D1D1] bg-white/40 focus:border-[#E61F93] focus:bg-white focus:outline-none transition-all duration-300 font-medium placeholder:text-gray-500"
+                            className="w-full px-4 py-2.5 md:px-5 md:py-4 rounded-xl md:rounded-2xl border-2 border-[#D1D1D1] bg-white/40 focus:border-[#E61F93] focus:bg-white focus:outline-none transition-all duration-300 text-sm md:text-base font-medium placeholder:text-gray-500"
                           />
                         </div>
-                        <div className="space-y-1.5">
-                          <label className="text-xs font-black uppercase tracking-wider text-black ml-1">Phone</label>
+                        <div className="space-y-1">
+                          <label className="text-[10px] md:text-xs font-black uppercase tracking-wider text-black ml-1">Phone</label>
                           <input
                             required
                             type="tel"
                             value={formData.phone}
                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                            placeholder="Country code, Phone number"
-                            className="w-full px-5 py-4 rounded-2xl border-2 border-[#D1D1D1] bg-white/40 focus:border-[#E61F93] focus:bg-white focus:outline-none transition-all duration-300 font-medium placeholder:text-gray-500"
+                            placeholder="Phone number"
+                            className="w-full px-4 py-2.5 md:px-5 md:py-4 rounded-xl md:rounded-2xl border-2 border-[#D1D1D1] bg-white/40 focus:border-[#E61F93] focus:bg-white focus:outline-none transition-all duration-300 text-sm md:text-base font-medium placeholder:text-gray-500"
                           />
                         </div>
                       </div>
 
-                      <div className="space-y-1.5">
-                        <label className="text-xs font-black uppercase tracking-wider text-black ml-1">Message</label>
+                      <div className="space-y-1">
+                        <label className="text-[10px] md:text-xs font-black uppercase tracking-wider text-black ml-1">Message</label>
                         <textarea
                           required
                           value={formData.message}
                           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                           placeholder="What can we help you build?"
-                          rows={3}
-                          className="w-full px-5 py-4 rounded-2xl border-2 border-[#D1D1D1] bg-white/40 focus:border-[#E61F93] focus:bg-white focus:outline-none transition-all duration-300 font-medium resize-none placeholder:text-gray-500"
+                          rows={2}
+                          className="w-full px-4 py-2.5 md:px-5 md:py-4 rounded-xl md:rounded-2xl border-2 border-[#D1D1D1] bg-white/40 focus:border-[#E61F93] focus:bg-white focus:outline-none transition-all duration-300 text-sm md:text-base font-medium resize-none placeholder:text-gray-500"
                         />
                       </div>
 
                       <button
                         type="submit"
                         disabled={isLoading}
-                        className={`w-full py-5 mt-6 rounded-2xl font-bold text-lg shadow-lg transition-all transform flex items-center justify-center gap-2 group ${
+                        className={`w-full py-4 md:py-5 mt-2 md:mt-6 rounded-xl md:rounded-2xl font-bold text-base md:text-lg shadow-lg transition-all transform flex items-center justify-center gap-2 group ${
                           isLoading 
                           ? "bg-gray-400 cursor-not-allowed" 
                           : "bg-black text-white hover:bg-[#E61F93] hover:shadow-[#E61F93]/20 hover:scale-[1.01] active:scale-[0.99]"
