@@ -53,12 +53,24 @@ export default function ReviewsSection() {
   // Review Schema Markup
   const reviewSchema = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Web Development & Design Services",
+    "@type": "ProfessionalService",
+    "name": "CodeWrote",
+    "image": "https://codewrote.com/assets/Property%201=Frame%20427318371.svg",
+    "@id": "https://codewrote.com",
+    "url": "https://codewrote.com",
+    "telephone": "+91-0000000000", // Placeholder or actual if found
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Sector 57",
+      "addressLocality": "Gurgaon",
+      "addressRegion": "Haryana",
+      "postalCode": "122003",
+      "addressCountry": "IN"
+    },
     "provider": {
       "@type": "Organization",
       "name": "CodeWrote",
-      "url": "https://codewrote.com" // Update with actual URL if different
+      "url": "https://codewrote.com"
     },
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -80,9 +92,9 @@ export default function ReviewsSection() {
       },
       "reviewBody": review.content,
       "datePublished": "2024-03-16",
-      "itemReviewed": {
-        "@type": "Service",
-        "name": review.service
+      "publisher": {
+        "@type": "Organization",
+        "name": "CodeWrote"
       }
     }))
   };
