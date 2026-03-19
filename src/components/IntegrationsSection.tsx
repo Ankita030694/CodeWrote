@@ -118,7 +118,7 @@ export default function IntegrationsSection() {
               SCALE WITH YOU
             </span>
           </h2>
-          <p className="max-w-lg text-sm md:text-lg text-gray-500 font-medium font-['Switzer'] mt-4">
+          <p className="max-w-md text-sm md:text-lg text-gray-500 font-medium font-['Switzer'] mt-4">
             Seamlessly connecting platforms, automating processes, and building systems that grow with your business.
           </p>
         </div>
