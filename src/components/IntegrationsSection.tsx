@@ -41,12 +41,12 @@ const HexagonSvg = () => (
   </svg>
 );
 
-const HexagonTile = ({ src, hasLogo }: { src?: string | null; hasLogo?: boolean }) => {
+const HexagonTile = ({ src, hasLogo, isHiddenMobile }: { src?: string | null; hasLogo?: boolean; isHiddenMobile?: boolean }) => {
   return (
-    <div className="relative group w-[50px] h-[55px] md:w-[161px] md:h-[178px] flex-shrink-0 flex items-center justify-center transition-transform duration-300 hover:-translate-y-2">
+    <div className={`relative group w-[74px] h-[80px] md:w-[161px] md:h-[178px] flex-shrink-0 items-center justify-center transition-transform duration-300 hover:-translate-y-2 ${isHiddenMobile ? 'hidden md:flex' : 'flex'}`}>
       <HexagonSvg />
       {hasLogo && src && (
-        <img src={encodeURI(src.replace('#', '%23'))} alt="Integration Logo" className="w-[20px] h-[20px] md:w-16 md:h-16 object-contain relative z-10 filter drop-shadow-sm" />
+        <img src={encodeURI(src.replace('#', '%23'))} alt="Integration Logo" className="w-[40px] h-[40px] md:w-16 md:h-16 object-contain relative z-10 filter drop-shadow-sm" />
       )}
     </div>
   );
@@ -68,39 +68,44 @@ export default function IntegrationsSection() {
         
         {/* Radial Magenta Gradient Background */}
         <div 
-          className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] md:w-[900px] h-[500px] md:h-[900px] rounded-full pointer-events-none -z-10 blur-3xl opacity-50"
+          className="absolute top-[40%] md:top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] md:w-[900px] h-[350px] md:h-[900px] rounded-full pointer-events-none -z-10 blur-[80px] md:blur-[100px] opacity-60 md:opacity-50"
           style={{
-            background: "radial-gradient(circle, #E61F93 0%, transparent 70%)"
+            background: "radial-gradient(circle, #E61F93 0%, transparent 65%)"
           }}
         />
 
         {/* Honeycomb Grid Container */}
-        <div className="flex flex-col items-center mb-16 md:mb-24 mt-8 w-[150%] md:w-full overflow-visible">
-          {rowsConfig.map((row, rIdx) => (
-            <div 
-              key={rIdx} 
-              className={`flex justify-center gap-[4px] md:gap-[16px] ${
-                rIdx > 0 ? "-mt-[16px] md:-mt-[50px]" : ""
-              }`}
-            >
-              {Array.from({ length: row.total }).map((_, cIdx) => {
-                const hasLogo = row.logoIndices.includes(cIdx);
-                let src = null;
-                if (hasLogo) {
-                  src = logos[currentLogoIndex % logos.length];
-                  currentLogoIndex++;
-                }
+        <div className="w-full overflow-x-auto md:overflow-visible scrollbar-hide pb-8 md:pb-0 mb-10 md:mb-24 mt-8 flex md:block">
+          <div className="flex flex-col items-center w-max md:w-full mx-auto px-4 md:px-0">
+            {rowsConfig.map((row, rIdx) => (
+              <div 
+                key={rIdx} 
+                className={`flex justify-center gap-[4px] md:gap-[16px] ${
+                  rIdx > 0 ? "-mt-[20px] md:-mt-[50px]" : ""
+                }`}
+              >
+                {Array.from({ length: row.total }).map((_, cIdx) => {
+                  const hasLogo = row.logoIndices.includes(cIdx);
+                  const isHiddenMobile = cIdx < 2 || cIdx > row.total - 3;
+                  
+                  let src = null;
+                  if (hasLogo) {
+                    src = logos[currentLogoIndex % logos.length];
+                    currentLogoIndex++;
+                  }
 
-                return (
-                  <HexagonTile 
-                    key={`${rIdx}-${cIdx}`} 
-                    src={src} 
-                    hasLogo={hasLogo} 
-                  />
-                );
-              })}
-            </div>
-          ))}
+                  return (
+                    <HexagonTile 
+                      key={`${rIdx}-${cIdx}`} 
+                      src={src} 
+                      hasLogo={hasLogo} 
+                      isHiddenMobile={isHiddenMobile}
+                    />
+                  );
+                })}
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Text Details */}
@@ -113,7 +118,7 @@ export default function IntegrationsSection() {
               SCALE WITH YOU
             </span>
           </h2>
-          <p className="max-w-[700px] text-sm md:text-lg text-gray-500 font-medium font-['Switzer'] mt-4">
+          <p className="max-w-lg text-sm md:text-lg text-gray-500 font-medium font-['Switzer'] mt-4">
             Seamlessly connecting platforms, automating processes, and building systems that grow with your business.
           </p>
         </div>
