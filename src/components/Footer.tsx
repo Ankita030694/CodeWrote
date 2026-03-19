@@ -63,10 +63,12 @@ export default function Footer() {
           <div className="flex flex-col gap-1">
             <span className="text-[18px] md:text-[15px] text-[#555] font-medium font-['Switzer']">Menu</span>
             <div className="grid grid-cols-2 gap-x-6 gap-y-2 mt-1">
-              <a href="#" className="text-[16px] md:text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']">Home</a>
-              <a href="#" className="text-[16px] md:text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']">Our Work</a>
-              <a href="#" className="text-[16px] md:text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']">About Us</a>
-              <a href="#" className="text-[16px] md:text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']">Services</a>
+              <a href="/" className="text-[16px] md:text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']">Home</a>
+              <a href="/work" className="text-[16px] md:text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']">Our Work</a>
+              <a href="/about" className="text-[16px] md:text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']">About Us</a>
+              <a href="/services" className="text-[16px] md:text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']">Services</a>
+              <a href="/blog" className="text-[16px] md:text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']">Blog</a>
+              <a href="/contact" className="text-[16px] md:text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']">Contact</a>
             </div>
           </div>
 

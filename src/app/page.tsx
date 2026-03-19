@@ -9,6 +9,7 @@ import ReviewsSection from "@/components/ReviewsSection";
 import CTASection from "@/components/CTASection";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
+import IntegrationsSection from "@/components/IntegrationsSection";
 
 export default function Home() {
   return (
@@ -25,6 +26,8 @@ export default function Home() {
         <ServicesSection />
         <div className="h-[2px] bg-[#D1D1D1] w-full" />
         <WhyChooseSection />
+        <div className="h-[2px] bg-[#D1D1D1] w-full" />
+        <IntegrationsSection />
         <div className="h-[2px] bg-[#D1D1D1] w-full" />
         <ProjectsSection />
         <div className="h-[2px] bg-[#D1D1D1] w-full" />

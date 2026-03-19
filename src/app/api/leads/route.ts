@@ -39,3 +39,24 @@ export async function POST(request: Request) {
     );
   }
 }
+
+export async function GET() {
+  try {
+    const client = await clientPromise;
+    const db = client.db("default");
+    
+    // Fetch all leads, sorted by newest first
+    const leads = await db.collection("leads")
+      .find({})
+      .sort({ createdAt: -1 })
+      .toArray();
+
+    return NextResponse.json(leads);
+  } catch (error: any) {
+    console.error("Error fetching leads:", error);
+    return NextResponse.json(
+      { error: "Internal server error", details: error.message },
+      { status: 500 }
+    );
+  }
+}
