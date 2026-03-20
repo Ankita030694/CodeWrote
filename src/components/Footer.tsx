@@ -69,6 +69,14 @@ export default function Footer() {
               <a href="/services" className="text-[16px] md:text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']">Services</a>
               <a href="/blog" className="text-[16px] md:text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']">Blog</a>
               <a href="/contact" className="text-[16px] md:text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']">Contact</a>
+              <a href="/what-are-the-top-companies-for-custom-software-development-in-the-us" className="text-[14px] md:text-[15px] font-semibold text-[#E61F93] font-['Switzer'] hover:opacity-80 transition-opacity col-span-2 mt-2">Top Software Companies</a>
+              <a href="/how-do-i-choose-the-best-custom-software-developer-for-my-business" className="text-[14px] md:text-[15px] font-semibold text-[#E61F93] font-['Switzer'] hover:opacity-80 transition-opacity col-span-2 mt-1 underline">Guide: How to Choose a Developer</a>
+              <a href="/what-services-are-typically-included-in-custom-software-development" className="text-[14px] md:text-[15px] font-semibold text-[#E61F93] font-['Switzer'] hover:opacity-80 transition-opacity col-span-2 mt-1 underline">Software Development Services</a>
+              <a href="/what-is-the-difference-between-custom-software-development-and-off-the-shelf-software" className="text-[14px] md:text-[15px] font-semibold text-[#E61F93] font-['Switzer'] hover:opacity-80 transition-opacity col-span-2 mt-1 underline italic">Custom vs Off-the-Shelf Comparison</a>
+              <a href="/lead-generating-website" className="text-[14px] md:text-[15px] font-semibold text-[#E61F93] font-['Switzer'] hover:opacity-80 transition-opacity col-span-2 mt-1 underline font-black">Lead Generating Website Guide</a>
+              <a href="/high-ranking-website" className="text-[14px] md:text-[15px] font-semibold text-[#E61F93] font-['Switzer'] hover:opacity-80 transition-opacity col-span-2 mt-1 underline font-black uppercase">High Ranking Website Blueprint</a>
+              <a href="/custom-web-development" className="text-[14px] md:text-[15px] font-semibold text-[#E61F93] font-['Switzer'] hover:opacity-80 transition-opacity col-span-2 mt-1 underline font-black">Custom Web Development Guide</a>
+              <a href="/search-engine-optimization" className="text-[14px] md:text-[15px] font-semibold text-[#E61F93] font-['Switzer'] hover:opacity-80 transition-opacity col-span-2 mt-1 underline font-black uppercase">Search Engine Optimization Mastery</a>
             </div>
           </div>
 

@@ -19,6 +19,12 @@ export default function PopupForm() {
   });
 
   useEffect(() => {
+    // Check if the user has already closed the popup
+    if (typeof window !== "undefined") {
+      const isPopupClosed = localStorage.getItem("codewrote_popup_closed");
+      if (isPopupClosed) return;
+    }
+
     // Show the popup after a short delay when the user lands on a new page
     const timer = setTimeout(() => {
       setIsOpen(true);
@@ -29,9 +35,20 @@ export default function PopupForm() {
 
     return () => {
       clearTimeout(timer);
+      // Don't close immediately on navigation if they haven't closed it yet
+      // This allows the popup to persist or re-trigger as needed
+      // Actually, standard behavior in Next.js/React is to let state handle it
+      // But we should ensure it doesn't just flicker
       setIsOpen(false);
     };
   }, [pathname]);
+
+  const handleManualClose = () => {
+    setIsOpen(false);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("codewrote_popup_closed", "true");
+    }
+  };
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -58,6 +75,9 @@ export default function PopupForm() {
         setIsSubmitted(true);
         setTimeout(() => {
           setIsOpen(false);
+          if (typeof window !== "undefined") {
+            localStorage.setItem("codewrote_popup_closed", "true");
+          }
         }, 3000);
       } else {
         const data = await response.json();
@@ -80,7 +100,7 @@ export default function PopupForm() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setIsOpen(false)}
+            onClick={handleManualClose}
             className="absolute inset-0 bg-black/60 backdrop-blur-md"
           />
 
@@ -97,7 +117,7 @@ export default function PopupForm() {
 
             {/* Close Button */}
             <button
-              onClick={() => setIsOpen(false)}
+              onClick={handleManualClose}
               className="absolute top-8 right-8 p-2 rounded-full hover:bg-black/5 transition-all z-10"
             >
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
