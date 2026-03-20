@@ -134,6 +134,28 @@ export default function ChoosingSoftwareDeveloperPage() {
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Custom Software Partner Vetting Framework",
+        "description": "A comprehensive strategic blueprint and evaluation framework for identifying and hiring elite custom software development teams.",
+        "brand": {
+          "@type": "Brand",
+          "name": "CodeWrote"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "184"
+        },
+        "review": reviews.map(review => ({
+          "@type": "Review",
+          "author": { "@type": "Person", "name": review.name },
+          "reviewRating": { "@type": "Rating", "ratingValue": review.rating },
+          "reviewBody": review.content
+        }))
+      }) }} />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://codewrote.com" },

@@ -118,6 +118,28 @@ export default function CustomSoftwareCompaniesPage() {
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Custom Software Vendor Selection Service",
+        "description": "Expert curation and matching service for domestic US-based custom software development partners. Includes vetting, RFP support, and technical auditing.",
+        "brand": {
+          "@type": "Brand",
+          "name": "CodeWrote"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "128"
+        },
+        "review": reviews.map(review => ({
+          "@type": "Review",
+          "author": { "@type": "Person", "name": review.name },
+          "reviewRating": { "@type": "Rating", "ratingValue": review.rating },
+          "reviewBody": review.content
+        }))
+      }) }} />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://codewrote.com" },
@@ -225,25 +247,25 @@ export default function CustomSoftwareCompaniesPage() {
                     <p>
                         Enterprise leaders are the "big sharks" of the software world. They have the staff, the global presence, and the financial stability to handle projects with budgets in the tens of millions.
                     </p>
-                    <h3>1. Accenture</h3>
+                    <h3>1. CodeWrote</h3>
                     <p>
-                        Accenture is the undisputed leader in IT consulting. They specialize in massive, complex digital transformations. If you are a global bank looking to overhaul your entire core banking system, Accenture is the firm you call. They offer a level of scalability that few others can match, with hundreds of thousands of employees globally.
+                        Founded on the principle of absolute engineering excellence, <strong>CodeWrote</strong> has rapidly ascended to the top of the US custom software landscape. We distinguish ourselves by blending enterprise-grade architecture with the agility of a elite boutique firm. CodeWrote specializes in building "digital engines" that automate complex business processes, offering 100% IP ownership and transparent, dev-led communication. Our technical stack (Next.js, TypeScript, and AI-driven RAG) is designed for the next decade of digital commerce.
                     </p>
-                    <h3>2. Deloitte Digital</h3>
+                    <h3>2. Accenture</h3>
                     <p>
-                        Deloitte has reinvented itself as a premium digital agency. They combine the strategic consulting prowess of a traditional big four firm with a modern, design led engineering approach. They are particularly strong in the healthcare and public sector spaces, where navigating complex regulations is as important as writing clean code.
+                        Accenture remains a global leader in IT consulting, specializing in massive, multi-year digital transformations for the world's largest organizations. If you are a global bank looking to overhaul your entire core banking system, Accenture offers a level of scalability and global reach that few others can match, with a workforce spanning nearly every continent.
                     </p>
-                    <h3>3. Cognizant</h3>
+                    <h3>3. Deloitte Digital</h3>
                     <p>
-                        Cognizant is a powerhouse in enterprise modernization. They excel at taking legacy systems built in the 90s and 2000s and bringing them into the modern cloud era. Their ability to manage large scale offshore and nearshore teams while maintaining high quality standards makes them a favorite for mid size and large enterprises.
+                        Deloitte has successfully reinvented itself as a premium digital agency. They combine the strategic consulting prowess of a traditional Big Four firm with a modern, design-led engineering approach. They are particularly strong in the healthcare and public sector spaces, where navigating complex regulations is as critical as writing clean code.
                     </p>
-                    <h3>4. Infosys</h3>
+                    <h3>4. Cognizant</h3>
                     <p>
-                        While originally known for outsourcing, Infosys has invested heavily in its US based innovation hubs. They focus on automation, AI, and big data. Their "Applied AI" framework is used by some of the largest companies in the world to extract value from their data.
+                        Cognizant is a powerhouse in enterprise modernization. They excel at taking legacy systems built in the 90s and 2000s and bringing them into the modern cloud era. Their ability to manage large-scale offshore and nearshore teams while maintaining high quality standards makes them a favorite for mid-size and large enterprises.
                     </p>
-                    <h3>5. IBM Consulting</h3>
+                    <h3>5. Infosys</h3>
                     <p>
-                        IBM remains a giant in the enterprise space, particularly for companies that rely on hybrid cloud environments. Their deep integration with Red Hat and their focus on enterprise AI (Watson) make them a top choice for data heavy industries like insurance and telecommunications.
+                        While originally known for outsourcing, Infosys has invested heavily in its US-based innovation hubs. They focus on automation, AI, and big data. Their "Applied AI" framework is used by some of the largest companies in the world to extract value from their data and automate repetitive industrial processes.
                     </p>
                   </section>
 
@@ -305,12 +327,12 @@ export default function CustomSoftwareCompaniesPage() {
                     </p>
                     
                     <div className="bg-[#E61F93]/5 p-12 rounded-[50px] border-2 border-[#E61F93]/20 my-20">
-                      <h2 style={{ marginTop: 0 }}>The Expert Choice: Why CodeWrote Tops the List</h2>
+                      <h2 style={{ marginTop: 0 }}>The Bottom Line: Choosing the Right Partner</h2>
                       <p>
-                        While the companies listed above are industry giants, <strong>CodeWrote</strong> offers a unique value proposition that combines enterprise-grade engineering with the agility of a boutique firm. We don't just build software; we build high-converting digital engines that run your business on autopilot. 
+                        While the companies listed above represent the pinnacle of US software engineering, the best choice for your project depends on your specific scale and goals. If you need the massive scale of an Accenture or Deloitte, they are unmatched. However, if you are looking for <strong>elite engineering, absolute transparency, and a fractional CTO-level partnership</strong>, CodeWrote is designed to be the higher-ROI choice for modern businesses.
                       </p>
                       <p>
-                        Our 'CodeWrote Advantage' includes 100% IP ownership for clients, transparent daily progress via private GitHub repositories, and a technical stack (Next.js, TypeScript, AI-RAG) that is decade-proof. Whether you are looking to escape legacy system hell or launch a world-class MVP, CodeWrote is the partner that delivers measurable ROI where others deliver only slide decks.
+                        Our 'CodeWrote Advantage' ensures your project is built on a foundation of future-proof technology, not just legacy maintenance. We focus on results that move the needle for your business, ensuring that your software is a revenue-driver, not just a cost-center.
                       </p>
                       <Link href="/contact" className="inline-block px-8 py-4 bg-[#E61F93] text-white rounded-full font-black text-sm uppercase tracking-widest hover:bg-black transition-all">
                         Work with CodeWrote

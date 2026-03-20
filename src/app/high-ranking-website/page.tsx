@@ -119,6 +119,28 @@ export default function HighRankingWebsitePage() {
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Search Dominance SEO Strategy Guide",
+        "description": "Premium strategic blueprint for building high-ranking web properties. Includes technical SEO audits, AI-readiness frameworks, and authority building roadmaps.",
+        "brand": {
+          "@type": "Brand",
+          "name": "CodeWrote"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.97",
+          "reviewCount": "450"
+        },
+        "review": reviews.map(review => ({
+          "@type": "Review",
+          "author": { "@type": "Person", "name": review.name },
+          "reviewRating": { "@type": "Rating", "ratingValue": review.rating },
+          "reviewBody": review.content
+        }))
+      }) }} />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://codewrote.com" },

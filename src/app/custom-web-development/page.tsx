@@ -116,7 +116,18 @@ export default function CustomWebDevelopmentPage() {
           "logo": { "@type": "ImageObject", "url": "https://codewrote.com/logo.png" }
         },
         "datePublished": "2024-03-20",
-        "dateModified": "2024-03-20",
+        "dateModified": "2024-03-20"
+      }) }} />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Custom Web Development Services",
+        "description": "Bespoke web development services focused on performance, security, and scalability. Built with React, Next.js, and Node.js.",
+        "brand": {
+          "@type": "Brand",
+          "name": "CodeWrote"
+        },
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "5.0",

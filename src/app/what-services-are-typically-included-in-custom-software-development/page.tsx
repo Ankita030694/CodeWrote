@@ -118,6 +118,28 @@ export default function CustomSoftwareServicesPage() {
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Full-Cycle Custom Software Development Services",
+        "description": "Premium software engineering services including discovery, UI/UX design, full-stack development, QA, and dedicated support.",
+        "brand": {
+          "@type": "Brand",
+          "name": "CodeWrote"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "150"
+        },
+        "review": reviews.map(review => ({
+          "@type": "Review",
+          "author": { "@type": "Person", "name": review.name },
+          "reviewRating": { "@type": "Rating", "ratingValue": review.rating },
+          "reviewBody": review.content
+        }))
+      }) }} />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://codewrote.com" },

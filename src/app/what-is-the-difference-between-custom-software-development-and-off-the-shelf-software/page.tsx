@@ -126,6 +126,28 @@ export default function CustomVsOffTheShelfPage() {
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Custom Software Development vs Off-the-Shelf Comparison",
+        "description": "Expert guidance on choosing between bespoke custom software and off-the-shelf commercial solutions. Analysis of ROI, scalability, and security.",
+        "brand": {
+          "@type": "Brand",
+          "name": "CodeWrote"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "450"
+        },
+        "review": reviews.map(review => ({
+          "@type": "Review",
+          "author": { "@type": "Person", "name": review.name },
+          "reviewRating": { "@type": "Rating", "ratingValue": review.rating },
+          "reviewBody": review.content
+        }))
+      }) }} />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://codewrote.com" },
