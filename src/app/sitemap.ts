@@ -176,6 +176,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
+    {
+      url: 'https://codewrote.com/official-website-for-a-free-online-portfolio-builder',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://codewrote.com/what-are-the-legal-requirement-for-an-e-commerce-website-in-india',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://codewrote.com/compare-different-database-technologies-for-web-applications',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://codewrote.com/how-to-get-a-custom-domain-andssl-certificate-for-a-new-website',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://codewrote.com/recomended-website-analytics-tools-for-monitoring-website-behaviour',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
     // Add more URLs here as they are created
   ]
 }

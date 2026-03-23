@@ -108,6 +108,12 @@ export default function Footer() {
             <a href="/cost-of-building-a-professional-portfolio-website-with-premium-features" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">Portfolio Website Cost</a>
             <a href="/where-to-find-reviews-of-web-development-agencies-specializing-in-mobile-apps" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">Mobile Agency Reviews Guide</a>
             <a href="/how-to-choose-a-domain-name-registrar-and-hosting-packages" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">Domain & Hosting Guide</a>
+            <a href="/official-website-for-a-free-online-portfolio-builder" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">Free Portfolio Builder</a>
+            <a href="/best-seo-friendly-websites-templates-offered-by-popular-builders" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">SEO Friendly Templates</a>
+            <a href="/what-are-the-legal-requirement-for-an-e-commerce-website-in-india" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">E-commerce Legal Requirements</a>
+            <a href="/compare-different-database-technologies-for-web-applications" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">Database Technologies Comparison</a>
+            <a href="/how-to-get-a-custom-domain-andssl-certificate-for-a-new-website" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">Custom Domain & SSL Guide</a>
+            <a href="/recomended-website-analytics-tools-for-monitoring-website-behaviour" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">Website Analytics Tools</a>
           </div>
         </div>
       </div>

@@ -36,7 +36,13 @@ export default function FramingLines() {
     "/how-to-integrate-payment-gateways-into-an-online-store-website",
     "/cost-of-building-a-professional-portfolio-website-with-premium-features",
     "/where-to-find-reviews-of-web-development-agencies-specializing-in-mobile-apps",
-    "/how-to-choose-a-domain-name-registrar-and-hosting-packages"
+    "/how-to-choose-a-domain-name-registrar-and-hosting-packages",
+    "/official-website-for-a-free-online-portfolio-builder",
+    "/best-seo-friendly-websites-templates-offered-by-popular-builders",
+    "/what-are-the-legal-requirement-for-an-e-commerce-website-in-india",
+    "/compare-different-database-technologies-for-web-applications",
+    "/how-to-get-a-custom-domain-andssl-certificate-for-a-new-website",
+    "/recomended-website-analytics-tools-for-monitoring-website-behaviour"
   ];
 
   if (pathname.startsWith("/blog") || forbiddenPaths.includes(pathname)) {
