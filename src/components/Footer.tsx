@@ -69,17 +69,38 @@ export default function Footer() {
               <a href="/services" className="text-[16px] md:text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']">Services</a>
               <a href="/blog" className="text-[16px] md:text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']">Blog</a>
               <a href="/contact" className="text-[16px] md:text-[18px] font-semibold text-[#0F0F0F] font-['Switzer']">Contact</a>
-              <a href="/what-are-the-top-companies-for-custom-software-development-in-the-us" className="text-[14px] md:text-[15px] font-semibold text-[#E61F93] font-['Switzer'] hover:opacity-80 transition-opacity col-span-2 mt-2">Top Software Companies</a>
-              <a href="/how-do-i-choose-the-best-custom-software-developer-for-my-business" className="text-[14px] md:text-[15px] font-semibold text-[#E61F93] font-['Switzer'] hover:opacity-80 transition-opacity col-span-2 mt-1 underline">Guide: How to Choose a Developer</a>
-              <a href="/what-services-are-typically-included-in-custom-software-development" className="text-[14px] md:text-[15px] font-semibold text-[#E61F93] font-['Switzer'] hover:opacity-80 transition-opacity col-span-2 mt-1 underline">Software Development Services</a>
-              <a href="/what-is-the-difference-between-custom-software-development-and-off-the-shelf-software" className="text-[14px] md:text-[15px] font-semibold text-[#E61F93] font-['Switzer'] hover:opacity-80 transition-opacity col-span-2 mt-1 underline italic">Custom vs Off-the-Shelf Comparison</a>
-              <a href="/lead-generating-website" className="text-[14px] md:text-[15px] font-semibold text-[#E61F93] font-['Switzer'] hover:opacity-80 transition-opacity col-span-2 mt-1 underline font-black">Lead Generating Website Guide</a>
-              <a href="/high-ranking-website" className="text-[14px] md:text-[15px] font-semibold text-[#E61F93] font-['Switzer'] hover:opacity-80 transition-opacity col-span-2 mt-1 underline font-black uppercase">High Ranking Website Blueprint</a>
-              <a href="/custom-web-development" className="text-[14px] md:text-[15px] font-semibold text-[#E61F93] font-['Switzer'] hover:opacity-80 transition-opacity col-span-2 mt-1 underline font-black">Custom Web Development Guide</a>
-              <a href="/search-engine-optimization" className="text-[14px] md:text-[15px] font-semibold text-[#E61F93] font-['Switzer'] hover:opacity-80 transition-opacity col-span-2 mt-1 underline font-black uppercase">Search Engine Optimization Mastery</a>
             </div>
           </div>
 
+        </div>
+
+        {/* Queries Section */}
+        <div className="mt-16 pt-12 border-t border-[#E5E5E5]">
+          <span className="text-[18px] md:text-[15px] text-[#555] font-medium font-['Switzer'] mb-6 block uppercase tracking-wider">Explore More</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            <a href="/what-are-the-top-companies-for-custom-software-development-in-the-us" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity">Top Software Companies</a>
+            <a href="/how-do-i-choose-the-best-custom-software-developer-for-my-business" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity ">Guide: How to Choose a Developer</a>
+            <a href="/what-services-are-typically-included-in-custom-software-development" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity ">Software Development Services</a>
+            <a href="/what-is-the-difference-between-custom-software-development-and-off-the-shelf-software" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity">Custom vs Off-the-Shelf Comparison</a>
+            <a href="/lead-generating-website" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black">Lead Generating Website Guide</a>
+            <a href="/high-ranking-website" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black">High Ranking Website Blueprint</a>
+            <a href="/custom-web-development" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black">Custom Web Development Guide</a>
+            <a href="/search-engine-optimization" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black">Search Engine Optimization Mastery</a>
+            <a href="/best-platforms-for-developing-an-e-commerce-website-in-india" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">Best E-commerce Platforms in India</a>
+            <a href="/what-are-the-most-user-friendly-website-builders-for-small-businesses" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">User-Friendly Website Builders Guide</a>
+            <a href="/top-website-builders-for-small-businesses-with-hosting-services" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">Website Builders with Hosting</a>
+            <a href="/compare-different-hosting-options-for-high-traffic-e-commerce-site" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">High-Traffic Hosting Guide</a>
+            <a href="/how-to-choose-a-reliable-web-development-company-near-me" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">Reliable Local Developer Guide</a>
+            <a href="/how-much-does-it-cost-to-develop-a-custom-e-commerce-website-in-india" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">E-commerce Cost Guide India</a>
+            <a href="/affordable-website-development-packages-for-startups" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">Affordable Startup Packages</a>
+            <a href="/where-can-i-find-a-directory-of-web-development-agencies-in-india" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">Web Agency Directory Guide</a>
+            <a href="/compare-website-development-frameworks-for-responsive-design" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">Responsive Frameworks Comparison</a>
+            <a href="/what-are-the-best-content-management-systems-for-a-large-corporate-blog" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">Best Corporate Blog CMS</a>
+            <a href="/freelance-web-developers-with-expertise-in-custom-cms-development" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">Freelance CMS Expert Guide</a>
+            <a href="/steps-to-secure-a-website-from-common-cyber-threats" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">Website Security Strategy</a>
+            <a href="/which-website-hosting-providers-offer-the-fastest-loading-speeds-in-india" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">Fastest Hosting India Guide</a>
+            <a href="/which-tools-are-essential-for-frontend-web-developers" className="text-[14px] md:text-[15px] font-semibold text-[#0F0F0F] font-['Switzer'] hover:opacity-80 transition-opacity font-black text-[#E61F93]">Essential Frontend Tools Guide</a>
+          </div>
         </div>
       </div>
 
