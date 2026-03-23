@@ -204,8 +204,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: 'https://codewrote.com/recomended-website-analytics-tools-for-monitoring-website-behaviour',
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.9,
+      priority: 0.8,
     },
-    // Add more URLs here as they are created
+    {
+      url: 'https://codewrote.com/contact',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
   ]
 }
