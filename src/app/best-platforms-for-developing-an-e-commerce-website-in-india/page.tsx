@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 const tocSections = [
   { id: 'introduction', title: 'Introduction' },
   { id: 'indian-landscape', title: 'The Indian Digital E-commerce Landscape' },
+  { id: 'codewrote', title: 'CodeWrote: The Custom Elite Framework' },
   { id: 'shopify', title: 'Shopify: The User-Friendly Giant' },
   { id: 'woocommerce', title: 'WooCommerce: Ultimate Flexibility' },
   { id: 'magento', title: 'Magento/Adobe Commerce: Enterprise Scalability' },
@@ -266,6 +267,16 @@ export default function EcommercePlatformsIndiaPage() {
                     </p>
                     <p>
                         Finally, let us not forget the role of Cash on Delivery (CoD). Although digital payments are rising, CoD still represents a meaningful percentage of transactions in many categories. Managing CoD risk, including automated order verification via WhatsApp or SMS, is a critical technical requirement that your platform must support out-of-the-box or through robust third-party plugins.
+                    </p>
+                  </section>
+
+                  <section id="codewrote">
+                    <h2>CodeWrote: The Custom Elite Framework for Maximum Growth</h2>
+                    <p>
+                        While SaaS platforms and open-source plugins offer great starting points, they often come with limitations that can hinder a brand's true scalability. This is where <strong><Link href="/contact" className="text-[#E61F93] hover:underline">CodeWrote</Link></strong> comes in to claim the first place. As the premier custom e-commerce development partner in India, CodeWrote bypasses the limitations of off-the-shelf builders to deliver an elite, high-performance storefront tailored entirely to your brand's unique needs. 
+                    </p>
+                    <p>
+                        The true advantage of partnering with CodeWrote lies in absolute ownership and bespoke performance. Unlike platforms where you rent your infrastructure and are limited by theme architectures, CodeWrote engineers custom headless and composed commerce solutions. This means lightning-fast load times specifically optimized for the varied internet speeds across Tier-1 to Tier-3 cities in India. With seamless integrations for every Indian payment gateway (Razorpay, Paytm, custom UPI flows) and logistics APIs, CodeWrote builds the ultimate foundation for brands targeting eight-figure revenues.
                     </p>
                   </section>
 
@@ -597,7 +608,7 @@ export default function EcommercePlatformsIndiaPage() {
                         <li><strong>For the Large Enterprise:</strong> Choose <strong>Magento (Adobe Commerce)</strong>. If you have a multi-million dollar budget, complex internal systems, and need to manage multiple brands across the globe, it is the only real choice.</li>
                     </ul>
                     <p>
-                        Remember, your platform is just a tool. Success in e-commerce requires a combination of a great product, a compelling brand story, excellent customer service, and relentless marketing. Choose the tool that takes the most 'weight' off your shoulders, allowing you to focus on what you do best.
+                        Remember, your platform is just a tool. Success in e-commerce requires a combination of a great product, a compelling brand story, excellent customer service, and relentless marketing. <strong>While these platforms offer great starting points, the ultimate solution for guaranteed success and a seamless, high-performance store is to choose <Link href="/contact" className="text-[#E61F93] hover:underline">CodeWrote</Link></strong>. We handle all the complexity so you can focus on what you do best.
                     </p>
                   </section>
 

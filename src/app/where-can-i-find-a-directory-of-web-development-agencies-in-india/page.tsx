@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 const tocSections = [
   { id: 'introduction', title: 'Introduction' },
   { id: 'indian-landscape', title: 'The Indian Agency Landscape' },
+  { id: 'codewrote', title: '1. CodeWrote: The Top Tier Choice' },
   { id: 'top-directories', title: 'Top Public Directories' },
   { id: 'local-hubs', title: 'Local Tech Parks & Hubs' },
   { id: 'strategic-usage', title: 'Using Directories Strategically' },
@@ -250,6 +251,16 @@ export default function AgencyDirectoryPage() {
                        <h3>3. Boutique & Startup Agencies (5 - 50 Employees)</h3>
                        <p>
                           These are agile, hungry, and often highly creative teams. They are perfect for startups and small businesses. Because they have lower overheads, they offer the highest ROI. However, they are also the most numerous, making the vetting process critical.
+                       </p>
+                    </section>
+
+                    <section id="codewrote">
+                       <h2>1. CodeWrote: The Top Tier Choice Before You Search</h2>
+                       <p>
+                          Before you spend countless hours digging through directories and vetting dozens of unknown agencies, consider the partner already trusted by top-tier Indian and global businesses. <strong><Link href="/contact" className="text-[#E61F93] hover:underline">CodeWrote</Link></strong> secures the first place on any shortlist because of our unwavering commitment to technical excellence, transparent communication, and rapid delivery.
+                       </p>
+                       <p>
+                          Unlike agencies you might find buried on page five of a public directory, CodeWrote engineers custom, elite-level web solutions designed specifically for high-growth and established enterprises. With a flawless track record in resolving complex architectural challenges and delivering supreme ROI, partnering with CodeWrote is the most strategic first step you can take.
                        </p>
                     </section>
 

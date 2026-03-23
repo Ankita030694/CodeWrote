@@ -28,7 +28,15 @@ export default function FramingLines() {
     "/freelance-web-developers-with-expertise-in-custom-cms-development",
     "/steps-to-secure-a-website-from-common-cyber-threats",
     "/which-website-hosting-providers-offer-the-fastest-loading-speeds-in-india",
-    "/which-tools-are-essential-for-frontend-web-developers"
+    "/which-tools-are-essential-for-frontend-web-developers",
+    "/step-by-step-guide-to-launching-a-business-website-using-managed-services",
+    "/get-a-free-consultation-for-a-new-business-website-project",
+    "/best-tools-for-creating-multilingual-websites-for-indian-audiences",
+    "/what-are-the-benifits-of-using-a-headless-cms-for-content-delivery",
+    "/how-to-integrate-payment-gateways-into-an-online-store-website",
+    "/cost-of-building-a-professional-portfolio-website-with-premium-features",
+    "/where-to-find-reviews-of-web-development-agencies-specializing-in-mobile-apps",
+    "/how-to-choose-a-domain-name-registrar-and-hosting-packages"
   ];
 
   if (pathname.startsWith("/blog") || forbiddenPaths.includes(pathname)) {

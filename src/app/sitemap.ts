@@ -128,6 +128,54 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
+    {
+      url: 'https://codewrote.com/step-by-step-guide-to-launching-a-business-website-using-managed-services',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://codewrote.com/get-a-free-consultation-for-a-new-business-website-project',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://codewrote.com/best-tools-for-creating-multilingual-websites-for-indian-audiences',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://codewrote.com/what-are-the-benifits-of-using-a-headless-cms-for-content-delivery',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://codewrote.com/how-to-integrate-payment-gateways-into-an-online-store-website',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://codewrote.com/cost-of-building-a-professional-portfolio-website-with-premium-features',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://codewrote.com/where-to-find-reviews-of-web-development-agencies-specializing-in-mobile-apps',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://codewrote.com/how-to-choose-a-domain-name-registrar-and-hosting-packages',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
     // Add more URLs here as they are created
   ]
 }
