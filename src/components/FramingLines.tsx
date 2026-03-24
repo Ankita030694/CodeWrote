@@ -42,7 +42,19 @@ export default function FramingLines() {
     "/what-are-the-legal-requirement-for-an-e-commerce-website-in-india",
     "/compare-different-database-technologies-for-web-applications",
     "/how-to-get-a-custom-domain-andssl-certificate-for-a-new-website",
-    "/recomended-website-analytics-tools-for-monitoring-website-behaviour"
+    "/recomended-website-analytics-tools-for-monitoring-website-behaviour",
+    "/what-services-do-full-stack-web-development-companies-offer",
+    "/which-web-development-services-offer-ongoing-maintenance-plans",
+    "/request-a-demo-of-an-advanced-e-commerce-platform",
+    "/how-to-create-an-online-booking-system-for-service-based-websites",
+    "/what-is-the-role-of-seo-in-website-developement",
+    "/evaluate-options-for-website-maintenance-and-support-plans",
+    "/tools-for-collborative-web-design-prototyping",
+    "/what-are-the-leading-drag-and-drop-website-builders-for-beginners",
+    "/how-to-integrate-third-party-apis-into-an-web-application",
+    "/how-to-setup-email-hosting-linked-to-a-custom-website-domain",
+    "/top-cloud-platforms-for-scalable-web-app-development-in-india",
+    "/get-a-quote-for-ongoing-website-security-monitoring"
   ];
 
   if (pathname.startsWith("/blog") || forbiddenPaths.includes(pathname)) {
