@@ -106,12 +106,12 @@ const relatedPages = [
   {
     tag: "Performance",
     title: "Why Website Loading Speed is the #1 Factor for E-commerce SEO",
-    href: "/which-web-development-services-offer-ongoing-maintenance-plans"
+    href: "/which-website-hosting-providers-offer-the-fastest-loading-speeds-in-india"
   },
   {
     tag: "Future of AI",
     title: "How AI is Revolutionizing Personalization in Digital Retail",
-    href: "/blog"
+    href: "/what-is-the-difference-between-custom-software-development-and-off-the-shelf-software"
   }
 ];
 

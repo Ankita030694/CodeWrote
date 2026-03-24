@@ -105,7 +105,7 @@ const relatedPages = [
   {
     tag: "Scalability",
     title: "How to Build a High-Performance MVP for Service Businesses",
-    href: "/blog"
+    href: "/affordable-website-development-packages-for-startups"
   },
   {
     tag: "Security",

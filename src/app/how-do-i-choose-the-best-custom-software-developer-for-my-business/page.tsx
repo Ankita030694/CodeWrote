@@ -102,12 +102,12 @@ const relatedPages = [
   {
     tag: "Technical Strategy",
     title: "Legacy System Modernization: A Guide to Escaping Technical Debt",
-    href: "/blog"
+    href: "/what-services-do-full-stack-web-development-companies-offer"
   },
   {
     tag: "Budgeting",
     title: "How to Build a High-Performance MVP under $50,000",
-    href: "/blog"
+    href: "/affordable-website-development-packages-for-startups"
   }
 ];
 

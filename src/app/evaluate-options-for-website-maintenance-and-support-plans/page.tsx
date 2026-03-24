@@ -108,17 +108,17 @@ const relatedPages = [
   {
     tag: "Services",
     title: "Managed Services: End-to-End Management",
-    href: "/managed-services"
+    href: "/step-by-step-guide-to-launching-a-business-website-using-managed-services"
   },
   {
     tag: "Security",
     title: "Enterprise Security: Industry-Leading Protection",
-    href: "/security"
+    href: "/steps-to-secure-a-website-from-common-cyber-threats"
   },
   {
     tag: "Performance",
     title: "Performance Tuning: Maximum Speed Optimization",
-    href: "/performance"
+    href: "/recomended-website-analytics-tools-for-monitoring-website-behaviour"
   }
 ];
 
