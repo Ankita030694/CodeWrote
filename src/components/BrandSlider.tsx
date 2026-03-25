@@ -25,25 +25,42 @@ const brandAssets = [
 // Duplicate brands to create a seamless loop
 const duplicatedBrands = [...brandAssets, ...brandAssets, ...brandAssets];
 
-export default function BrandSlider() {
+interface BrandSliderProps {
+  transparent?: boolean;
+  hideLabel?: boolean;
+}
+
+export default function BrandSlider({ transparent = false, hideLabel = false }: BrandSliderProps = {}) {
   return (
-    <div className="w-full py-10 border-y border-gray-100 bg-white overflow-hidden relative">
-      <div className="flex flex-col md:flex-row items-center gap-5 md:gap-8 lg:px-[140px] px-4">
+    <div className={`w-full flex justify-center overflow-hidden relative ${transparent ? 'py-4' : 'py-10 border-y border-gray-100 bg-white'}`}>
+      <div className={`flex flex-col md:flex-row items-center gap-5 md:gap-8 px-4 w-full ${hideLabel ? 'max-w-[1200px]' : 'lg:px-[140px]'}`}>
         {/* Left Side Label */}
-        <div className="flex-shrink-0 flex items-center gap-2 pr-4 md:pr-8 bg-white z-10">
-          <span className="text-[20px] md:text-[30px] md:leading-[35px] font-normal text-[#A1A1A1] font-['Switzer'] whitespace-nowrap">
-            BRANDS LOVE
-          </span>
-          <span className="text-[20px] md:text-[30px] leading-[35px] font-semibold text-[#000] font-['Switzer'] whitespace-nowrap">
-            CODEWROTE
-          </span>
-        </div>
+        {!hideLabel && (
+          <div className={`flex-shrink-0 flex items-center gap-2 pr-4 md:pr-8 z-10 ${transparent ? '' : 'bg-white'}`}>
+            <span className="text-[20px] md:text-[30px] md:leading-[35px] font-normal text-[#A1A1A1] font-['Switzer'] whitespace-nowrap">
+              BRANDS LOVE
+            </span>
+            <span className="text-[20px] md:text-[30px] leading-[35px] font-semibold text-[#000] font-['Switzer'] whitespace-nowrap">
+              CODEWROTE
+            </span>
+          </div>
+        )}
 
         {/* Marquee Container */}
-        <div className="flex-grow overflow-hidden relative h-[56px] flex items-center">
+        <div 
+          className="flex-grow overflow-hidden relative h-[56px] flex items-center w-full"
+          style={transparent ? {
+            maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
+          } : undefined}
+        >
           {/* Gradient Overlays for smooth entry/exit */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-20" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-20" />
+          {!transparent && (
+            <>
+              <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-20" />
+              <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-20" />
+            </>
+          )}
           
           <motion.div
             className="flex items-center gap-11 whitespace-nowrap will-change-transform"
