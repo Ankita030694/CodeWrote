@@ -28,9 +28,10 @@ const duplicatedBrands = [...brandAssets, ...brandAssets, ...brandAssets];
 interface BrandSliderProps {
   transparent?: boolean;
   hideLabel?: boolean;
+  dark?: boolean;
 }
 
-export default function BrandSlider({ transparent = false, hideLabel = false }: BrandSliderProps = {}) {
+export default function BrandSlider({ transparent = false, hideLabel = false, dark = false }: BrandSliderProps = {}) {
   return (
     <div className={`w-full flex justify-center overflow-hidden relative ${transparent ? 'py-4' : 'py-10 border-y border-gray-100 bg-white'}`}>
       <div className={`flex flex-col md:flex-row items-center gap-5 md:gap-8 px-4 w-full ${hideLabel ? 'max-w-[1200px]' : 'lg:px-[140px]'}`}>
@@ -83,7 +84,7 @@ export default function BrandSlider({ transparent = false, hideLabel = false }: 
                 className="flex flex-shrink-0 items-center justify-center min-w-[80px] md:min-w-[100px]"
                 style={{ transform: "translateZ(0)" }}
               >
-                <div className="relative h-8 w-[100px] md:h-14 md:w-[120px] grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100">
+                <div className={`relative h-8 w-[100px] md:h-14 md:w-[120px] transition-all duration-300 opacity-100 hover:opacity-100 ${dark ? 'brightness-0' : 'grayscale hover:grayscale-0'}`}>
                   <Image
                     src={brand.src}
                     alt={brand.alt}

@@ -32,7 +32,7 @@ export default function FAQPractical({ faqs = defaultFaqs }: FAQPracticalProps) 
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div className="w-full mx-auto px-8 md:px-12 max-w-[1400px] mt-32 pb-16 font-['Switzer']">
+    <div className="w-full mx-auto px-8 md:px-12 max-w-8xl mt-32 pb-16 font-['Switzer']">
       <div className="mb-12">
         <h2 className="text-4xl md:text-5xl lg:text-[54px] font-bold text-[#1a1a1a] tracking-tight mb-4 leading-[1.1]">
           Practical Info & <span className="text-[#a1a1aa] font-medium font-sans">Clarifications.</span>

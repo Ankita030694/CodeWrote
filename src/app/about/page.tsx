@@ -90,7 +90,7 @@ export default function AboutUsPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[574fr_854fr] gap-6 w-full max-w-[1452px] mx-auto mt-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[574fr_854fr] gap-6 w-full max-w-8xl mx-auto mt-10">
             {/* Left Column */}
             <div className="flex flex-col gap-6 w-full">
               {/* Speed with Precision */}
@@ -181,7 +181,7 @@ export default function AboutUsPage() {
         </section>
 
         {/* Impact That Speaks Section Header */}
-        <div className="mt-20 lg:mt-32 text-left md:text-center mb-12 md:mb-16 flex flex-col items-start md:items-center px-6 md:px-12 lg:px-20 w-full mx-auto max-w-[1452px] order-4 md:order-none">
+        <div className="mt-20 lg:mt-32 text-left md:text-center mb-12 md:mb-16 flex flex-col items-start md:items-center px-6 md:px-12 lg:px-20 w-full mx-auto max-w-8xl order-4 md:order-none">
           <h2 className="text-[40px] md:text-[56px] lg:text-[76px] font-medium leading-[1.0] tracking-tight mb-4">
             Impact That Speaks <span className="text-[#a1a1aa]">For Itself.</span>
           </h2>
@@ -191,7 +191,7 @@ export default function AboutUsPage() {
         </div>
 
         {/* Impact That Speaks Colored Background Section */}
-        <section className="w-full max-w-[1452px] mx-auto rounded-[32px] md:rounded-[40px] pt-16 lg:pt-20 pb-16 relative overflow-hidden order-5 md:order-none" style={{ background: "linear-gradient(135deg, #fff5f7 0%, #fff0f3 50%, #ffeaf0 100%)" }}>
+        <section className="w-full max-w-8xl mx-auto rounded-[32px] md:rounded-[40px] pt-16 lg:pt-20 pb-16 relative overflow-hidden order-5 md:order-none" style={{ background: "linear-gradient(135deg, #fff5f7 0%, #fff0f3 50%, #ffeaf0 100%)" }}>
 
           <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-[#ffe4e6] rounded-full blur-[120px] opacity-60"></div>
           <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#fce7f3] rounded-full blur-[120px] opacity-60"></div>
@@ -199,34 +199,34 @@ export default function AboutUsPage() {
           <div className="relative z-10 w-full">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24 lg:mb-32 px-6 md:px-12 lg:px-20">
               {/* Card 1 */}
-              <div className="bg-white rounded-[32px] p-8 flex flex-col justify-between h-[340px] md:h-[380px] lg:-translate-y-16 shadow-[0_12px_40px_rgba(0,0,0,0.04)] relative z-10 transition-transform duration-500 hover:-translate-y-20">
-                <p className="text-[#4a4a4a] text-[16px] md:text-[15px] leading-[1.4] text-right ml-auto max-w-[95%] font-medium">Helping brands go from idea to launch, faster, smarter, and<br className="hidden lg:block" /> built to perform.</p>
-                <h3 className="text-[40px] lg:text-[48px] font-medium leading-[1.05] tracking-tight text-[#1a1a1a]">80+<br />Projects<br />done</h3>
+              <div className="bg-white rounded-[25px] p-6 flex flex-col justify-between h-[340px] md:h-[380px] lg:-translate-y-16 shadow-[0_10px_16.2px_0_rgba(0,0,0,0.10)] relative z-10 transition-transform duration-500 hover:-translate-y-20">
+                <p className="text-[#4a4a4a] text-[16px] md:text-[16px] leading-[1.4] text-right ml-auto max-w-[95%] font-medium">Helping brands go from idea to launch, faster, smarter, and<br className="hidden lg:block" /> built to perform.</p>
+                <h3 className="text-[40px] lg:text-[48px] font-semibold leading-[1.05] tracking-tight text-[#1a1a1a]">80+<br />Projects<br />done</h3>
               </div>
 
               {/* Card 2 */}
-              <div className="bg-white rounded-[32px] p-8 flex flex-col justify-between h-[340px] md:h-[380px] lg:translate-y-16 shadow-[0_12px_40px_rgba(0,0,0,0.04)] relative z-10 transition-transform duration-500 hover:translate-y-12">
-                <h3 className="text-[40px] lg:text-[48px] font-medium leading-[1.05] tracking-tight text-[#1a1a1a]">40+<br />Brand<br />Collabs</h3>
-                <p className="text-[#4a4a4a] text-[16px] md:text-[15px] leading-[1.4] text-right ml-auto max-w-[95%] font-medium">Partnering with growing businesses to create bold,<br className="hidden lg:block" /> scalable digital experiences.</p>
+              <div className="bg-white rounded-[25px] p-6 flex flex-col justify-between h-[340px] md:h-[380px] lg:translate-y-16 shadow-[0_10px_16.2px_0_rgba(0,0,0,0.10)] relative z-10 transition-transform duration-500 hover:translate-y-12">
+                <h3 className="text-[40px] lg:text-[48px] leading-[1.05] tracking-tight text-[#1a1a1a]" style={{fontWeight: 600}}>40+<br />Brand<br />Collabs</h3>
+                <p className="text-[#4a4a4a] text-[16px] md:text-[16px] leading-[1.4] text-right ml-auto max-w-[95%] font-medium">Partnering with growing businesses to create bold,<br className="hidden lg:block" /> scalable digital experiences.</p>
               </div>
 
               {/* Card 3 */}
-              <div className="bg-white rounded-[32px] p-8 flex flex-col justify-between h-[340px] md:h-[380px] lg:-translate-y-16 shadow-[0_12px_40px_rgba(0,0,0,0.04)] relative z-10 transition-transform duration-500 hover:-translate-y-20">
-                <p className="text-[#4a4a4a] text-[16px] md:text-[15px] leading-[1.4] text-right ml-auto max-w-[95%] font-medium">From startups to scaling companies across diverse<br className="hidden lg:block" /> markets.</p>
-                <h3 className="text-[40px] lg:text-[48px] font-medium leading-[1.05] tracking-tight text-[#1a1a1a]">15+<br />Industries<br />Served</h3>
+              <div className="bg-white rounded-[25px] p-6 flex flex-col justify-between h-[340px] md:h-[380px] lg:-translate-y-16 shadow-[0_10px_16.2px_0_rgba(0,0,0,0.10)] relative z-10 transition-transform duration-500 hover:-translate-y-20">
+                <p className="text-[#4a4a4a] text-[16px] md:text-[16px] leading-[1.4] text-right ml-auto max-w-[95%] font-medium">From startups to scaling companies across diverse<br className="hidden lg:block" /> markets.</p>
+                <h3 className="text-[40px] lg:text-[48px] font-semibold leading-[1.05] tracking-tight text-[#1a1a1a]">15+<br />Industries<br />Served</h3>
               </div>
 
               {/* Card 4 */}
-              <div className="bg-white rounded-[32px] p-8 flex flex-col justify-between h-[340px] md:h-[380px] lg:translate-y-16 shadow-[0_12px_40px_rgba(0,0,0,0.04)] relative z-10 transition-transform duration-500 hover:translate-y-12">
-                <h3 className="text-[40px] lg:text-[48px] font-medium leading-[1.05] tracking-tight text-[#1a1a1a]">200+<br />UX Audits<br />done</h3>
-                <p className="text-[#4a4a4a] text-[16px] md:text-[15px] leading-[1.4] text-right ml-auto max-w-[95%] font-medium">Optimizing user journeys to boost engagement and<br className="hidden lg:block" /> conversions.</p>
+              <div className="bg-white rounded-[25px] p-6 flex flex-col justify-between h-[340px] md:h-[380px] lg:translate-y-16 shadow-[0_10px_16.2px_0_rgba(0,0,0,0.10)] relative z-10 transition-transform duration-500 hover:translate-y-12">
+                <h3 className="text-[40px] lg:text-[48px] font-semibold leading-[1.05] tracking-tight text-[#1a1a1a]">200+<br />UX Audits<br />done</h3>
+                <p className="text-[#4a4a4a] text-[16px] md:text-[16px] leading-[1.4] text-right ml-auto max-w-[95%] font-medium">Optimizing user journeys to boost engagement and<br className="hidden lg:block" /> conversions.</p>
               </div>
             </div>
 
             <div className="flex flex-col items-center">
               <h3 className="text-[20px] md:text-[24px] font-medium text-[#1a1a1a] mb-6">Brands we've worked with.</h3>
               <div className="w-full relative z-0">
-                <BrandSlider transparent hideLabel />
+                <BrandSlider transparent hideLabel dark />
               </div>
             </div>
           </div>
