@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BrandSlider from "@/components/BrandSlider";
 import CTASection from "@/components/CTASection";
+import Link from "next/link";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -43,16 +44,18 @@ export default function AboutUsPage() {
             From concept to launch, we create purposeful digital experiences designed to convert, automate, and scale.
           </p>
 
-          <button
-            className="px-10 mx-1 md:mx-0 py-[18px] font-bold text-white text-base md:text-[18px] hover:scale-[1.02] active:scale-[0.98] transition-all w-fit"
-            style={{
-              borderRadius: "45px",
-              background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)",
-              boxShadow: "0 10px 24px 0 rgba(230, 31, 147, 0.4), 0 -3px 13.8px 0 rgba(232, 232, 232, 0.76) inset, 0 4px 13.8px 0 rgba(232, 232, 232, 0.76) inset"
-            }}
-          >
-            Start Your Project
-          </button>
+          <Link href="/contact">
+            <button
+              className="px-10 mx-1 md:mx-0 py-[18px] font-bold text-white text-base md:text-[18px] hover:scale-[1.02] active:scale-[0.98] transition-all w-fit"
+              style={{
+                borderRadius: "45px",
+                background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)",
+                boxShadow: "0 10px 24px 0 rgba(230, 31, 147, 0.4), 0 -3px 13.8px 0 rgba(232, 232, 232, 0.76) inset, 0 4px 13.8px 0 rgba(232, 232, 232, 0.76) inset"
+              }}
+            >
+              Start Your Project
+            </button>
+          </Link>
         </div>
 
         {/* Bottom Right Quote Section */}
@@ -73,16 +76,18 @@ export default function AboutUsPage() {
               <p className="text-[#4a4a4a] text-[19px] md:text-[18px] lg:text-[20px] leading-[1.4] font-medium px-2 md:px-0">
                 We don't just deliver visuals we create systems<br className="block md:hidden" /> that convert, scale, and drive real business<br className="block md:hidden" /> impact.
               </p>
-              <button
-                className="px-8 py-3.5 font-bold text-white text-[16px] hover:scale-[1.02] active:scale-[0.98] transition-all w-fit mx-1 md:mx-0"
-                style={{
-                  borderRadius: "45px",
-                  background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)",
-                  boxShadow: "0 10px 24px 0 rgba(230, 31, 147, 0.4), 0 -3px 13.8px 0 rgba(232, 232, 232, 0.76) inset, 0 4px 13.8px 0 rgba(232, 232, 232, 0.76) inset"
-                }}
-              >
-                Let's Build Together
-              </button>
+              <Link href="/contact">
+                <button
+                  className="px-8 py-3.5 font-bold text-white text-[16px] hover:scale-[1.02] active:scale-[0.98] transition-all w-fit mx-1 md:mx-0"
+                  style={{
+                    borderRadius: "45px",
+                    background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)",
+                    boxShadow: "0 10px 24px 0 rgba(230, 31, 147, 0.4), 0 -3px 13.8px 0 rgba(232, 232, 232, 0.76) inset, 0 4px 13.8px 0 rgba(232, 232, 232, 0.76) inset"
+                  }}
+                >
+                  Let's Build Together
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -291,16 +296,18 @@ export default function AboutUsPage() {
               <h4 className="text-xl md:text-[22px] text-[#9ca3af] font-medium tracking-tight mb-1">Need more clarity?</h4>
               <h3 className="text-2xl md:text-[28px] font-bold text-[#1a1a1a] mb-8 tracking-tight">Let's talk.</h3>
 
-              <button
-                className="w-full mt-auto py-4 md:py-5 font-bold text-white text-lg md:text-[20px] hover:scale-[1.02] active:scale-[0.98] transition-all"
-                style={{
-                  borderRadius: "45px",
-                  background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)",
-                  boxShadow: "0 10px 24px 0 rgba(230, 31, 147, 0.4), 0 -3px 13.8px 0 rgba(232, 232, 232, 0.76) inset, 0 4px 13.8px 0 rgba(232, 232, 232, 0.76) inset"
-                }}
-              >
-                Schedule a call
-              </button>
+              <Link href="/contact" className="w-full">
+                <button
+                  className="w-full mt-auto py-4 md:py-5 font-bold text-white text-lg md:text-[20px] hover:scale-[1.02] active:scale-[0.98] transition-all"
+                  style={{
+                    borderRadius: "45px",
+                    background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)",
+                    boxShadow: "0 10px 24px 0 rgba(230, 31, 147, 0.4), 0 -3px 13.8px 0 rgba(232, 232, 232, 0.76) inset, 0 4px 13.8px 0 rgba(232, 232, 232, 0.76) inset"
+                  }}
+                >
+                  Schedule a call
+                </button>
+              </Link>
 
               <p className="mt-8 text-[#9ca3af] text-sm md:text-base font-medium">
                 or email us at<br />

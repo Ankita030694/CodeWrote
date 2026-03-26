@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -66,21 +67,26 @@ export default function Hero() {
         transition={{ duration: 0.8, delay: 0.3 }}
         className="relative z-20"
       >
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="group relative"
-        >
-          <div className="absolute -inset-1 bg-pink-500 rounded-full blur opacity-40 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
-          <div className="relative flex items-center gap-3 bg-gradient-to-r from-[#E61F93] to-[#FF4FB1] pl-2 pr-8 py-2.5 rounded-full shadow-lg">
-            <div className="bg-white rounded-full w-9 h-9 flex items-center justify-center p-1.5 shadow-sm">
-              <Image src="/logo.png" alt="CodeWrote" width={24} height={24} className="object-contain" />
+        <Link href="/contact">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="group relative"
+          >
+            <div className="absolute -inset-1 bg-pink-500 rounded-full blur opacity-40 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
+            <div 
+              className="relative flex items-center gap-3 pl-2 pr-8 py-2.5 rounded-full shadow-lg"
+              style={{ background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)" }}
+            >
+              <div className="bg-white rounded-full w-9 h-9 flex items-center justify-center p-1.5 shadow-sm">
+                <Image src="/logo.png" alt="CodeWrote" width={24} height={24} className="object-contain" />
+              </div>
+              <span className="text-white font-bold text-sm md:text-lg tracking-tight">
+                Start The Launch
+              </span>
             </div>
-            <span className="text-white font-bold text-sm md:text-lg tracking-tight">
-              Start The Launch
-            </span>
-          </div>
-        </motion.button>
+          </motion.button>
+        </Link>
       </motion.div>
 
       {/* Hero Background Spaceship */}

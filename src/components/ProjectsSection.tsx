@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function ProjectsSection() {
@@ -49,13 +50,16 @@ export default function ProjectsSection() {
 
               {/* Action Button */}
               <div className="mb-0 lg:mb-10 px-2">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-6 py-2 rounded-full border border-dashed border-[#E61F93] text-[#0F0F0F] font-semibold text-[18px] md:text-[13px] font-['Switzer'] hover:bg-[#E61F93]/5 transition-colors"
-                >
-                  View CaseStudy
-                </motion.button>
+                <Link href="/work">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-6 py-2 rounded-full text-white font-semibold text-[18px] md:text-[13px] font-['Switzer'] shadow-[0_10px_30px_rgba(230,31,147,0.4)] transition-all"
+                    style={{ background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)" }}
+                  >
+                    View CaseStudy
+                  </motion.button>
+                </Link>
               </div>
 
               {/* Bottom Cards — desktop only (shown inside left column on lg+) */}
@@ -205,13 +209,16 @@ export default function ProjectsSection() {
 
           {/* See More Projects Button */}
           <div className="mt-11 flex justify-center w-full">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#E61F93] to-[#FF4FB1] text-white font-bold text-[13px] font-['Switzer'] shadow-[0_10px_30px_rgba(230,31,147,0.4)] tracking-wide"
-            >
-              SEE MORE PROJECTS
-            </motion.button>
+            <Link href="/work">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-2.5 rounded-full text-white font-bold text-[13px] font-['Switzer'] shadow-[0_10px_30px_rgba(230,31,147,0.4)] tracking-wide"
+                style={{ background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)" }}
+              >
+                SEE MORE PROJECTS
+              </motion.button>
+            </Link>
           </div>
 
         </div>

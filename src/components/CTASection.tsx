@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function CTASection() {
@@ -43,14 +44,17 @@ export default function CTASection() {
               into real products.
             </p>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-[#E61F93] to-[#FF4FB1] text-white font-bold text-[13px] font-['Switzer'] shadow-[0_10px_30px_rgba(230,31,147,0.4)] tracking-wide"
-            >
-              
-              Let's Build Something
-            </motion.button>
+            <Link href="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center justify-center px-6 py-3 rounded-full text-white font-bold text-[13px] font-['Switzer'] shadow-[0_10px_30px_rgba(230,31,147,0.4)] tracking-wide"
+                style={{ background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)" }}
+              >
+                
+                Let's Build Something
+              </motion.button>
+            </Link>
             
           </div>
         </div>

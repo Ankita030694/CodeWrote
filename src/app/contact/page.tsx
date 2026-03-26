@@ -34,9 +34,23 @@ export default function ContactPage() {
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    // Only allow alphabets and white spaces
     if (value === "" || /^[a-zA-Z\s]*$/.test(value)) {
       setFormData({ ...formData, name: value });
+    }
+  };
+
+  const handleStateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value === "" || /^[a-zA-Z\s]*$/.test(value)) {
+      setFormData({ ...formData, state: value });
+    }
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    // Only allow digits and max length 10
+    if (value === "" || (/^\d*$/.test(value) && value.length <= 10)) {
+      setFormData({ ...formData, phone: value });
     }
   };
 
@@ -77,7 +91,7 @@ export default function ContactPage() {
           With A <span className="text-[#E61F93]">Simple Hello!</span>
         </h1>
         <p className="text-left md:text-center text-gray-600 text-[19px] md:text-xl max-w-4xl md:mx-auto mt-2 leading-relaxed font-medium font-weight-500">
-          We'd love to hear about your project and how<br className="block md:hidden" />we can help.{' '}<br className="block md:hidden" />Send us a message, book a call, or reach out,{' '}<br className="block md:hidden" />let's build something great together.
+          We'd love to hear about your project and how <br className="block md:hidden" />we can help.{' '}<br className="block md:hidden" />Send us a message, book a call, or reach out,{' '}<br className="block md:hidden" />let's build something great together.
         </p>
       </main>
 
@@ -121,6 +135,29 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
+                    className="w-full px-5 py-4 rounded-[1rem] bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#E61F93] transition-all font-['Switzer'] text-[20px]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-500 font-semibold mb-2 ml-1 text-[20px]">State</label>
+                  <input
+                    type="text"
+                    placeholder="Enter your state"
+                    value={formData.state}
+                    onChange={handleStateChange}
+                    required
+                    className="w-full px-5 py-4 rounded-[1rem] bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#E61F93] transition-all font-['Switzer'] text-[20px]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-500 font-semibold mb-2 ml-1 text-[20px]">Phone Number</label>
+                  <input
+                    type="tel"
+                    placeholder="Enter your phone number"
+                    value={formData.phone}
+                    onChange={handlePhoneChange}
+                    required
+                    maxLength={10}
                     className="w-full px-5 py-4 rounded-[1rem] bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#E61F93] transition-all font-['Switzer'] text-[20px]"
                   />
                 </div>
@@ -170,9 +207,9 @@ export default function ContactPage() {
                   Let’s connect. Reach out and we’ll help bring your ideas to life.
                 </p>
               </div>
-              
-              <a 
-                href="mailto:hello@codewrote.com" 
+
+              <a
+                href="mailto:hello@codewrote.com"
                 className="w-full py-4 font-bold text-white text-lg md:text-[20px] hover:scale-[1.02] active:scale-[0.98] transition-all mb-4 flex justify-center items-center"
                 style={{
                   borderRadius: "45px",
@@ -182,7 +219,7 @@ export default function ContactPage() {
               >
                 Email Us
               </a>
-              
+
               <p className="text-[#a1a1aa] text-[18px] md:text-[18px] font-medium text-center w-full">
                 or call us at <span className="font-semibold text-[#1a1a1a]">+91 xxxxx xxxxx</span>
               </p>
@@ -219,8 +256,8 @@ export default function ContactPage() {
               {faqs.map((faq, i) => {
                 const isOpen = openFaq === i;
                 return (
-                  <div 
-                    key={i} 
+                  <div
+                    key={i}
                     className="bg-[#f4f4f4] rounded-[1.5rem] px-6 py-5 md:px-8 md:py-6 flex flex-col cursor-pointer transition-colors"
                     onClick={() => setOpenFaq(isOpen ? null : i)}
                   >
@@ -228,7 +265,7 @@ export default function ContactPage() {
                       <span className="text-lg md:text-[22px] text-[#1a1a1a] font-medium tracking-tight pr-4">
                         {faq.question}
                       </span>
-                      <div 
+                      <div
                         className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-white shrink-0 shadow-[0_8px_16px_rgba(230,31,147,0.35)] transition-transform duration-300"
                         style={{
                           background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)",
@@ -240,7 +277,7 @@ export default function ContactPage() {
                         </svg>
                       </div>
                     </div>
-                    
+
                     <AnimatePresence>
                       {isOpen && (
                         <motion.div
@@ -264,8 +301,8 @@ export default function ContactPage() {
             <div className="lg:w-[35%] w-full lg:h-fit lg:self-center bg-[#f4f4f4] rounded-[2rem] p-8 md:p-10 flex flex-col items-center justify-center text-center">
               <h4 className="text-xl md:text-[22px] text-[#9ca3af] font-medium tracking-tight mb-1">Need more clarity?</h4>
               <h3 className="text-2xl md:text-[28px] font-bold text-[#1a1a1a] mb-8 tracking-tight">Let's talk.</h3>
-              
-              <button 
+
+              <button
                 className="w-full mt-auto py-4 md:py-5 font-bold text-white text-lg md:text-[20px] hover:scale-[1.02] active:scale-[0.98] transition-all"
                 style={{
                   borderRadius: "45px",
@@ -275,7 +312,7 @@ export default function ContactPage() {
               >
                 Schedule a call
               </button>
-              
+
               <p className="mt-8 text-[#9ca3af] text-sm md:text-base font-medium">
                 or email us at<br />
                 <a href="mailto:hello@codewrote.com" className="text-[#1a1a1a] hover:text-[#E61F93] transition-colors mt-1 inline-block">hello@codewrote.com</a>

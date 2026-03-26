@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const tools = [
@@ -42,13 +43,16 @@ export default function ServicesSection() {
         {/* Left Column */}
         <div className="flex flex-col items-start gap-12 lg:gap-16">
           {/* Badge */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#E61F93] to-[#FF4FB1] text-white font-bold text-[15px] shadow-[0_10px_30px_rgba(230,31,147,0.4)]"
-          >
-            Explore All Services
-          </motion.button>
+          <Link href="/services">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-5 py-2.5 rounded-full text-white font-bold text-[15px] shadow-[0_10px_30px_rgba(230,31,147,0.4)]"
+              style={{ background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)" }}
+            >
+              Explore All Services
+            </motion.button>
+          </Link>
 
           {/* Title */}
           <div className="mb-0">

@@ -33,8 +33,8 @@ export default function Home() {
         <div className="h-[2px] bg-[#D1D1D1] w-full" />
         <ReviewsSection />
         <div className="h-[2px] bg-[#D1D1D1] w-full" />
-        <CTASection />
         <FAQSection />
+        <CTASection />
       </main>
       <Footer />
     </div>
