@@ -8,12 +8,12 @@ export default function Footer() {
     <footer className="w-full bg-white relative">
 
       {/* Footer Gradient Background Image */}
-      <div className="absolute top-0 left-[20%] w-[75%] h-[75%] pointer-events-none z-0 overflow-hidden">
+      <div className="absolute top-0 left-[10%] w-[90%] h-full pointer-events-none z-0 overflow-hidden">
         <Image
           src="/assets/Footer Gradient.png"
           alt="Footer Gradient"
           fill
-          className="object-cover object-top-left"
+          className="object-contain object-left-top"
           priority
         />
       </div>
