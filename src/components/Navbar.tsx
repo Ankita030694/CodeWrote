@@ -113,6 +113,9 @@ export default function Navbar() {
 
               {/* Desktop Navigation Links */}
               <div className="hidden md:flex items-center gap-6 lg:gap-8">
+                <Link href="/" className="text-black text-sm lg:text-[20px] font-bold hover:opacity-70 transition-opacity whitespace-nowrap">
+                  Home
+                </Link>
                 <Link href="/work" className="text-black text-sm lg:text-[20px] font-bold hover:opacity-70 transition-opacity whitespace-nowrap">
                   Our Work
                 </Link>

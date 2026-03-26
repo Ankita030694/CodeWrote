@@ -47,8 +47,12 @@ export default function ServicesSection() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-5 py-2.5 rounded-full text-white font-bold text-[15px] shadow-[0_10px_30px_rgba(230,31,147,0.4)]"
-              style={{ background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)" }}
+              className="px-5 py-2.5 text-white font-bold text-[15px]"
+              style={{ 
+                borderRadius: "45px",
+                background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)",
+                boxShadow: "0 10px 24px 0 rgba(230, 31, 147, 0.4), 0 -3px 13.8px 0 rgba(232, 232, 232, 0.76) inset, 0 4px 13.8px 0 rgba(232, 232, 232, 0.76) inset"
+              }}
             >
               Explore All Services
             </motion.button>
@@ -94,7 +98,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Right Column */}
-        <div className="flex flex-col gap-0.5 lg:pl-10 justify-start">
+        <div className="flex flex-col gap-4 lg:pl-10 justify-start">
           {services.map((service, idx) => (
             <motion.div
               key={idx}

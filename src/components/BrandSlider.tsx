@@ -48,7 +48,7 @@ export default function BrandSlider({ transparent = false, hideLabel = false }: 
 
         {/* Marquee Container */}
         <div 
-          className="flex-grow overflow-hidden relative h-[56px] flex items-center w-full"
+          className="flex-grow overflow-hidden relative h-20 flex items-center w-full"
           style={transparent ? {
             maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
             WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
@@ -80,7 +80,7 @@ export default function BrandSlider({ transparent = false, hideLabel = false }: 
             {duplicatedBrands.map((brand, index) => (
               <div
                 key={index}
-                className="flex flex-shrink-0 items-center justify-center min-w-[80px] md:min-w-[100px] mt-5"
+                className="flex flex-shrink-0 items-center justify-center min-w-[80px] md:min-w-[100px]"
                 style={{ transform: "translateZ(0)" }}
               >
                 <div className="relative h-8 w-[100px] md:h-14 md:w-[120px] grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100">

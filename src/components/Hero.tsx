@@ -20,7 +20,7 @@ export default function Hero() {
         className="mb-5 px-4"
       >
         <div className="px-5 py-2 rounded-full border border-gray-100 bg-white shadow-[0_2px_10px_rgba(0,0,0,0.3)] flex items-center justify-center">
-          <span className="text-[#E61F93] font-semibold tracking-[0.1em] text-[8px] md:text-[10px]">
+          <span className="text-[#E61F93] font-semibold tracking-[0.1em] text-[8px] md:text-[12px]">
             CONVERT. AUTOMATE. GROW.
           </span>
         </div>
@@ -73,10 +73,13 @@ export default function Hero() {
             whileTap={{ scale: 0.95 }}
             className="group relative"
           >
-            <div className="absolute -inset-1 bg-pink-500 rounded-full blur opacity-40 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
             <div 
-              className="relative flex items-center gap-3 pl-2 pr-8 py-2.5 rounded-full shadow-lg"
-              style={{ background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)" }}
+              className="relative flex items-center gap-3 pl-2 pr-8 py-2.5"
+              style={{ 
+                borderRadius: "45px",
+                background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)",
+                boxShadow: "0 10px 24px 0 rgba(230, 31, 147, 0.4), 0 -3px 13.8px 0 rgba(232, 232, 232, 0.76) inset, 0 4px 13.8px 0 rgba(232, 232, 232, 0.76) inset"
+              }}
             >
               <div className="bg-white rounded-full w-9 h-9 flex items-center justify-center p-1.5 shadow-sm">
                 <Image src="/logo.png" alt="CodeWrote" width={24} height={24} className="object-contain" />

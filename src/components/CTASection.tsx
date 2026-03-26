@@ -48,8 +48,12 @@ export default function CTASection() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center justify-center px-6 py-3 rounded-full text-white font-bold text-[13px] font-['Switzer'] shadow-[0_10px_30px_rgba(230,31,147,0.4)] tracking-wide"
-                style={{ background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)" }}
+                className="flex items-center justify-center px-6 py-3 text-white font-bold text-[13px] font-['Switzer'] tracking-wide"
+                style={{ 
+                  borderRadius: "45px",
+                  background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)",
+                  boxShadow: "0 10px 24px 0 rgba(230, 31, 147, 0.4), 0 -3px 13.8px 0 rgba(232, 232, 232, 0.76) inset, 0 4px 13.8px 0 rgba(232, 232, 232, 0.76) inset"
+                }}
               >
                 
                 Let's Build Something

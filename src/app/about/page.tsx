@@ -5,13 +5,12 @@ import Footer from "@/components/Footer";
 import BrandSlider from "@/components/BrandSlider";
 import CTASection from "@/components/CTASection";
 import Link from "next/link";
+import FAQPractical from "@/components/FAQPractical";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function AboutUsPage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
   const faqs = [
     {
       question: "Who do you usually work with?",
@@ -64,7 +63,7 @@ export default function AboutUsPage() {
             Driven by <span className="text-[#1a1a1a]">strategy</span>, powered by<br className="block md:hidden" /> <span className="text-[#1a1a1a]">design &<br className="hidden md:block" /> development</span>, and focused<br className="block md:hidden" /> on measurable<br className="hidden md:block" /> <span className="text-[#1a1a1a]">business growth.</span>
           </p>
         </div>
-
+ 
         {/* Why Brands Choose Us Section */}
         <section className="mt-32 w-full pt-12 pb-12 order-3 md:order-none">
           <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-10 mb-10 w-full">
@@ -200,27 +199,27 @@ export default function AboutUsPage() {
           <div className="relative z-10 w-full">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24 lg:mb-32 px-6 md:px-12 lg:px-20">
               {/* Card 1 */}
-              <div className="bg-white rounded-[32px] p-8 flex flex-col justify-between h-[340px] md:h-[380px] shadow-[0_12px_40px_rgba(0,0,0,0.04)] relative z-10 transition-transform duration-500 hover:-translate-y-2">
-                <p className="text-[#4a4a4a] text-[14px] md:text-[15px] leading-[1.4] text-right ml-auto max-w-[95%] font-medium">Helping brands go from idea to launch, faster, smarter, and<br className="hidden lg:block" /> built to perform.</p>
+              <div className="bg-white rounded-[32px] p-8 flex flex-col justify-between h-[340px] md:h-[380px] lg:-translate-y-16 shadow-[0_12px_40px_rgba(0,0,0,0.04)] relative z-10 transition-transform duration-500 hover:-translate-y-20">
+                <p className="text-[#4a4a4a] text-[16px] md:text-[15px] leading-[1.4] text-right ml-auto max-w-[95%] font-medium">Helping brands go from idea to launch, faster, smarter, and<br className="hidden lg:block" /> built to perform.</p>
                 <h3 className="text-[40px] lg:text-[48px] font-medium leading-[1.05] tracking-tight text-[#1a1a1a]">80+<br />Projects<br />done</h3>
               </div>
 
               {/* Card 2 */}
-              <div className="bg-white rounded-[32px] p-8 flex flex-col justify-between h-[340px] md:h-[380px] lg:translate-y-12 shadow-[0_12px_40px_rgba(0,0,0,0.04)] relative z-10 transition-transform duration-500 hover:translate-y-10">
+              <div className="bg-white rounded-[32px] p-8 flex flex-col justify-between h-[340px] md:h-[380px] lg:translate-y-16 shadow-[0_12px_40px_rgba(0,0,0,0.04)] relative z-10 transition-transform duration-500 hover:translate-y-12">
                 <h3 className="text-[40px] lg:text-[48px] font-medium leading-[1.05] tracking-tight text-[#1a1a1a]">40+<br />Brand<br />Collabs</h3>
-                <p className="text-[#4a4a4a] text-[14px] md:text-[15px] leading-[1.4] text-right ml-auto max-w-[95%] font-medium">Partnering with growing businesses to create bold,<br className="hidden lg:block" /> scalable digital experiences.</p>
+                <p className="text-[#4a4a4a] text-[16px] md:text-[15px] leading-[1.4] text-right ml-auto max-w-[95%] font-medium">Partnering with growing businesses to create bold,<br className="hidden lg:block" /> scalable digital experiences.</p>
               </div>
 
               {/* Card 3 */}
-              <div className="bg-white rounded-[32px] p-8 flex flex-col justify-between h-[340px] md:h-[380px] shadow-[0_12px_40px_rgba(0,0,0,0.04)] relative z-10 transition-transform duration-500 hover:-translate-y-2">
-                <p className="text-[#4a4a4a] text-[14px] md:text-[15px] leading-[1.4] text-right ml-auto max-w-[95%] font-medium">From startups to scaling companies across diverse<br className="hidden lg:block" /> markets.</p>
+              <div className="bg-white rounded-[32px] p-8 flex flex-col justify-between h-[340px] md:h-[380px] lg:-translate-y-16 shadow-[0_12px_40px_rgba(0,0,0,0.04)] relative z-10 transition-transform duration-500 hover:-translate-y-20">
+                <p className="text-[#4a4a4a] text-[16px] md:text-[15px] leading-[1.4] text-right ml-auto max-w-[95%] font-medium">From startups to scaling companies across diverse<br className="hidden lg:block" /> markets.</p>
                 <h3 className="text-[40px] lg:text-[48px] font-medium leading-[1.05] tracking-tight text-[#1a1a1a]">15+<br />Industries<br />Served</h3>
               </div>
 
               {/* Card 4 */}
-              <div className="bg-white rounded-[32px] p-8 flex flex-col justify-between h-[340px] md:h-[380px] lg:translate-y-12 shadow-[0_12px_40px_rgba(0,0,0,0.04)] relative z-10 transition-transform duration-500 hover:translate-y-10">
+              <div className="bg-white rounded-[32px] p-8 flex flex-col justify-between h-[340px] md:h-[380px] lg:translate-y-16 shadow-[0_12px_40px_rgba(0,0,0,0.04)] relative z-10 transition-transform duration-500 hover:translate-y-12">
                 <h3 className="text-[40px] lg:text-[48px] font-medium leading-[1.05] tracking-tight text-[#1a1a1a]">200+<br />UX Audits<br />done</h3>
-                <p className="text-[#4a4a4a] text-[14px] md:text-[15px] leading-[1.4] text-right ml-auto max-w-[95%] font-medium">Optimizing user journeys to boost engagement and<br className="hidden lg:block" /> conversions.</p>
+                <p className="text-[#4a4a4a] text-[16px] md:text-[15px] leading-[1.4] text-right ml-auto max-w-[95%] font-medium">Optimizing user journeys to boost engagement and<br className="hidden lg:block" /> conversions.</p>
               </div>
             </div>
 
@@ -233,93 +232,16 @@ export default function AboutUsPage() {
           </div>
         </section>
 
-        {/* FAQ & CTA Section */}
-        <section className="mt-32 w-full pb-0 lg:pb-16 max-w-[1452px] mx-auto text-left order-6 md:order-none">
-          <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl lg:text-[54px] font-bold text-[#1a1a1a] tracking-tight mb-4 leading-[1.1]">
-              Practical Info & <span className="text-[#a1a1aa] font-medium font-sans">Clarifications.</span>
-            </h2>
-            <p className="text-[#1a1a1a] text-lg md:text-[20px] font-medium tracking-tight">
-              No fluff. Just straight answers.
-            </p>
-          </div>
+        <div className="order-6 md:order-none">
+          <FAQPractical faqs={faqs} />
+        </div>
 
-          <div className="flex flex-col lg:flex-row gap-6">
-            {/* Left Column - Accordions */}
-            <div className="lg:w-[65%] flex flex-col gap-4">
-              {faqs.map((faq, i) => {
-                const isOpen = openFaq === i;
-                return (
-                  <div
-                    key={i}
-                    className="bg-[#f4f4f4] rounded-[1.5rem] px-6 py-5 md:px-8 md:py-6 flex flex-col cursor-pointer transition-colors"
-                    onClick={() => setOpenFaq(isOpen ? null : i)}
-                  >
-                    <div className="flex justify-between items-center w-full">
-                      <span className="text-lg md:text-[22px] text-[#1a1a1a] font-medium tracking-tight pr-4">
-                        {faq.question}
-                      </span>
-                      <div
-                        className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-white shrink-0 shadow-[0_8px_16px_rgba(230,31,147,0.35)] transition-transform duration-300"
-                        style={{
-                          background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)",
-                          transform: isOpen ? "rotate(180deg)" : "rotate(0deg)"
-                        }}
-                      >
-                        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 5v14m0 0l-5-5m5 5l5-5"></path>
-                        </svg>
-                      </div>
-                    </div>
-
-                    <AnimatePresence>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0, marginTop: 0 }}
-                          animate={{ height: "auto", opacity: 1, marginTop: 12 }}
-                          exit={{ height: 0, opacity: 0, marginTop: 0 }}
-                          className="overflow-hidden"
-                        >
-                          <p className="text-[#888888] text-base md:text-[17px] leading-relaxed pr-8 md:pr-12">
-                            {faq.answer}
-                          </p>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Right Column - CTA Card */}
-            <div className="lg:w-[35%] w-full lg:h-fit lg:self-center bg-[#f4f4f4] rounded-[2rem] p-8 md:p-10 flex flex-col items-center justify-center text-center">
-              <h4 className="text-xl md:text-[22px] text-[#9ca3af] font-medium tracking-tight mb-1">Need more clarity?</h4>
-              <h3 className="text-2xl md:text-[28px] font-bold text-[#1a1a1a] mb-8 tracking-tight">Let's talk.</h3>
-
-              <Link href="/contact" className="w-full">
-                <button
-                  className="w-full mt-auto py-4 md:py-5 font-bold text-white text-lg md:text-[20px] hover:scale-[1.02] active:scale-[0.98] transition-all"
-                  style={{
-                    borderRadius: "45px",
-                    background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)",
-                    boxShadow: "0 10px 24px 0 rgba(230, 31, 147, 0.4), 0 -3px 13.8px 0 rgba(232, 232, 232, 0.76) inset, 0 4px 13.8px 0 rgba(232, 232, 232, 0.76) inset"
-                  }}
-                >
-                  Schedule a call
-                </button>
-              </Link>
-
-              <p className="mt-8 text-[#9ca3af] text-sm md:text-base font-medium">
-                or email us at<br />
-                <a href="mailto:hello@codewrote.com" className="text-[#1a1a1a] hover:text-[#E61F93] transition-colors mt-1 inline-block">hello@codewrote.com</a>
-              </p>
-            </div>
-          </div>
-        </section>
+        <div className="order-7 md:order-none">
+          <CTASection />
+        </div>
 
       </main>
 
-      <CTASection />
       <Footer />
     </div>
   );

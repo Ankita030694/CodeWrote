@@ -7,7 +7,7 @@ import WhyChooseSection from "@/components/WhyChooseSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import CTASection from "@/components/CTASection";
-import FAQSection from "@/components/FAQSection";
+import FAQPractical from "@/components/FAQPractical";
 import Footer from "@/components/Footer";
 import IntegrationsSection from "@/components/IntegrationsSection";
 
@@ -32,8 +32,7 @@ export default function Home() {
         <ProjectsSection />
         <div className="h-[2px] bg-[#D1D1D1] w-full" />
         <ReviewsSection />
-        <div className="h-[2px] bg-[#D1D1D1] w-full" />
-        <FAQSection />
+        <FAQPractical />
         <CTASection />
       </main>
       <Footer />

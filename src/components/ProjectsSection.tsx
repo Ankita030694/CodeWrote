@@ -54,8 +54,12 @@ export default function ProjectsSection() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-6 py-2 rounded-full text-white font-semibold text-[18px] md:text-[13px] font-['Switzer'] shadow-[0_10px_30px_rgba(230,31,147,0.4)] transition-all"
-                    style={{ background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)" }}
+                    className="px-6 py-2 text-white font-semibold text-[18px] md:text-[13px] font-['Switzer'] transition-all"
+                    style={{ 
+                      borderRadius: "45px",
+                      background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)",
+                      boxShadow: "0 10px 24px 0 rgba(230, 31, 147, 0.4), 0 -3px 13.8px 0 rgba(232, 232, 232, 0.76) inset, 0 4px 13.8px 0 rgba(232, 232, 232, 0.76) inset"
+                    }}
                   >
                     View CaseStudy
                   </motion.button>
@@ -93,7 +97,7 @@ export default function ProjectsSection() {
                 </div>
 
                 {/* Testimonial Card */}
-                <div className="bg-white rounded-[16px] p-4 shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-gray-50 flex flex-col h-[210px] flex-1 w-full min-w-[170px]">
+                <div className="bg-white rounded-[16px] p-4 shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-gray-50 flex flex-col min-h-[210px] flex-1 w-full min-w-[170px]">
                   <div className="flex flex-col gap-2 mb-3">
                     <div className="w-14 h-14 rounded-[12px] overflow-hidden relative flex-shrink-0 bg-gray-100">
                       <Image src="/assets/project/73320c0b49b2e2e9597d2981f03d244e11474300.png" alt="Anuj Anand Malik" fill className="object-contain" />
@@ -213,8 +217,12 @@ export default function ProjectsSection() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-2.5 rounded-full text-white font-bold text-[13px] font-['Switzer'] shadow-[0_10px_30px_rgba(230,31,147,0.4)] tracking-wide"
-                style={{ background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)" }}
+                className="px-6 py-2.5 text-white font-bold text-[13px] font-['Switzer'] tracking-wide"
+                style={{ 
+                  borderRadius: "45px",
+                  background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)",
+                  boxShadow: "0 10px 24px 0 rgba(230, 31, 147, 0.4), 0 -3px 13.8px 0 rgba(232, 232, 232, 0.76) inset, 0 4px 13.8px 0 rgba(232, 232, 232, 0.76) inset"
+                }}
               >
                 SEE MORE PROJECTS
               </motion.button>
