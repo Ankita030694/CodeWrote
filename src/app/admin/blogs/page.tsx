@@ -96,6 +96,10 @@ const BlogsDashboard = () => {
   const [isUploadingGenerated, setIsUploadingGenerated] = useState(false);
   const [expansionPrompt, setExpansionPrompt] = useState('');
   const [isExpanding, setIsExpanding] = useState(false);
+  const [leadSearchTerm, setLeadSearchTerm] = useState('');
+  const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
+  const [leadPage, setLeadPage] = useState(1);
+  const leadsPerPage = 10;
 
   // Colors based on website: #E61F93 (Pink), Black, White
   const primaryColor = '#E61F93';
@@ -311,9 +315,27 @@ const BlogsDashboard = () => {
   };
 
   const filteredBlogs = blogs.filter(b => b.title.toLowerCase().includes(searchTerm.toLowerCase()));
-  const totalPages = Math.ceil((activeView === 'blogs' ? filteredBlogs.length : leads.length) / itemsPerPage);
+  const totalPages = Math.ceil(filteredBlogs.length / itemsPerPage);
   const currentBlogs = filteredBlogs.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
-  const currentLeads = leads.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  const filteredLeads = leads.filter(l =>
+    l.name?.toLowerCase().includes(leadSearchTerm.toLowerCase()) ||
+    l.email?.toLowerCase().includes(leadSearchTerm.toLowerCase()) ||
+    l.phone?.includes(leadSearchTerm) ||
+    l.state?.toLowerCase().includes(leadSearchTerm.toLowerCase())
+  );
+  const totalLeadPages = Math.max(1, Math.ceil(filteredLeads.length / leadsPerPage));
+  const currentLeads = filteredLeads.slice((leadPage - 1) * leadsPerPage, leadPage * leadsPerPage);
+
+  const now = new Date();
+  const leadsThisMonth = leads.filter(l => {
+    const d = new Date(l.createdAt);
+    return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
+  }).length;
+  const leadsToday = leads.filter(l => {
+    const d = new Date(l.createdAt);
+    return d.getDate() === now.getDate() && d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
+  }).length;
 
   return (
     <div className="flex h-screen w-screen bg-black text-black font-sans overflow-hidden">
@@ -614,57 +636,188 @@ const BlogsDashboard = () => {
                 </motion.div>
               )
             ) : (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="bg-white rounded-[40px] overflow-hidden shadow-sm border border-gray-100 mb-20"
+                className="space-y-6 pb-20"
               >
-                <div className="p-10 border-b border-gray-100 flex justify-between items-center">
-                   <div>
-                     <h3 className="font-black text-2xl">Client Enquiries</h3>
-                     <p className="text-xs text-gray-400 font-bold uppercase mt-1">Real-time Lead Collection</p>
-                   </div>
-                   <button onClick={fetchLeads} className="bg-pink-50 text-[#E61F93] px-6 py-2 rounded-full text-xs font-black uppercase hover:bg-[#E61F93] hover:text-white transition-all">Refresh List</button>
+                {/* Lead Stats */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                  {[
+                    { label: 'Total Leads', value: leads.length, color: primaryColor },
+                    { label: 'This Month', value: leadsThisMonth, color: '#7C3AED' },
+                    { label: 'Today', value: leadsToday, color: '#059669' },
+                  ].map(s => (
+                    <div key={s.label} className="bg-white border border-gray-100 rounded-3xl p-6 flex items-center justify-between shadow-sm">
+                      <div>
+                        <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-1">{s.label}</p>
+                        <p className="text-4xl font-black" style={{ color: s.color }}>{s.value}</p>
+                      </div>
+                      <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ backgroundColor: s.color + '15' }}>
+                        <svg className="w-7 h-7" fill="none" stroke={s.color} viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0" />
+                        </svg>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <div className="overflow-x-auto">
-                  <table className="min-w-full divide-y divide-gray-50 text-black">
-                    <thead className="bg-[#FAFAFA]">
-                      <tr>
-                        <th className="px-10 py-6 text-left text-[10px] font-black uppercase text-gray-400 tracking-widest">Client Name</th>
-                        <th className="px-10 py-6 text-left text-[10px] font-black uppercase text-gray-400 tracking-widest">Contact Information</th>
-                        <th className="px-10 py-6 text-left text-[10px] font-black uppercase text-gray-400 tracking-widest">State/Region</th>
-                        <th className="px-10 py-6 text-left text-[10px] font-black uppercase text-gray-400 tracking-widest">Request Details</th>
-                        <th className="px-10 py-6 text-left text-[10px] font-black uppercase text-gray-400 tracking-widest">Received Date</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-50">
-                      {currentLeads.map((lead) => (
-                        <tr key={lead._id} className="hover:bg-gray-50 transition-colors">
-                          <td className="px-10 py-8 font-black text-lg">{lead.name}</td>
-                          <td className="px-10 py-8">
-                            <div className="text-sm font-bold text-black">{lead.email}</div>
-                            <div className="text-[10px] text-gray-400 font-bold uppercase mt-1">{lead.phone}</div>
-                          </td>
-                          <td className="px-10 py-8 text-center">
-                            <span className="inline-block px-4 py-1.5 bg-gray-100 text-black rounded-full text-[10px] font-black uppercase">{lead.state}</span>
-                          </td>
-                          <td className="px-10 py-8">
-                            <p className="text-sm text-gray-500 max-w-sm line-clamp-2 leading-relaxed italic">{lead.message}</p>
-                          </td>
-                          <td className="px-10 py-8 text-sm font-bold text-gray-300">{new Date(lead.createdAt).toLocaleDateString()}</td>
+
+                {/* Search + Refresh */}
+                <div className="flex items-center justify-between gap-4">
+                  <div className="relative w-96">
+                    <FontAwesomeIcon icon={faSearch} className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-300" />
+                    <input
+                      type="text"
+                      placeholder="Search by name, email, phone, state..."
+                      className="w-full pl-14 pr-4 py-4 bg-white border border-gray-100 rounded-3xl outline-none text-black font-medium"
+                      value={leadSearchTerm}
+                      onChange={e => { setLeadSearchTerm(e.target.value); setLeadPage(1); }}
+                    />
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs text-gray-400 font-bold">{filteredLeads.length} results</span>
+                    <button onClick={fetchLeads} className="bg-pink-50 text-[#E61F93] px-6 py-3 rounded-full text-xs font-black uppercase hover:bg-[#E61F93] hover:text-white transition-all">Refresh</button>
+                  </div>
+                </div>
+
+                {/* Leads Table */}
+                <div className="bg-white rounded-[40px] overflow-hidden shadow-sm border border-gray-100">
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full divide-y divide-gray-50 text-black">
+                      <thead className="bg-[#FAFAFA]">
+                        <tr>
+                          <th className="px-8 py-5 text-left text-[10px] font-black uppercase text-gray-400 tracking-widest">Client</th>
+                          <th className="px-8 py-5 text-left text-[10px] font-black uppercase text-gray-400 tracking-widest">Email</th>
+                          <th className="px-8 py-5 text-left text-[10px] font-black uppercase text-gray-400 tracking-widest">Phone</th>
+                          <th className="px-8 py-5 text-left text-[10px] font-black uppercase text-gray-400 tracking-widest">State</th>
+                          <th className="px-8 py-5 text-left text-[10px] font-black uppercase text-gray-400 tracking-widest">Message</th>
+                          <th className="px-8 py-5 text-left text-[10px] font-black uppercase text-gray-400 tracking-widest">Date</th>
+                          <th className="px-8 py-5"></th>
                         </tr>
-                      ))}
-                      {leads.length === 0 && (
-                        <tr><td colSpan={5} className="px-10 py-32 text-center text-gray-300 font-black uppercase tracking-widest text-lg">Waiting for new leads...</td></tr>
-                      )}
-                    </tbody>
-                  </table>
+                      </thead>
+                      <tbody className="divide-y divide-gray-50">
+                        {currentLeads.map((lead) => (
+                          <tr key={lead._id} className="hover:bg-gray-50 transition-colors">
+                            <td className="px-8 py-6">
+                              <div className="flex items-center gap-3">
+                                <div className="w-9 h-9 rounded-xl bg-pink-50 flex items-center justify-center shrink-0">
+                                  <span className="text-[#E61F93] font-black text-sm">{lead.name?.charAt(0)?.toUpperCase()}</span>
+                                </div>
+                                <span className="font-bold text-black text-sm">{lead.name}</span>
+                              </div>
+                            </td>
+                            <td className="px-8 py-6 text-gray-500 text-sm">{lead.email}</td>
+                            <td className="px-8 py-6 text-gray-500 text-sm font-mono">{lead.phone}</td>
+                            <td className="px-8 py-6">
+                              <span className="bg-gray-100 px-3 py-1 rounded-full text-[10px] font-black uppercase text-gray-600">{lead.state}</span>
+                            </td>
+                            <td className="px-8 py-6 text-gray-400 text-sm max-w-xs">
+                              <p className="line-clamp-2 leading-relaxed italic">{lead.message}</p>
+                            </td>
+                            <td className="px-8 py-6 text-xs font-bold text-gray-300 whitespace-nowrap">
+                              {new Date(lead.createdAt).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}
+                            </td>
+                            <td className="px-8 py-6">
+                              <button
+                                onClick={() => setSelectedLead(lead)}
+                                className="text-[10px] font-black uppercase text-[#E61F93] hover:underline tracking-widest"
+                              >
+                                View
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                        {filteredLeads.length === 0 && (
+                          <tr><td colSpan={7} className="px-10 py-24 text-center text-gray-300 font-black uppercase tracking-widest text-sm">No leads found</td></tr>
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
+
+                {/* Lead Pagination */}
+                {totalLeadPages > 1 && (
+                  <div className="flex justify-center items-center gap-6 py-6">
+                    <button onClick={() => setLeadPage(p => Math.max(1, p - 1))} disabled={leadPage === 1} className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center disabled:opacity-30 hover:bg-black hover:text-white transition-all text-black">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                    <div className="bg-white px-6 py-3 rounded-full border border-gray-100 shadow-sm">
+                      <span className="font-black text-black text-sm">PAGE {leadPage} OF {totalLeadPages}</span>
+                    </div>
+                    <button onClick={() => setLeadPage(p => Math.min(totalLeadPages, p + 1))} disabled={leadPage === totalLeadPages} className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center disabled:opacity-30 hover:bg-black hover:text-white transition-all text-black">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                  </div>
+                )}
               </motion.div>
             )}
           </AnimatePresence>
         </div>
       </main>
+
+      {/* Lead Detail Modal */}
+      <AnimatePresence>
+        {selectedLead && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center p-6"
+            onClick={() => setSelectedLead(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              onClick={e => e.stopPropagation()}
+              className="bg-white rounded-[40px] p-10 max-w-lg w-full shadow-2xl space-y-6"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-2xl bg-pink-50 flex items-center justify-center">
+                    <span className="text-[#E61F93] font-black text-2xl">{selectedLead.name?.charAt(0)?.toUpperCase()}</span>
+                  </div>
+                  <div>
+                    <h2 className="font-black text-2xl text-black">{selectedLead.name}</h2>
+                    <p className="text-xs text-gray-400 font-bold uppercase tracking-widest">{selectedLead.state}</p>
+                  </div>
+                </div>
+                <button onClick={() => setSelectedLead(null)} className="text-gray-300 hover:text-black transition-colors">
+                  <FontAwesomeIcon icon={faTimes} className="text-xl" />
+                </button>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-gray-50 rounded-2xl p-4">
+                  <p className="text-[10px] text-gray-400 uppercase tracking-widest font-black mb-1">Email</p>
+                  <p className="text-sm font-bold text-black break-all">{selectedLead.email}</p>
+                </div>
+                <div className="bg-gray-50 rounded-2xl p-4">
+                  <p className="text-[10px] text-gray-400 uppercase tracking-widest font-black mb-1">Phone</p>
+                  <p className="text-sm font-bold text-black font-mono">{selectedLead.phone}</p>
+                </div>
+              </div>
+
+              <div className="bg-gray-50 rounded-2xl p-5">
+                <p className="text-[10px] text-gray-400 uppercase tracking-widest font-black mb-2">Message</p>
+                <p className="text-sm text-gray-600 leading-relaxed">{selectedLead.message}</p>
+              </div>
+
+              <div className="flex items-center justify-between border-t border-gray-100 pt-5">
+                <span className="text-xs text-gray-400 font-bold">
+                  {new Date(selectedLead.createdAt).toLocaleString('en-IN')}
+                </span>
+                <a
+                  href={`mailto:${selectedLead.email}`}
+                  className="bg-black text-white px-6 py-3 rounded-full text-xs font-black hover:bg-[#E61F93] transition-all"
+                >
+                  Reply via Email
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
