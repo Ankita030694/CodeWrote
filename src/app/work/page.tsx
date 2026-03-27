@@ -249,7 +249,13 @@ export default function OurWorkPage() {
               className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-500 hover:scale-105 active:scale-95 ${layout === "grid" ? "text-white" : "text-[#111]"
                 }`}
             >
-              <svg width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* Hamburger icon on mobile, grid icon on desktop */}
+              <svg className="block md:hidden" width="28" height="20" viewBox="0 0 28 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 2H27" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                <path d="M1 10H27" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                <path d="M1 18H27" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+              </svg>
+              <svg className="hidden md:block" width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M13.0909 22.6367H1V34.7276H13.0909V22.6367Z" stroke="currentColor" strokeWidth="2.5" />
                 <path d="M23.9093 22.6367H11.8184V34.7276H23.9093V22.6367Z" stroke="currentColor" strokeWidth="2.5" />
                 <path d="M34.7276 22.6367H22.6367V34.7276H34.7276V22.6367Z" stroke="currentColor" strokeWidth="2.5" />
@@ -266,7 +272,7 @@ export default function OurWorkPage() {
 
         {/* Gallery Section */}
         <div className="w-full max-w-[1400px] mx-auto px-4 md:px-12">
-          <div className="w-full overflow-hidden rounded-[48px]">
+          <div className="w-full overflow-hidden">
             {layout === "carousel" ? (
               <div
                 ref={scrollRef}
