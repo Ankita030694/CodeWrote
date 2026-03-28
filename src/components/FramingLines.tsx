@@ -54,7 +54,20 @@ export default function FramingLines() {
     "/how-to-integrate-third-party-apis-into-an-web-application",
     "/how-to-setup-email-hosting-linked-to-a-custom-website-domain",
     "/top-cloud-platforms-for-scalable-web-app-development-in-india",
-    "/get-a-quote-for-ongoing-website-security-monitoring"
+    "/get-a-quote-for-ongoing-website-security-monitoring",
+    "/shopify-website-development",
+    "/wordpress-website-development",
+    "/ecommerce-website-development",
+    "/corporate-website-development",
+    "/landing-page-development-services",
+    "/website-redesign-services",
+    "/website-maintenance-and-support",
+    "/seo-friendly-website-development",
+    "/fast-loading-website-development",
+    "/cms-website-development",
+    "/react-website-development",
+    "/hire-web-developer",
+    "/best-web-development-company"
   ];
 
   if (pathname.startsWith("/blog") || forbiddenPaths.includes(pathname)) {
