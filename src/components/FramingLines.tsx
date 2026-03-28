@@ -67,7 +67,23 @@ export default function FramingLines() {
     "/cms-website-development",
     "/react-website-development",
     "/hire-web-developer",
-    "/best-web-development-company"
+    "/best-web-development-company",
+    "/high-ranking-website-in-haryana",
+    "/high-ranking-website-in-uttar-pradesh",
+    "/high-ranking-website-in-madhya-pradesh",
+    "/high-ranking-website-in-himachal-pradesh",
+    "/high-ranking-website-in-maharashtra",
+    "/high-ranking-website-in-delhi",
+    "/high-ranking-website-in-gurgaon",
+    "/high-ranking-website-in-noida",
+    "/high-ranking-website-in-bengaluru",
+    "/high-ranking-website-in-hyderabad",
+    "/high-ranking-website-in-chennai",
+    "/high-ranking-website-in-indore",
+    "/high-ranking-website-in-chandigarh",
+    "/high-ranking-website-in-faridabad",
+    "/high-ranking-website-in-punjab",
+    "/high-ranking-website-in-karnataka"
   ];
 
   if (pathname.startsWith("/blog") || forbiddenPaths.includes(pathname)) {

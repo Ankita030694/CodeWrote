@@ -10,6 +10,7 @@ import CTASection from "@/components/CTASection";
 import FAQPractical from "@/components/FAQPractical";
 import Footer from "@/components/Footer";
 import IntegrationsSection from "@/components/IntegrationsSection";
+import StatesSection from "@/components/StatesSection";
 
 export default function Home() {
   return (
@@ -34,6 +35,7 @@ export default function Home() {
         <ReviewsSection />
         <FAQPractical />
         <CTASection />
+        <StatesSection />
       </main>
       <Footer />
     </div>
