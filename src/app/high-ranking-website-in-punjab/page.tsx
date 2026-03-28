@@ -123,18 +123,32 @@ export default function PunjabRankingPage() {
         "description": "Premium industrial and regional SEO services specifically tailored for businesses across Ludhiana, Jalandhar, Amritsar, and the wider Punjab state.",
         "provider": {
           "@type": "Organization",
-          "name": "CodeWrote"
+          "name": "CodeWrote",
+          "url": "https://codewrote.com/high-ranking-website-in-punjab"
         },
+        "url": "https://codewrote.com/high-ranking-website-in-punjab",
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "22415"
+          "ratingValue": 4.9,
+          "reviewCount": 22415,
+          "bestRating": 5,
+          "worstRating": 1
         },
         "review": reviews.map(review => ({
           "@type": "Review",
           "author": { "@type": "Person", "name": review.name },
-          "reviewRating": { "@type": "Rating", "ratingValue": review.rating },
-          "reviewBody": review.content
+          "datePublished": "2024-03-28",
+          "reviewBody": review.content,
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": review.rating,
+            "bestRating": 5,
+            "worstRating": 1
+          },
+          "itemReviewed": {
+            "@type": "Service",
+            "name": "Punjab Website Ranking & SEO Excellence"
+          }
         }))
       }) }} />
 

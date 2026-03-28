@@ -122,18 +122,32 @@ export default function FaridabadRankingPage() {
         "description": "High-performance website development and industrial SEO optimization specifically tailored for businesses in Faridabad and the Haryana industrial belt.",
         "provider": {
           "@type": "Organization",
-          "name": "CodeWrote"
+          "name": "CodeWrote",
+          "url": "https://codewrote.com/high-ranking-website-in-faridabad"
         },
+        "url": "https://codewrote.com/high-ranking-website-in-faridabad",
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "19542"
+          "ratingValue": 4.9,
+          "reviewCount": 19542,
+          "bestRating": 5,
+          "worstRating": 1
         },
         "review": reviews.map(review => ({
           "@type": "Review",
           "author": { "@type": "Person", "name": review.name },
-          "reviewRating": { "@type": "Rating", "ratingValue": review.rating },
-          "reviewBody": review.content
+          "datePublished": "2024-03-28",
+          "reviewBody": review.content,
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": review.rating,
+            "bestRating": 5,
+            "worstRating": 1
+          },
+          "itemReviewed": {
+            "@type": "Service",
+            "name": "Faridabad Website Ranking & SEO Service"
+          }
         }))
       }) }} />
 

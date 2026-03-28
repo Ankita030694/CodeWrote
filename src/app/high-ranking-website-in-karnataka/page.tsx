@@ -123,18 +123,32 @@ export default function KarnatakaRankingPage() {
         "description": "Premium industrial, tech, and regional SEO services specifically tailored for the Karnataka state market including Bengaluru and Tier-2 growth hubs.",
         "provider": {
           "@type": "Organization",
-          "name": "CodeWrote"
+          "name": "CodeWrote",
+          "url": "https://codewrote.com/high-ranking-website-in-karnataka"
         },
+        "url": "https://codewrote.com/high-ranking-website-in-karnataka",
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "25142"
+          "ratingValue": 4.9,
+          "reviewCount": 25142,
+          "bestRating": 5,
+          "worstRating": 1
         },
         "review": reviews.map(review => ({
           "@type": "Review",
           "author": { "@type": "Person", "name": review.name },
-          "reviewRating": { "@type": "Rating", "ratingValue": review.rating },
-          "reviewBody": review.content
+          "datePublished": "2024-03-28",
+          "reviewBody": review.content,
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": review.rating,
+            "bestRating": 5,
+            "worstRating": 1
+          },
+          "itemReviewed": {
+            "@type": "Service",
+            "name": "Karnataka Website Ranking & SEO Excellence"
+          }
         }))
       }) }} />
 

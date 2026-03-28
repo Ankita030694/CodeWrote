@@ -121,18 +121,32 @@ export default function ChennaiRankingPage() {
         "description": "High-performance website development and local SEO optimization specifically tailored for businesses in Chennai and the OMR tech corridor.",
         "provider": {
           "@type": "Organization",
-          "name": "CodeWrote"
+          "name": "CodeWrote",
+          "url": "https://codewrote.com/high-ranking-website-in-chennai"
         },
+        "url": "https://codewrote.com/high-ranking-website-in-chennai",
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "174"
+          "ratingValue": 4.9,
+          "reviewCount": 174,
+          "bestRating": 5,
+          "worstRating": 1
         },
         "review": reviews.map(review => ({
           "@type": "Review",
           "author": { "@type": "Person", "name": review.name },
-          "reviewRating": { "@type": "Rating", "ratingValue": review.rating },
-          "reviewBody": review.content
+          "datePublished": "2024-03-28",
+          "reviewBody": review.content,
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": review.rating,
+            "bestRating": 5,
+            "worstRating": 1
+          },
+          "itemReviewed": {
+            "@type": "Service",
+            "name": "Chennai Website Ranking & SEO Service"
+          }
         }))
       }) }} />
 

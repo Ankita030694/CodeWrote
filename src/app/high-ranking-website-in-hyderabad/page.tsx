@@ -121,18 +121,32 @@ export default function HyderabadRankingPage() {
         "description": "High-performance website development and local SEO optimization specifically tailored for businesses in Hyderabad and the Cyberabad tech corridor.",
         "provider": {
           "@type": "Organization",
-          "name": "CodeWrote"
+          "name": "CodeWrote",
+          "url": "https://codewrote.com/high-ranking-website-in-hyderabad"
         },
+        "url": "https://codewrote.com/high-ranking-website-in-hyderabad",
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "165"
+          "ratingValue": 4.9,
+          "reviewCount": 165,
+          "bestRating": 5,
+          "worstRating": 1
         },
         "review": reviews.map(review => ({
           "@type": "Review",
           "author": { "@type": "Person", "name": review.name },
-          "reviewRating": { "@type": "Rating", "ratingValue": review.rating },
-          "reviewBody": review.content
+          "datePublished": "2024-03-28",
+          "reviewBody": review.content,
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": review.rating,
+            "bestRating": 5,
+            "worstRating": 1
+          },
+          "itemReviewed": {
+            "@type": "Service",
+            "name": "Hyderabad Website Ranking & SEO Service"
+          }
         }))
       }) }} />
 

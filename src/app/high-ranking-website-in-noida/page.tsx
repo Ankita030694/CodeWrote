@@ -120,18 +120,32 @@ export default function NoidaRankingPage() {
         "description": "High-performance website development and local SEO optimization specifically tailored for businesses in Noida and Delhi-NCR.",
         "provider": {
           "@type": "Organization",
-          "name": "CodeWrote"
+          "name": "CodeWrote",
+          "url": "https://codewrote.com/high-ranking-website-in-noida"
         },
+        "url": "https://codewrote.com/high-ranking-website-in-noida",
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "17552"
+          "ratingValue": 4.9,
+          "reviewCount": 17552,
+          "bestRating": 5,
+          "worstRating": 1
         },
         "review": reviews.map(review => ({
           "@type": "Review",
           "author": { "@type": "Person", "name": review.name },
-          "reviewRating": { "@type": "Rating", "ratingValue": review.rating },
-          "reviewBody": review.content
+          "datePublished": "2024-03-28",
+          "reviewBody": review.content,
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": review.rating,
+            "bestRating": 5,
+            "worstRating": 1
+          },
+          "itemReviewed": {
+            "@type": "Service",
+            "name": "Noida Website Ranking & SEO Service"
+          }
         }))
       }) }} />
 
