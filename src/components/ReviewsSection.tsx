@@ -113,7 +113,7 @@ export default function ReviewsSection() {
       </div>
 
       <div className="max-w-full mx-auto lg:px-[140px] px-6 relative z-10">
-        
+
         {/* Schema Markup */}
         <script
           type="application/ld+json"
@@ -121,9 +121,9 @@ export default function ReviewsSection() {
         />
 
         <div className="flex flex-col items-center text-center mb-20">
-      
-          
-          <motion.h2 
+
+
+          <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -132,7 +132,7 @@ export default function ReviewsSection() {
           >
             Empowering <span className="text-[#A1A1A1]">Leaders</span> to Build <span className="text-[#E61F93]">Independently</span>
           </motion.h2>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -157,22 +157,22 @@ export default function ReviewsSection() {
             >
               {/* Glass Card */}
               <div className="h-full bg-white/[0.01] backdrop-blur-[5px] p-8 rounded-[40px] border-2 border-[#D1D1D1] shadow-sm flex flex-col justify-between transition-all duration-500 group-hover:border-[#E61F93]/30 group-hover:bg-white/[0.05]">
-                
+
                 <div>
                   <div className="flex gap-1 mb-6">
                     {[...Array(review.rating)].map((_, i) => (
                       <StarIcon key={i} />
                     ))}
                   </div>
-                  
+
                   <div className="relative">
                     <span className="absolute -top-6 -left-4 text-[60px] text-[#E61F93]/10 font-serif leading-none select-none">“</span>
                     <p className="text-[17px] leading-relaxed text-[#1F1F1F] font-['Switzer'] font-medium mb-8 relative z-10">
                       {review.content}
                     </p>
                   </div>
-</div>
-                
+                </div>
+
                 <div className="flex items-center gap-4 pt-6 border-t border-gray-100/50">
                   <div className="relative">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#E61F93] to-[#FF4FB1] p-[2px]">
@@ -181,7 +181,7 @@ export default function ReviewsSection() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div>
                     <h4 className="font-bold text-[16px] text-[#0F0F0F] font-['Switzer'] group-hover:text-[#E61F93] transition-colors">{review.name}</h4>
                     <div className="flex flex-col">
@@ -189,7 +189,7 @@ export default function ReviewsSection() {
                     </div>
                   </div>
                 </div>
-                
+
               </div>
             </motion.div>
           ))}

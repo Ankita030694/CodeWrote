@@ -70,7 +70,7 @@ export default function ServicePage() {
               {"{ Services }"}
             </span>
             <h2 className="text-[48px] md:text-[64px] lg:text-[76px] leading-[1.05] tracking-tight font-medium text-[#a1a1aa]">
-              Everything You<br/>
+              Everything You<br />
               <span className="text-[#1a1a1a]">Need to Grow</span>
             </h2>
           </div>
@@ -90,9 +90,9 @@ export default function ServicePage() {
 
             {/* Column 2 */}
             <div className="lg:w-[48%]">
-              <img 
-                src="/assets/services-page/d5c281aa5ccb60c14e9873a119c70d01d106fa89.png" 
-                alt="UI/UX Design Showcase" 
+              <img
+                src="/assets/services-page/d5c281aa5ccb60c14e9873a119c70d01d106fa89.png"
+                alt="UI/UX Design Showcase"
                 className="w-full rounded-[24px] md:rounded-[32px] object-cover shadow-sm"
               />
             </div>
@@ -100,7 +100,7 @@ export default function ServicePage() {
             {/* Column 3 */}
             <div className="lg:w-[30%] flex flex-col pt-2 lg:pt-0">
               <div className="h-[1px] bg-[#d4d4d8] w-full mb-8"></div>
-              
+
               <p className="text-[#a1a1aa] text-[18px] md:text-[20px] leading-[1.4] mb-8 font-medium">
                 User-focused interfaces designed for clarity, smooth navigation, and better conversions. From wireframes to final UI, crafted to improve usability and product experience.
               </p>
@@ -144,9 +144,9 @@ export default function ServicePage() {
 
             {/* Column 2 */}
             <div className="lg:w-[48%]">
-              <img 
-                src="/assets/services-page/custom.png" 
-                alt="Custom Websites Showcase" 
+              <img
+                src="/assets/services-page/custom.png"
+                alt="Custom Websites Showcase"
                 className="w-full rounded-[24px] md:rounded-[32px] object-cover shadow-sm"
               />
             </div>
@@ -198,9 +198,9 @@ export default function ServicePage() {
 
             {/* Column 2 */}
             <div className="lg:w-[48%]">
-              <img 
-                src="/assets/services-page/app.jpg" 
-                alt="App Development Showcase" 
+              <img
+                src="/assets/services-page/app.jpg"
+                alt="App Development Showcase"
                 className="w-full rounded-[24px] md:rounded-[32px] object-cover shadow-sm"
               />
             </div>
@@ -252,9 +252,9 @@ export default function ServicePage() {
 
             {/* Column 2 */}
             <div className="lg:w-[48%]">
-              <img 
-                src="/assets/services-page/custom-software.png" 
-                alt="Custom Software Showcase" 
+              <img
+                src="/assets/services-page/custom-software.png"
+                alt="Custom Software Showcase"
                 className="w-full rounded-[24px] md:rounded-[32px] object-cover shadow-sm"
               />
             </div>
@@ -306,9 +306,9 @@ export default function ServicePage() {
 
             {/* Column 2 */}
             <div className="lg:w-[48%]">
-              <img 
-                src="/assets/services-page/shopofy.png" 
-                alt="Shopify Development Showcase" 
+              <img
+                src="/assets/services-page/shopofy.png"
+                alt="Shopify Development Showcase"
                 className="w-full rounded-[24px] md:rounded-[32px] object-cover shadow-sm"
               />
             </div>
@@ -360,9 +360,9 @@ export default function ServicePage() {
 
             {/* Column 2 */}
             <div className="lg:w-[48%]">
-              <img 
-                src="/assets/services-page/wordpress.jpg" 
-                alt="WordPress Development Showcase" 
+              <img
+                src="/assets/services-page/wordpress.jpg"
+                alt="WordPress Development Showcase"
                 className="w-full rounded-[24px] md:rounded-[32px] object-cover shadow-sm"
               />
             </div>
@@ -414,9 +414,9 @@ export default function ServicePage() {
 
             {/* Column 2 */}
             <div className="lg:w-[48%]">
-              <img 
-                src="/assets/services-page/framer.jpg" 
-                alt="Framer Development Showcase" 
+              <img
+                src="/assets/services-page/framer.jpg"
+                alt="Framer Development Showcase"
                 className="w-full rounded-[24px] md:rounded-[32px] object-cover shadow-sm"
               />
             </div>
@@ -475,8 +475,8 @@ export default function ServicePage() {
               {faqs.map((faq, i) => {
                 const isOpen = openFaq === i;
                 return (
-                  <div 
-                    key={i} 
+                  <div
+                    key={i}
                     className="bg-[#f4f4f4] rounded-[1.5rem] px-6 py-5 md:px-8 md:py-6 flex flex-col cursor-pointer transition-colors"
                     onClick={() => setOpenFaq(isOpen ? null : i)}
                   >
@@ -484,7 +484,7 @@ export default function ServicePage() {
                       <span className="text-lg md:text-[22px] text-[#1a1a1a] font-medium tracking-tight pr-4">
                         {faq.question}
                       </span>
-                      <div 
+                      <div
                         className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-white shrink-0 shadow-[0_8px_16px_rgba(230,31,147,0.35)] transition-transform duration-300"
                         style={{
                           background: "linear-gradient(88deg, #E61F93 4.93%, #801152 94.64%)",
@@ -496,7 +496,7 @@ export default function ServicePage() {
                         </svg>
                       </div>
                     </div>
-                    
+
                     <AnimatePresence>
                       {isOpen && (
                         <motion.div
@@ -520,9 +520,9 @@ export default function ServicePage() {
             <div className="lg:w-[35%] w-full lg:h-fit lg:self-center bg-[#f4f4f4] rounded-[2rem] p-8 md:p-10 flex flex-col items-center justify-center text-center">
               <h4 className="text-xl md:text-[22px] text-[#9ca3af] font-medium tracking-tight mb-1">Need more clarity?</h4>
               <h3 className="text-2xl md:text-[28px] font-bold text-[#1a1a1a] mb-8 tracking-tight">Let's talk.</h3>
-              
+
               <Link href="/contact" className="w-full">
-                <button 
+                <button
                   className="w-full mt-auto py-4 md:py-5 font-bold text-white text-lg md:text-[20px] hover:scale-[1.02] active:scale-[0.98] transition-all"
                   style={{
                     borderRadius: "45px",
@@ -533,7 +533,7 @@ export default function ServicePage() {
                   Schedule a call
                 </button>
               </Link>
-              
+
               <p className="mt-8 text-[#9ca3af] text-sm md:text-base font-medium">
                 or email us at<br />
                 <a href="mailto:hello@codewrote.com" className="text-[#1a1a1a] hover:text-[#E61F93] transition-colors mt-1 inline-block">hello@codewrote.com</a>

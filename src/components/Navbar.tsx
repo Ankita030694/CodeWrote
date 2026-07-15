@@ -104,10 +104,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="inline-flex items-center justify-between md:justify-center gap-6 md:gap-10 lg:gap-20 
-                         px-6 py-4 w-[92%] md:w-auto
-                         rounded-[128px] border-2 border-[#D1D1D1] 
-                         bg-white/[0.01] backdrop-blur-[5px] shadow-sm"
+              className="inline-flex items-center justify-between md:justify-center gap-6 md:gap-10 lg:gap-20 px-6 py-4 w-[92%] md:w-auto rounded-[128px] border-2 border-[#D1D1D1] bg-white/[0.01] backdrop-blur-[5px] shadow-sm"
             >
               <AnimatedLogo />
 
@@ -134,9 +131,7 @@ export default function Navbar() {
               <div className="hidden md:block flex-shrink-0">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-6 py-2 lg:px-10 lg:py-3
-                             rounded-full border-2 border-[#D1D1D1] bg-white 
-                             text-black text-sm lg:text-lg font-bold shadow-sm hover:bg-gray-50 transition-colors whitespace-nowrap"
+                  className="inline-flex items-center justify-center px-6 py-2 lg:px-10 lg:py-3 rounded-full border-2 border-[#D1D1D1] bg-white text-black text-sm lg:text-lg font-bold shadow-sm hover:bg-gray-50 transition-colors whitespace-nowrap"
                 >
                   Contact
                 </Link>

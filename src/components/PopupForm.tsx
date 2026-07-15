@@ -118,6 +118,7 @@ export default function PopupForm() {
             {/* Close Button */}
             <button
               onClick={handleManualClose}
+              aria-label="Close popup"
               className="absolute top-8 right-8 p-2 rounded-full hover:bg-black/5 transition-all z-10"
             >
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
