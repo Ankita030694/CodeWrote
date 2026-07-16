@@ -15,6 +15,16 @@ export default function FramingLines() {
     "/high-ranking-website",
     "/custom-web-development",
     "/search-engine-optimization",
+    "/custom-website-vs-website-builders",
+    "/in-house-vs-agency-software-development",
+    "/startup-technical-debt-refactoring",
+    "/headless-marketing-website-for-b2b-saas",
+    "/core-web-vitals-ecommerce-performance",
+    "/migrating-monolithic-to-microservices-architecture",
+    "/high-converting-website-design-lead-generation",
+    "/cost-of-slow-website-performance-optimization",
+    "/ecommerce-custom-software-integration",
+    "/migrating-wordpress-to-modern-tech-stack",
     "/what-are-the-most-user-friendly-website-builders-for-small-businesses",
     "/best-platforms-for-developing-an-e-commerce-website-in-india",
     "/top-website-builders-for-small-businesses-with-hosting-services",
@@ -86,7 +96,7 @@ export default function FramingLines() {
     "/high-ranking-website-in-karnataka"
   ];
 
-  if (pathname.startsWith("/blog") || forbiddenPaths.includes(pathname)) {
+  if (pathname.startsWith("/blog") || pathname.startsWith("/admin") || forbiddenPaths.includes(pathname)) {
     return null;
   }
 
