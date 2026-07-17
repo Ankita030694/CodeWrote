@@ -76,7 +76,6 @@ export const metadata: Metadata = {
 };
 
 import PopupForm from "@/components/PopupForm";
-import FramingLines from "@/components/FramingLines";
 
 export default function RootLayout({
   children,
@@ -134,8 +133,6 @@ export default function RootLayout({
             }),
           }}
         />
-        {/* Vertical Framing Lines */}
-        <FramingLines />
         {children}
         <PopupForm />
         <Analytics />
