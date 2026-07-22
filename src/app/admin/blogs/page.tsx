@@ -107,33 +107,89 @@ export default function BlogsDashboard() {
   };
 
   const handleGenerate = async () => {
-    if (!primaryKeyword) return;
-    setIsGenerating(true);
+    if (!primaryKeyword) {
+      alert('Please enter the blog context');
+      return;
+    }
+
     try {
-      const resp = await fetch('/api/generate-article', {
+      setIsGenerating(true);
+      const response = await fetch('/api/blog/generate-blog', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ primaryKeyword, secondaryKeyword })
+        body: JSON.stringify({ context: primaryKeyword }),
       });
-      const data = await resp.json();
-      setNewBlog(p => ({ ...p, ...data }));
-      setImagePrompt(data.suggestedImagePrompt || '');
-      if (data.image) setImagePreview(data.image);
-    } finally { setIsGenerating(false); }
+
+      if (!response.ok) throw new Error('Failed to generate');
+
+      // The backend streams JSON back
+      const reader = response.body?.getReader();
+      const decoder = new TextDecoder();
+      let result = '';
+
+      if (reader) {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          result += decoder.decode(value, { stream: true });
+        }
+      }
+
+      const generatedData = JSON.parse(result);
+
+      // Auto-fill the form with the AI's response
+      setNewBlog((prev) => ({
+        ...prev,
+        title: generatedData.title || prev.title,
+        subtitle: generatedData.subtitle || prev.subtitle,
+        description: generatedData.description || prev.description,
+        metaTitle: generatedData.metaTitle || prev.metaTitle,
+        metaDescription: generatedData.metaDescription || prev.metaDescription,
+        slug: generatedData.slug || prev.slug,
+        faqs: generatedData.faqs || prev.faqs,
+        reviews: generatedData.reviews || prev.reviews,
+      }));
+
+      // Pre-fill the image prompt suggestion
+      if (generatedData.suggestedImagePrompt) {
+        setImagePrompt(generatedData.suggestedImagePrompt);
+      }
+
+      alert('Blog generated successfully!');
+    } catch (error) {
+      alert(`Failed to generate blog: ${error}`);
+    } finally {
+      setIsGenerating(false);
+    }
   };
 
   const handleGenerateImage = async () => {
-    if (!imagePrompt) return;
-    setIsGeneratingImage(true);
+    if (!imagePrompt) {
+      alert('Please enter an image prompt');
+      return;
+    }
+
     try {
-      const resp = await fetch('/api/generate-image', {
+      setIsGeneratingImage(true);
+      const response = await fetch('/api/blog/generate-image', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: imagePrompt })
+        body: JSON.stringify({ prompt: imagePrompt }),
       });
-      const data = await resp.json();
-      setGeneratedImageUrl(data.imageUrl);
-    } finally { setIsGeneratingImage(false); }
+
+      if (!response.ok) throw new Error('Failed to generate image');
+
+      const data = await response.json();
+
+      // Display the generated image and save the URL
+      setNewBlog((prev) => ({ ...prev, image: data.url }));
+      setImagePreview(data.url);
+      
+    } catch (error) {
+      alert('Image generation failed.');
+    } finally {
+      setIsGeneratingImage(false);
+    }
   };
 
   const handleUploadGeneratedImage = async () => {
@@ -287,43 +343,36 @@ export default function BlogsDashboard() {
               >
                 <form onSubmit={handleSubmitBlog} className="space-y-8 pb-32">
                   {/* AI Suite */}
-                  <div className="bg-white rounded-3xl p-8 shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-100">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-8 h-8 bg-pink-100 text-[#E61F93] rounded-lg flex items-center justify-center">
-                        <FontAwesomeIcon icon={faMagic} />
+                  {/* --- AI GENERATION BLOCK --- */}
+                  <div className="p-6 border border-blue-200/80 bg-gradient-to-br from-blue-50/40 to-orange-50/10 rounded-2xl shadow-sm relative overflow-hidden mb-6">
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-blue-100 text-blue-600 font-bold animate-pulse">✨</span>
+                      <div>
+                        <h3 className="text-slate-800 text-sm font-bold uppercase tracking-wider">AI Writeup Auto-Generator</h3>
+                        <p className="text-slate-500 text-xs mt-1">Paste the raw writeup or keyword below. The AI will draft the title, slug, HTML body, FAQs, and reviews automatically.</p>
                       </div>
-                      <h3 className="text-lg font-black uppercase tracking-tight">AI Content Strategist</h3>
                     </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                      <div className="space-y-3">
-                          <p className="text-[10px] font-black text-[#E61F93] uppercase">Generator</p>
-                          <input type="text" placeholder="Primary Keyword" className="w-full text-black px-4 py-3 bg-gray-50 rounded-xl outline-none focus:ring-1 focus:ring-pink-300" value={primaryKeyword} onChange={e => setPrimaryKeyword(e.target.value)} />
-                          <input type="text" placeholder="Secondary Keywords" className="w-full text-black px-4 py-3 bg-gray-50 rounded-xl outline-none focus:ring-1 focus:ring-pink-300 mt-2" value={secondaryKeyword} onChange={e => setSecondaryKeyword(e.target.value)} />
-                          <button type="button" onClick={handleGenerate} disabled={isGenerating} className="w-full py-3 bg-black text-white rounded-xl font-bold text-sm hover:bg-[#E61F93] transition-all disabled:opacity-50">{isGenerating ? 'Drafting...' : 'Generate Blog'}</button>
-                      </div>
-                      <div className="space-y-3">
-                          <p className="text-[10px] font-black text-[#E61F93] uppercase">Visuals</p>
-                          <textarea placeholder="Image Prompt..." className="w-full text-black px-4 py-3 bg-gray-50 rounded-xl outline-none focus:ring-1 focus:ring-pink-300 min-h-[92px]" value={imagePrompt} onChange={e => setImagePrompt(e.target.value)} />
-                          <button type="button" onClick={handleGenerateImage} disabled={isGeneratingImage} className="w-full py-3 bg-[#E61F93] text-white rounded-xl font-bold text-sm hover:shadow-lg transition-all disabled:opacity-50">{isGeneratingImage ? 'Drawing...' : 'AI Image'}</button>
-                      </div>
-                      <div className="space-y-3">
-                          <p className="text-[10px] font-black text-[#E61F93] uppercase">SEO Booster</p>
-                          <textarea placeholder="Specific section to expand..." className="w-full text-black px-4 py-3 bg-gray-50 rounded-xl outline-none focus:ring-1 focus:ring-pink-300 min-h-[92px]" value={expansionPrompt} onChange={e => setExpansionPrompt(e.target.value)} />
-                          <button type="button" onClick={handleExpandContent} disabled={isExpanding} className="w-full py-3 bg-gray-100 text-black border border-gray-200 rounded-xl font-bold text-sm hover:bg-gray-200 transition-all disabled:opacity-50">{isExpanding ? 'Expanding...' : 'Scale Content'}</button>
-                      </div>
+
+                    <textarea
+                      value={primaryKeyword}
+                      onChange={(e) => setPrimaryKeyword(e.target.value)}
+                      placeholder="Enter primary keyword or draft notes here..."
+                      rows={4}
+                      className="w-full p-3 bg-white border border-slate-200 focus:border-blue-400 rounded-xl text-sm text-slate-800 focus:outline-none shadow-sm"
+                      disabled={isGenerating}
+                    />
+
+                    <div className="flex justify-end mt-4">
+                      <button
+                        type="button"
+                        onClick={handleGenerate}
+                        disabled={isGenerating || !primaryKeyword}
+                        className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-sm shadow-sm transition-all disabled:opacity-50"
+                      >
+                        {isGenerating ? '💫 Generating Content...' : '✨ Generate Blog with AI'}
+                      </button>
                     </div>
                   </div>
-
-                  {generatedImageUrl && (
-                    <div className="p-4 bg-white border border-gray-100 rounded-2xl flex items-center justify-between shadow-md">
-                        <div className="flex items-center gap-4">
-                          <img src={generatedImageUrl} className="w-20 h-20 rounded-xl object-cover" />
-                          <p className="text-sm font-bold">AI image ready! Confirm to use as header.</p>
-                        </div>
-                        <button type="button" onClick={handleUploadGeneratedImage} className="bg-[#E61F93] text-white px-6 py-2 rounded-full font-bold">Confirm Image</button>
-                    </div>
-                  )}
 
                   {/* Basic Info */}
                   <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 space-y-6">
@@ -367,26 +416,62 @@ export default function BlogsDashboard() {
                   </div>
 
                   {/* Featured Image */}
+                  {/* Featured Image */}
                   <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 space-y-6">
-                      <h4 className="text-sm font-black uppercase text-gray-400 mb-2">Featured Image</h4>
-                      <div className="flex flex-col md:flex-row items-center gap-8">
-                          <div 
-                          onClick={() => fileInputRef.current?.click()}
-                          className="w-full md:w-64 h-40 bg-gray-50 border-2 border-dashed border-gray-200 rounded-3xl flex flex-col items-center justify-center cursor-pointer hover:border-pink-300 transition-colors"
+                    {/* IMAGE GENERATION/UPLOAD BLOCK */}
+                    <div className="flex flex-col gap-1.5 md:col-span-2">
+                      <label className="text-xs font-bold uppercase text-slate-400">Cover Image</label>
+                      
+                      <div className="flex flex-col md:flex-row gap-2">
+                        <input
+                          type="text"
+                          readOnly
+                          value={newBlog.image}
+                          placeholder="Upload or generate an image"
+                          className="p-3.5 border border-slate-200 rounded-xl flex-1 bg-slate-50 text-slate-800"
+                        />
+                        
+                        <div className="flex gap-2">
+                          <button
+                            type="button"
+                            onClick={() => fileInputRef.current?.click()}
+                            className="px-4 py-3 bg-slate-100 hover:bg-slate-200 rounded-xl text-sm font-bold text-slate-700"
                           >
-                            <FontAwesomeIcon icon={faUpload} className="text-gray-300 text-xl mb-2" />
-                            <span className="text-[10px] font-black uppercase text-gray-400">Upload Header Image</span>
-                            <input type="file" ref={fileInputRef} onChange={handleFileUpload} className="hidden" />
-                          </div>
-                          {(imagePreview || newBlog.image) && (
-                            <div className="relative group">
-                              <img src={imagePreview || newBlog.image} className="w-full md:w-80 h-40 object-cover rounded-3xl shadow-lg" />
-                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-3xl">
-                                <button type="button" onClick={() => {setImagePreview(null); setNewBlog(p => ({...p, image: ''}));}} className="bg-white text-red-500 w-10 h-10 rounded-full flex items-center justify-center shadow-lg"><FontAwesomeIcon icon={faTrash} /></button>
-                              </div>
-                            </div>
-                          )}
+                            <FontAwesomeIcon icon={faUpload} className="mr-2" /> Upload
+                          </button>
+                          
+                          <button
+                            type="button"
+                            onClick={handleGenerateImage}
+                            disabled={isGeneratingImage || !imagePrompt}
+                            className="px-4 py-3 bg-blue-50 hover:bg-blue-100 text-blue-600 rounded-xl text-sm font-bold disabled:opacity-50 whitespace-nowrap"
+                          >
+                            {isGeneratingImage ? '💫 Generating...' : '✨ Generate AI Image'}
+                          </button>
+                        </div>
                       </div>
+
+                      <div className="mt-2">
+                        <input
+                          type="text"
+                          value={imagePrompt}
+                          onChange={(e) => setImagePrompt(e.target.value)}
+                          placeholder="Prompt for AI image generator... (Auto-filled by AI)"
+                          className="w-full p-2 border border-slate-200 rounded-lg text-sm bg-white text-slate-800"
+                          disabled={isGeneratingImage}
+                        />
+                      </div>
+                      
+                      {(imagePreview || newBlog.image) && (
+                        <div className="mt-4 p-4 bg-slate-50 rounded-2xl flex flex-col items-center relative group">
+                          <img src={imagePreview || newBlog.image} alt="Preview" className="w-full max-w-sm h-40 object-cover rounded-xl shadow-sm" />
+                          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-2xl w-full max-w-sm mx-auto h-40 mt-4">
+                             <button type="button" onClick={() => {setImagePreview(null); setNewBlog(p => ({...p, image: ''}));}} className="bg-white text-red-500 w-10 h-10 rounded-full flex items-center justify-center shadow-lg"><FontAwesomeIcon icon={faTrash} /></button>
+                          </div>
+                        </div>
+                      )}
+                      <input type="file" ref={fileInputRef} onChange={handleFileUpload} className="hidden" />
+                    </div>
                   </div>
 
                   {/* Editor */}
