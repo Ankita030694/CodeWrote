@@ -6,9 +6,8 @@ import {
   faHome, faPlus, faTrash, faUpload, faMagic, faSearch,
   faThLarge, faTimes
 } from '@fortawesome/free-solid-svg-icons';
-import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db, storage } from '@/lib/firebase';
+import { ref, uploadBytes, uploadString, getDownloadURL } from 'firebase/storage';
+import { storage } from '@/lib/firebase';
 import dynamic from 'next/dynamic';
 
 const TiptapEditor = dynamic(() => import('@/components/TiptapEditor'), { 
@@ -71,9 +70,10 @@ export default function BlogsDashboard() {
 
   const fetchBlogs = async () => {
     try {
-      const querySnapshot = await getDocs(collection(db, 'blogs'));
-      const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Blog));
-      setBlogs(data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()));
+      const response = await fetch('/api/blog');
+      if (!response.ok) throw new Error('Failed to fetch blogs');
+      const data = await response.json();
+      setBlogs(data);
     } catch (e) {
       console.error(e);
     }
@@ -180,13 +180,28 @@ export default function BlogsDashboard() {
       if (!response.ok) throw new Error('Failed to generate image');
 
       const data = await response.json();
+      let finalImageUrl = data.url;
 
-      // Display the generated image and save the URL
-      setNewBlog((prev) => ({ ...prev, image: data.url }));
-      setImagePreview(data.url);
+      // Automatically upload the AI generated image to Firebase Storage
+      if (finalImageUrl.startsWith('data:image')) {
+        const storageRef = ref(storage, `blog-images/ai_${Date.now()}.png`);
+        const snap = await uploadString(storageRef, finalImageUrl, 'data_url');
+        finalImageUrl = await getDownloadURL(snap.ref);
+      } else if (finalImageUrl.startsWith('http')) {
+        const proxyResp = await fetch(`/api/proxy-image?url=${encodeURIComponent(finalImageUrl)}`);
+        const blob = await proxyResp.blob();
+        const storageRef = ref(storage, `blog-images/ai_${Date.now()}.png`);
+        const snap = await uploadBytes(storageRef, blob);
+        finalImageUrl = await getDownloadURL(snap.ref);
+      }
+
+      // Display the generated image and save the permanent Firebase URL
+      setNewBlog((prev) => ({ ...prev, image: finalImageUrl }));
+      setImagePreview(finalImageUrl);
       
     } catch (error) {
-      alert('Image generation failed.');
+      console.error("Image gen/upload error:", error);
+      alert('Image generation or upload failed.');
     } finally {
       setIsGeneratingImage(false);
     }
@@ -237,33 +252,53 @@ export default function BlogsDashboard() {
     setNewBlog(p => ({ ...p, reviews: updated }));
   };
 
-  const handleSubmitBlog = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const blogData = { ...newBlog, created: formMode === 'add' ? Date.now() : newBlog.created };
-    const { faqs, reviews, ...mainData } = blogData;
-    let blogId = newBlog.id;
-
-    if (formMode === 'add') {
-      const ref = await addDoc(collection(db, 'blogs'), mainData);
-      blogId = ref.id;
-    } else if (blogId) {
-      await updateDoc(doc(db, 'blogs', blogId), mainData);
+  const handleSubmitBlog = async (e?: React.FormEvent | React.MouseEvent) => {
+    if (e) e.preventDefault();
+    console.log("🚀 [handleSubmitBlog] Publish Button Clicked!");
+    
+    if (!newBlog.title || !newBlog.slug || !newBlog.subtitle || !newBlog.date) {
+      console.warn("⚠️ [handleSubmitBlog] Validation failed. Missing required fields.");
+      alert("Please fill in the Article Title, URL Slug, Subtitle, and Publication Date fields before publishing.");
+      return;
     }
 
-    if (blogId) {
-      if (faqs) {
-        const snap = await getDocs(collection(db, 'blogs', blogId, 'faqs'));
-        for (const d of snap.docs) await deleteDoc(d.ref);
-        for (const f of faqs) await addDoc(collection(db, 'blogs', blogId, 'faqs'), f);
+    try {
+      console.log("📝 [handleSubmitBlog] Preparing data payload...", newBlog);
+      const blogData = { ...newBlog, created: formMode === 'add' ? Date.now() : newBlog.created };
+      
+      const { id, ...mainDataRaw } = blogData;
+      
+      console.log("🧹 [handleSubmitBlog] Cleaning undefined fields from main data...");
+      const mainData = Object.fromEntries(Object.entries(mainDataRaw).filter(([_, v]) => v !== undefined));
+
+      if (formMode === 'add') {
+        console.log("☁️ [handleSubmitBlog] Sending POST request to MongoDB API...");
+        const res = await fetch('/api/blog', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(mainData)
+        });
+        if (!res.ok) throw new Error(await res.text());
+        console.log("✅ [handleSubmitBlog] Successfully added!");
+      } else if (id) {
+        console.log(`☁️ [handleSubmitBlog] Sending PUT request to MongoDB API for document ${id}...`);
+        const res = await fetch(`/api/blog/${id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(mainData)
+        });
+        if (!res.ok) throw new Error(await res.text());
+        console.log("✅ [handleSubmitBlog] Successfully updated Document.");
       }
-      if (reviews) {
-        const snap = await getDocs(collection(db, 'blogs', blogId, 'reviews'));
-        for (const d of snap.docs) await deleteDoc(d.ref);
-        for (const r of reviews) await addDoc(collection(db, 'blogs', blogId, 'reviews'), r);
-      }
+      
+      console.log("🎉 [handleSubmitBlog] All database operations complete. Refreshing dashboard.");
+      resetForm();
+      fetchBlogs();
+      alert(formMode === 'add' ? 'Blog published successfully!' : 'Blog updated successfully!');
+    } catch (error: any) {
+      console.error("❌ [handleSubmitBlog] CRITICAL ERROR saving blog to MongoDB:", error);
+      alert(`Failed to save blog: ${error.message || error}`);
     }
-    resetForm();
-    fetchBlogs();
   };
 
   const resetForm = () => {
@@ -279,12 +314,10 @@ export default function BlogsDashboard() {
   };
 
   const handleEdit = async (blog: Blog) => {
-    const fSnap = await getDocs(collection(db, 'blogs', blog.id!, 'faqs'));
-    const rSnap = await getDocs(collection(db, 'blogs', blog.id!, 'reviews'));
     setNewBlog({
       ...blog,
-      faqs: fSnap.docs.map(d => d.data() as FAQ),
-      reviews: rSnap.docs.map(d => d.data() as Review)
+      faqs: blog.faqs || [],
+      reviews: blog.reviews || [],
     });
     setFormMode('edit');
     setShowBlogForm(true);
@@ -293,8 +326,12 @@ export default function BlogsDashboard() {
 
   const handleDelete = async (id: string | undefined) => {
     if (id && window.confirm('Delete this blog?')) {
-      await deleteDoc(doc(db, 'blogs', id));
-      fetchBlogs();
+      try {
+        await fetch(`/api/blog/${id}`, { method: 'DELETE' });
+        fetchBlogs();
+      } catch (error) {
+        console.error("Error deleting blog:", error);
+      }
     }
   };
 
@@ -341,7 +378,7 @@ export default function BlogsDashboard() {
                 exit={{ opacity: 0, y: -20 }}
                 className="max-w-5xl mx-auto"
               >
-                <form onSubmit={handleSubmitBlog} className="space-y-8 pb-32">
+                <div className="space-y-8 pb-32">
                   {/* AI Suite */}
                   {/* --- AI GENERATION BLOCK --- */}
                   <div className="p-6 border border-blue-200/80 bg-gradient-to-br from-blue-50/40 to-orange-50/10 rounded-2xl shadow-sm relative overflow-hidden mb-6">
@@ -415,61 +452,109 @@ export default function BlogsDashboard() {
                     </div>
                   </div>
 
-                  {/* Featured Image */}
-                  {/* Featured Image */}
-                  <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 space-y-6">
-                    {/* IMAGE GENERATION/UPLOAD BLOCK */}
-                    <div className="flex flex-col gap-1.5 md:col-span-2">
-                      <label className="text-xs font-bold uppercase text-slate-400">Cover Image</label>
+                  {/* Featured Image & AI Image Generation */}
+                  <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 space-y-6 relative overflow-hidden group">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-pink-100/50 via-purple-100/30 to-transparent rounded-bl-full -z-10 group-hover:scale-110 transition-transform duration-700"></div>
+                    
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h4 className="text-sm font-black uppercase text-gray-800 flex items-center gap-2">
+                          <FontAwesomeIcon icon={faMagic} className="text-pink-500" /> Cover Image Studio
+                        </h4>
+                        <p className="text-xs text-gray-400 mt-1 font-medium">Upload your own image or generate a unique one with AI.</p>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-4 relative z-10">
                       
-                      <div className="flex flex-col md:flex-row gap-2">
-                        <input
-                          type="text"
-                          readOnly
-                          value={newBlog.image}
-                          placeholder="Upload or generate an image"
-                          className="p-3.5 border border-slate-200 rounded-xl flex-1 bg-slate-50 text-slate-800"
-                        />
+                      {/* Upload / URL Input */}
+                      <div className="flex flex-col md:flex-row gap-3">
+                        <div className="flex-1 relative">
+                          <input
+                            type="text"
+                            readOnly
+                            value={newBlog.image}
+                            placeholder="Image URL will appear here..."
+                            className="w-full p-4 pl-5 border border-gray-100 rounded-2xl bg-gray-50/50 text-gray-700 font-medium text-sm focus:ring-2 focus:ring-pink-100 outline-none transition-all"
+                          />
+                        </div>
                         
-                        <div className="flex gap-2">
-                          <button
-                            type="button"
-                            onClick={() => fileInputRef.current?.click()}
-                            className="px-4 py-3 bg-slate-100 hover:bg-slate-200 rounded-xl text-sm font-bold text-slate-700"
-                          >
-                            <FontAwesomeIcon icon={faUpload} className="mr-2" /> Upload
-                          </button>
+                        <button
+                          type="button"
+                          onClick={() => fileInputRef.current?.click()}
+                          className="px-6 py-4 bg-white border border-gray-200 hover:border-gray-300 hover:shadow-md rounded-2xl text-sm font-black text-gray-700 transition-all active:scale-95 flex items-center justify-center gap-2"
+                        >
+                          <FontAwesomeIcon icon={faUpload} />
+                          Upload File
+                        </button>
+                      </div>
+
+                      {/* AI Generation Box */}
+                      <div className="p-1 rounded-2xl bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 mt-2 shadow-lg shadow-pink-500/20">
+                        <div className="bg-white rounded-xl p-5 flex flex-col md:flex-row gap-3 items-center">
+                          <div className="flex-1 w-full relative">
+                            <input
+                              type="text"
+                              value={imagePrompt}
+                              onChange={(e) => setImagePrompt(e.target.value)}
+                              placeholder="Describe your perfect cover image..."
+                              className="w-full p-4 border border-gray-100 rounded-xl text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-100 bg-gray-50"
+                              disabled={isGeneratingImage}
+                            />
+                            <div className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-gray-400 uppercase tracking-wider">Prompt</div>
+                          </div>
                           
                           <button
                             type="button"
                             onClick={handleGenerateImage}
                             disabled={isGeneratingImage || !imagePrompt}
-                            className="px-4 py-3 bg-blue-50 hover:bg-blue-100 text-blue-600 rounded-xl text-sm font-bold disabled:opacity-50 whitespace-nowrap"
+                            className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white rounded-xl text-sm font-black disabled:opacity-50 transition-all shadow-md hover:shadow-lg active:scale-95 flex items-center justify-center gap-2 whitespace-nowrap"
                           >
-                            {isGeneratingImage ? '💫 Generating...' : '✨ Generate AI Image'}
+                            {isGeneratingImage ? (
+                              <>
+                                <FontAwesomeIcon icon={faMagic} className="animate-spin" />
+                                Generating...
+                              </>
+                            ) : (
+                              <>
+                                <FontAwesomeIcon icon={faMagic} />
+                                Generate AI Image
+                              </>
+                            )}
                           </button>
                         </div>
                       </div>
 
-                      <div className="mt-2">
-                        <input
-                          type="text"
-                          value={imagePrompt}
-                          onChange={(e) => setImagePrompt(e.target.value)}
-                          placeholder="Prompt for AI image generator... (Auto-filled by AI)"
-                          className="w-full p-2 border border-slate-200 rounded-lg text-sm bg-white text-slate-800"
-                          disabled={isGeneratingImage}
-                        />
-                      </div>
-                      
+                      {/* Image Preview Area */}
                       {(imagePreview || newBlog.image) && (
-                        <div className="mt-4 p-4 bg-slate-50 rounded-2xl flex flex-col items-center relative group">
-                          <img src={imagePreview || newBlog.image} alt="Preview" className="w-full max-w-sm h-40 object-cover rounded-xl shadow-sm" />
-                          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-2xl w-full max-w-sm mx-auto h-40 mt-4">
-                             <button type="button" onClick={() => {setImagePreview(null); setNewBlog(p => ({...p, image: ''}));}} className="bg-white text-red-500 w-10 h-10 rounded-full flex items-center justify-center shadow-lg"><FontAwesomeIcon icon={faTrash} /></button>
+                        <motion.div 
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="mt-6 relative group rounded-2xl overflow-hidden shadow-xl max-w-2xl mx-auto border-4 border-white"
+                        >
+                          <img 
+                            src={imagePreview || newBlog.image} 
+                            alt="Cover Preview" 
+                            className="w-full h-64 object-cover" 
+                          />
+                          
+                          {/* Elegant Top-Right Delete Button */}
+                          <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                             <button 
+                               type="button" 
+                               onClick={() => {
+                                 setImagePreview(null); 
+                                 setNewBlog(p => ({...p, image: ''}));
+                               }} 
+                               className="bg-white text-red-500 hover:bg-red-500 hover:text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-colors"
+                               title="Remove Image"
+                             >
+                               <FontAwesomeIcon icon={faTrash} />
+                             </button>
                           </div>
-                        </div>
+                        </motion.div>
                       )}
+                      
                       <input type="file" ref={fileInputRef} onChange={handleFileUpload} className="hidden" />
                     </div>
                   </div>
@@ -529,11 +614,11 @@ export default function BlogsDashboard() {
 
                   <div className="flex justify-end gap-4">
                       <button type="button" onClick={resetForm} className="px-10 py-5 font-black uppercase text-sm text-gray-400 hover:text-black transition-colors">Discard</button>
-                      <button type="submit" className="px-12 py-5 bg-black text-white rounded-full font-black text-sm hover:bg-[#E61F93] transition-all shadow-xl shadow-pink-500/10 active:scale-95">
+                      <button type="button" onClick={handleSubmitBlog} className="px-12 py-5 bg-black text-white rounded-full font-black text-sm hover:bg-[#E61F93] transition-all shadow-xl shadow-pink-500/10 active:scale-95">
                         {formMode === 'add' ? 'Publish Online' : 'Save Changes'}
                       </button>
                   </div>
-                </form>
+                </div>
               </motion.div>
             ) : (
               <motion.div 

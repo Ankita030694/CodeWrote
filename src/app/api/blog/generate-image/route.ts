@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: "dall-e-3", // Or gpt-image-2
+        model: "gpt-image-2", // Or gpt-image-2
         prompt: prompt,
         n: 1,
         size: "1024x1024",
