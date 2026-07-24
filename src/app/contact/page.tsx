@@ -172,6 +172,16 @@ export default function ContactPage() {
                     className="w-full px-5 py-4 rounded-[1rem] bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#E61F93] transition-all resize-none font-['Switzer'] text-[20px]"
                   />
                 </div>
+
+                {/* Disclaimer Text */}
+                <div className="text-center text-xs md:text-sm text-gray-500 mt-2 mb-2 leading-relaxed font-medium">
+                  By clicking submit, you agree to share these details with us for the purpose of contacting you regarding our services. Please read our{' '}
+                  <a href="/privacy-policy" className="text-[#f59e0b] font-semibold hover:underline">
+                    Privacy Policy
+                  </a>{' '}
+                  for more details.
+                </div>
+
                 <button
                   type="submit"
                   disabled={isLoading}

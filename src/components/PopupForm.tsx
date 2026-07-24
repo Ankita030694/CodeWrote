@@ -203,6 +203,15 @@ export default function PopupForm() {
                         />
                       </div>
 
+                      {/* Disclaimer Text */}
+                      <div className="text-center text-[10px] md:text-xs text-gray-500 mt-2 mb-1 leading-relaxed">
+                        By clicking submit, you agree to share these details with us for the purpose of contacting you regarding our services. Please read our{' '}
+                        <a href="/privacy-policy" className="text-[#f59e0b] font-semibold hover:underline">
+                          Privacy Policy
+                        </a>{' '}
+                        for more details.
+                      </div>
+
                       <button
                         type="submit"
                         disabled={isLoading}
