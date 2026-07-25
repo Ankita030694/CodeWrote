@@ -18,7 +18,17 @@ export default function PrivacyPolicyPage() {
             <section>
               <h2 className="text-2xl font-bold text-black mb-4">1. Information We Collect</h2>
               <p>
-                When you interact with our website, specifically through our contact forms or popups, we may collect personal information such as your Name, Email Address, Phone Number, State, and any message or details you provide to us regarding your project needs.
+                When you interact with our website, specifically through our contact forms or popups, we collect <strong>only</strong> the following information that you provide to us:
+              </p>
+              <ul className="list-disc list-inside mt-4 space-y-2 ml-4">
+                <li><strong>Name</strong></li>
+                <li><strong>State</strong></li>
+                <li><strong>Email Address</strong></li>
+                <li><strong>Phone Number</strong></li>
+                <li><strong>Message</strong></li>
+              </ul>
+              <p className="mt-4">
+                We do not collect any other personal information.
               </p>
             </section>
 

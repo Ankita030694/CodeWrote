@@ -15,7 +15,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CodeWrote | Premier Website Development Agency & Professional Website Maker",
+  title: {
+    default: "CodeWrote | Premier Web Development Agency",
+    template: "%s | CodeWrote",
+  },
   description: "CodeWrote is a leading website development company specializing in high-converting websites and automated systems. Hire the best website developers for custom web solutions.",
   keywords: [
     "website development agency",
