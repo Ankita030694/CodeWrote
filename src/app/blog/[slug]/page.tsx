@@ -55,11 +55,14 @@ export default async function BlogDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  const { content: processedContent, sections: tocSections } = processContent(blog.content || '');
+  const rawContent = blog.content || blog.description || '';
+  const { content: processedContent, sections: tocSections } = processContent(rawContent);
 
   const author = blog.author && authorBios[blog.author as keyof typeof authorBios] 
     ? authorBios[blog.author as keyof typeof authorBios] 
     : authorBios["Team Codewrote"];
+
+  const displayCategory = blog.category || blog.subtitle;
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
@@ -78,10 +81,10 @@ export default async function BlogDetailPage({ params }: PageProps) {
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12 items-end mb-12">
               <div>
                 <div className="flex items-center gap-6 mb-8">
-                  {blog.category && (
+                  {displayCategory && (
                     <div className="bg-[#E61F93]/10 px-4 py-1.5 rounded-full">
                       <span className="text-[#E61F93] text-[10px] font-black uppercase tracking-[0.15em] font-['Switzer']">
-                        {blog.category}
+                        {displayCategory}
                       </span>
                     </div>
                   )}
