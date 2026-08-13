@@ -82,7 +82,11 @@ export default function BlogGrid({ blogs }: BlogGridProps) {
             </Link>
             
             <p className="text-[#4B5563] text-[15px] leading-relaxed mb-8 font-medium font-['Switzer'] line-clamp-3 opacity-90">
-              {blog.excerpt || blog.content?.replace(/<[^>]*>/g, '').substring(0, 160) + '...'}
+              {(() => {
+                const text = blog.excerpt || blog.description || blog.content || '';
+                const stripped = text.replace(/<[^>]*>/g, '');
+                return stripped.length > 160 ? stripped.substring(0, 160) + '...' : stripped;
+              })()}
             </p>
             
             <div className="mt-auto">
